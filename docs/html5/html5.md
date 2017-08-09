@@ -28,6 +28,7 @@
 ## 增强的页面元素
 1. ol列表可以设置start属性和reversed属性
 2. a元素添加download属性 可以下载对应的资源文件
+3. figure元素
 
 
 
