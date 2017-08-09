@@ -7,6 +7,16 @@
 3. Date
 4. RegExp
 5. Function
+
+  *函数也是对象*
+  * 内置的属性 this 和 arguments
+  > arguments.callee  
+  > arguments.caller
+  * 内置的方法 call 和 apply 改变作用域
+  * 内置的属性 length 和 prototype  
+  length代表函数希望接受的命名参数的个数
+  > 对于ES5中的引用类型来说，prototype保存了它们的所有实例方法，因此使用for-in无法实现
+
 6. 包装类型
   > 为了便于操作基本类型值，引入3个特殊的引用类型，在读取一个基本类型值的时候，会自动创建一个基本包装类型的对象
 
