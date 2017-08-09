@@ -19,10 +19,14 @@
   * color
 3. 表单事件
   * onchange
-  
+
 
 ### 表单验证
 1. required
 2. 
+
+## 增强的页面元素
+1. ol列表可以设置start属性和reversed属性
+
 
 
