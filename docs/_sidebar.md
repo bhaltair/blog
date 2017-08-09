@@ -2,7 +2,7 @@
 
 - [Home](/)
 - [Guide](guide.md)
-- [Js](js.md)
+- [Js](js/js.md)
 - [Markdown语法](markdown.md)
 - CSS
  - [CSS3选择器](css3/selector.md)
