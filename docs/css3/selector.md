@@ -10,4 +10,8 @@
   - link hover active focus
   - checked 
   - E::selection
-
+4. 使用::after和::before插入元素
+  * 插入文字
+  > 使用content属性
+  * 插入图片
+  > content: url(mark.png)
