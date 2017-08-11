@@ -18,5 +18,12 @@
 - jquery
   - [jquery插件](jquery/plugin.md)
 
+- BOM
+  - [BOM](bom/bom.md)
+
+- DOM
+  - [DOM](dom/dom.md)
+
+
 - 好用的
   - [好用的](good.md)
