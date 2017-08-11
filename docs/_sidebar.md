@@ -5,6 +5,9 @@
 - JS
   - [面向对象OOP](js/oop.md)
   - [基本知识](js/js.md)
+  - [es5](js/es5.md)
+  - [es6](js/es6.md)
+  
 - [Markdown语法](markdown.md)
 - CSS
  - [CSS3选择器](css3/selector.md)
