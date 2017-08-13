@@ -24,6 +24,8 @@
 - DOM
   - [DOM](dom/dom.md)
 
+- [resume](resume.md)
+
 
 - 好用的
   - [好用的](good.md)
