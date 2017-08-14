@@ -5,10 +5,12 @@
 - JS
   - [面向对象OOP](js/oop.md)
   - [基本知识](js/js.md)
+  - [DOM](dom/dom.md)
+  - [BOM](bom/bom.md)
   - [es5](js/es5.md)
   - [es6](js/es6.md)
+  - [react](library/react.md)
   
-- [Markdown语法](markdown.md)
 - CSS
  - [CSS3选择器](css3/selector.md)
 
@@ -16,19 +18,13 @@
   - [html5](html5/html5.md)
   - [移动web](html5/mobile.md)
 
-- [react](library/react.md)
 
 - jquery
   - [jquery插件](jquery/plugin.md)
 
-- BOM
-  - [BOM](bom/bom.md)
 
-- DOM
-  - [DOM](dom/dom.md)
-
-- [resume](resume.md)
-
-
-- 好用的
+- 推荐
   - [好用的](good.md)
+  - [Markdown语法](markdown.md)
+  - [resume](resume.md)
+  

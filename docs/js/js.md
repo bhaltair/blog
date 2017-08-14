@@ -10,8 +10,10 @@
 
   *函数也是对象*
   * 内置的属性 this 和 arguments
-  > arguments.callee  
-  > arguments.caller
+  ```
+  arguments.callee  
+  arguments.caller
+  ```
   * 内置的方法 call 和 apply 改变作用域
   * 内置的属性 length 和 prototype  
   length代表函数希望接受的命名参数的个数
@@ -35,16 +37,18 @@
 不用的变量
 `global
 
-## this
-> this对象是在运行时基于函数的执行环境绑定的
-1. 全局函数，this等于window
-2. 当作对象的方法调用，this等于那个对象
 
 
 ## 挥舞函数
 ### 闭包
 > 模仿块级作用域 创建私有变量
+
 ### IIFE
 ### 匿名函数
 拉姆达函数
 ### 模块模式
+
+### this
+this对象是在运行时基于函数的执行环境绑定的
+1. 全局函数，this等于window
+2. 当作对象的方法调用，this等于那个对象
