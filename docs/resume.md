@@ -19,9 +19,11 @@
 
 <img src="http://os6qw9n8e.bkt.clouddn.com/1502524556.png" width="100" height="100" alt="qrcode">
 
-基于Vue开发的一套SPA应用 
+重购以前app内h5页面，从vue + gulp 多页面转向 vue + webpack 单页SPA
 
 核心页面包括：有公开课、专题专栏、病例等，包含用户系统、认证、权限等。
+
+核心组件的开发：投票组件、公开课组件等
 
 负责良医汇微信站的全部前端开发工作，负责与原生的交互和与微信JSSDK的交互。
 
