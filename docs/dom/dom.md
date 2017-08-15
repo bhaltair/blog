@@ -225,3 +225,52 @@ document.readyState == 'complete'
 
 ?> *TODO* 完善示例
 
+## 表单
+
+### 表单字段
+
+```js
+//选择表单元素
+var selectbox = document.forms[0].elements['selectbox'];
+
+//选择form
+var form = document.getElementById('myForm')
+
+```
+### 重置表单
+
+
+### 提交表单
+```html
+<input type="submit">
+<button type=“submit">
+<input type="image">
+
+// js方式提交表单
+var form = document.getElementById('myForm')
+form.submit()
+```
+
+### 重置表单
+```javascript
+<input type="reset" value="rest btn">
+<button type="reset">reset</button>
+
+//阻止重置表单
+var form = document.getElementById('myForm')
+form.addEventListener('reset', function(e){
+  e.preventDefault()
+})
+
+```
+1. input
+2. select
+3. 序列化
+4. 验证api
+  ```
+    required
+    autofocus
+    pattern
+    checkValidiry()
+
+  ```

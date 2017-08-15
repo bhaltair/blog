@@ -10,6 +10,7 @@
   - [es5](js/es5.md)
   - [es6](js/es6.md)
   - [react](library/react.md)
+  - [错误处理](js/err.md)
   
 - CSS
  - [CSS3选择器](css3/selector.md)
@@ -18,6 +19,7 @@
   - [html5](html5/html5.md)
   - [移动web](html5/mobile.md)
 
+- [php](php/php.md)
 
 - jquery
   - [jquery插件](jquery/plugin.md)
