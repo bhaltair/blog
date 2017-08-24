@@ -8,8 +8,16 @@
 
 
 ### 布局方案
-1. FLEX布局
+1. flex布局
 2. vh vm布局
 3. rem布局
 4. 百分比布局
 5. grid布局。。
+
+
+### 调试
+1. browsersync
+
+2. 真机调试
+    * chrome inspect
+    * safari inspect
