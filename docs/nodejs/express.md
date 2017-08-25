@@ -28,6 +28,13 @@
 
 ## handlerbars模板引擎
 
+## 流程控制工具
+1. 串行和并行
+2. nimble
+
+## 子进程
+> var exec = require('child_process').exec
+
 
 
 ## REST API  
@@ -51,8 +58,38 @@ npm install --save vhost
 6. rest插件  
 npm install --save connect-rest
 
+## 静态内容
+1. Expires/cache-control
+2. Last-Modified/ETag
+3. 静态资源放到cdn上
+4. 文件加指纹
+5. 
+
 ## 邮件服务
 nodemailer
+
+## 安全
+1. 处理跨站请求伪造  
+使用csurf插件
+
+2. 使用https  
+从ca那里得到一个ssl证书 
+```javascript
+var https = require('https')
+var options = {
+  key: fs.readFileSync(__dirname + 'ca.pem'),
+  cert: fs.readFileSync(__dirname + 'ca.crt')
+}
+https.createServer(options, app).listen(app.get('port'), function(){
+  console.log('app started at ' + app.get('port'))
+})
+```
+
+3. 基本的basicAuth中间件  
+类似路由页面那个
+
+4. 使用Bcrypt加密密码  
+Bcrypt是一个加盐的哈希函数，用来对密码做哈希处理的第三方模块
 
 ## 生产环境部署
 1. 进程管理  
@@ -91,3 +128,16 @@ morgan设置为tiny
 2. 域名注册
 3. 主机托管  
 heroku
+
+
+## 测试
+1. 单元测试
+  * assert模块
+  * Mocha
+  * Vows
+  * should.js
+
+2. 验收测试
+> 功能测试 利用自动化测试 不需要人工测试
+  * TObi
+  * Soda + selenium

@@ -26,6 +26,7 @@
 - Nodejs
   - [Nodejs](nodejs/node.md)
   - [express](nodejs/express.md)
+  - [深入浅出node](nodejs/deepnode.md)
 
 
 - 移动端

@@ -1,12 +1,12 @@
 
-# 前端技术笔记
+# ace's fe note
 
-> A magical documentation site generator.
+> powered by docsify
 
-- Simple and lightweight (~12kb gzipped)
-- Multiple themes
-- Not build static html files
+- js html css
+- vue react
+- node express
 
 
-[GitHub](https://github.com/QingWei-Li/docsify/)
-[Get Started](#quick-start)
+[GitHub](https://github.com/bhaltair/)
+[Get Started](#guide)
