@@ -140,4 +140,4 @@ heroku
 2. 验收测试
 > 功能测试 利用自动化测试 不需要人工测试
   * TObi
-  * Soda + selenium
+  * Soda + selenium 
