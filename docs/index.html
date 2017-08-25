@@ -16,11 +16,13 @@
 </body>
 <script>
   window.$docsify = {
-    name: '',
-    repo: '',
+    coverpage: true,
+    name: '前端小萌新',
+    repo: 'https://github.com/bhaltair/studyDoc.git',
     loadSidebar: true,
     loadNavbar: true,
     subMaxLevel: 3,
+    ga: 'UA-105317808-1',
     plugins: [
       function (hook) {
         var footer = [
@@ -37,8 +39,13 @@
       }
     ]    
   }
+
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
 </script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/ga.js"></script>
 </html>
