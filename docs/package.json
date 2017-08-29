@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "docsify start .",
+    "deploy": "now -p"
+  },
+  "docsify": {
+    "config": {
+      "basePath": "https://www.bhaltair.top/",
+      "loadSidebar": true,
+      "loadNavbar": true
+    }
+  },
+  "dependencies": {
+    "now": "^7.4.0"
+  }
+}

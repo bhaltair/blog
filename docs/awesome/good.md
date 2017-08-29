@@ -14,8 +14,19 @@
 3. 代码整洁之道
 4. 程序员的数学思维修炼
 
+## vs code
+```
+1. 终端 ctrl + `
+2. 命令面板ctrl+shift+p 
+
+跳到定义处 ctrl+左击
+
+
+```
+
 ## 库推荐
 1. [lodash](https://lodash.com/docs/4.17.4#partialRight) *by microsoft ege team member*
 > A modern JavaScript utility library delivering modularity, performance & extras.
 
 2. underscore 一个util库
+
