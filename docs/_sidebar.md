@@ -14,12 +14,13 @@
   
 - CSS
  - [CSS3速记](css3/selector.md)
+  - [移动端](html5/mobile.md)
 
 - HTML5
   - [html5](html5/html5.md)
 
 
-- *Jquery*
+- Jquery
   - [jquery插件](jquery/plugin.md)
 
 
@@ -29,16 +30,13 @@
   - [深入浅出node](nodejs/deepnode.md)
 
 
-- 移动端
-  - [移动端](html5/mobile.md)
-
 - 类库
   - [React](library/react.md)
   - [Vue](library/vue.md)
-
+  - [其他](library/other.md)
 
 - 推荐
-  - [好用的](good.md)
+  - [awesome](good.md)
   - [Markdown语法](markdown.md)
   - [resume](resume.md)
   - [php](php/php.md)
