@@ -1,7 +1,6 @@
 <!-- docs/_sidebar.md -->
 
 - [Home](/)
-- [Guide](guide.md)
 
 - JS
   - [面向对象OOP](js/oop.md)
@@ -13,8 +12,9 @@
   - [错误处理](js/err.md)
   
 - CSS
- - [CSS3速记](css3/selector.md)
+  - [CSS3速记](css3/selector.md)
   - [移动端](html5/mobile.md)
+  - [sass](css3/sass.md)
 
 - HTML5
   - [html5](html5/html5.md)
@@ -36,9 +36,8 @@
   - [其他](library/other.md)
 
 - 推荐
-  - [awesome](good.md)
   - [Markdown语法](markdown.md)
   - [resume](resume.md)
+  - [awesome](awesome/good.md)
   - [php](php/php.md)
   - [Ruby](ruby.md)
-  

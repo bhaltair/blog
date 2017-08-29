@@ -5,10 +5,32 @@
 ## process对象
 
 ## global对象
+```
+__filename
+__dirname
+
+```
+
+## path
+```
+path.resolve 用于将相对路径转化为绝对路径
+__dirname: 总是返回被执行的 js 所在文件夹的绝对路径
+__filename: 总是返回被执行的 js 的绝对路径
+process.cwd(): 总是返回运行 node 命令时所在的文件夹的绝对路径
+```
 
 ## EventEmitter
 
 ## buffer
+
+## utils
+```
+util.inherits 原型继承
+util.inspect 将任意对象转化为字符串
+
+
+
+```
 
 ## stream
 
@@ -41,3 +63,15 @@ console.log('\033[90m' + 'some info' + '\033[39m');
 ## 测试
 1. expect.js
 2. mocha
+
+## npm命令
+```
+npm remove <name> 移除包
+npm ls --depth 0 查看当前工程下的包
+npm update <name> 更新模块
+npm publish 发布模块
+```
+
+## 部署平台
+1. heroku
+2. now

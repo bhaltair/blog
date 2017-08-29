@@ -1,7 +1,5 @@
 
-# ace's fe note
-
-> powered by docsify
+# 苍南的前端笔记
 
 - js html css
 - vue react
@@ -9,4 +7,4 @@
 
 
 [GitHub](https://github.com/bhaltair/)
-[Get Started](#guide)
+[Blog](https://www.cnblogs.com/bhaltair)
