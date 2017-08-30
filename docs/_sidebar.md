@@ -37,7 +37,7 @@
 
 - 推荐
   - [Markdown语法](markdown.md)
-  - [resume](resume.md)
+  - [resume](resume/resume.md)
   - [awesome](awesome/good.md)
   - [php](php/php.md)
   - [Ruby](ruby.md)
