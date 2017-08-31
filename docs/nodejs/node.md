@@ -2,6 +2,18 @@
 
 > 构建高性能网络应用 非阻塞IO 异步 事件轮询 单线程 一个拥有大量共享状态的大进程
 
+## 安装nodejs
+ubuntu  
+* 包管理工具安装  
+sudo apt-get install nodejs
+
+* 直接下载文件
+```linux
+tar -xvf node-v8.4.0-linux-x64.tar.xz
+ln -s node-v8.4.0-linux-x64/bin/node /usr/local/bin/node
+ln -s node-v8.4.0-linux-x64/bin/npm /usr/local/bin/npm
+```
+
 ## process对象
 
 ## global对象
