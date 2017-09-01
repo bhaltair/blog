@@ -131,6 +131,12 @@ function SubType(name, age){
 
 SubType.prototype = new SuperType();
 
+var instance = new SubType()
+
+console.log(instance instanceof SubType) //true
+console.log(instance instanceof Super) //true
+
+
 ```
 
 *缺点：调用两次父类构造函数*
@@ -165,20 +171,32 @@ Super.prototype.sayName = function() {
   alert(this.name)
 }
 
-function SubType(name, age){
-  Super.call(this, name);
-  this.age = age;
-}
+
 
 //SubType.prototype = new SuperType();  不用这句了
+function inherit(o){
+  function F(){}
+  F.prototype = o;
+  return new F();
+}
+
 
 function inheritPrototype(sub,Super){
-  var proto = inherit(Super.prototype);
-  proto.constructor = sub;
+  
+  //下面2句都是可以 创建父类原型的一个副本
+  //var proto = inherit(Super.prototype);
+  var proto = Object.create(super.prototype)
+
+  proto.constructor = sub;  //重写原型
   sub.prototype = proto;
 }
 
 inheritPrototype(SubType, Super);
+
+function SubType(name, age){
+  Super.call(this, name);  //
+  this.age = age;
+}
 
 SubType.prototype.sayAge = function() {
   alert(this.age);

@@ -1,9 +1,43 @@
 # vue
 
-## vue
+访问子组件
+```js
+<user-profile ref="profile"></user-profile>
+var parent = new Vue({ el: '#parent' })
+// 访问子组件
+var child = parent.$refs.profile
+
+```
 
 
-## weex
+## vue UI
+* ivew
+* mint-ui
+* elemen-ui
+* 有赞UI
+* vux
+
+## webpack proxy
+```js
+ config.jsmodule.exports = {
+  // ...
+  dev: {
+    proxyTable: {
+      // 将所有以 /api 开头的请求通过 jsonplaceholder 代理
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  }
+}
+
+
+```
+
 
 
 ## vue单元测试

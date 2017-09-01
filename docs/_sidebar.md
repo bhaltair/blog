@@ -12,9 +12,10 @@
   - [错误处理](js/err.md)
   
 - CSS
-  - [CSS3速记](css3/selector.md)
+  - [CSS3](css3/css.md)
   - [移动端](html5/mobile.md)
   - [sass](css3/sass.md)
+  - [style](css3/style.md)
 
 - HTML5
   - [html5](html5/html5.md)

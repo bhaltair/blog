@@ -159,3 +159,7 @@ feature.publicThing; // "not secret"
 feature.sayPrivateThing();
 
 ```
+
+
+## tips
+* 活用函数重载，根据参数的个数不同，同样的函数名重载不同的方法
