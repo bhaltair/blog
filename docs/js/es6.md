@@ -3,6 +3,19 @@
 ## const let
 var变量，函数作用域，能重复声明覆盖
 
+## babel
+```js
+// 转码前
+input.map(item => item + 1);
+
+// 转码后
+input.map(function (item) {
+  return item + 1;
+});
+```
+
+
+
 
 ## 一个polyfill
 ```js
