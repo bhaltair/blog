@@ -80,7 +80,7 @@ deploy_production:
 ```
 
 
-## gitlab
+## 私有gitlab
 查看服务状态
 sudo gitlab-ctl status
 
@@ -105,10 +105,13 @@ sudo gitlab-ctl reconfigure
 
 为CI配置一个runner
 需要一个runner 这个runner可以安装在widnows和mac/linux上，runner通过API和gitlab通信
-https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/#GitLab-Runner
 
-参考配置文件
+
+
+参考
+
 https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template
+https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/#GitLab-Runner
 
 
 
