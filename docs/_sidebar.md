@@ -46,3 +46,5 @@
   - [Ruby](ruby.md)
   - [linux](others/linux.md)
   - [awesome](others/good.md)
+  - [性能优化](others/performance.md)
+  - [最佳实践](others/dry.md)

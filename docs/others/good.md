@@ -1,4 +1,8 @@
-# awesome
+## 移动端调试神器  browser-sync
+```
+browser-sync start --server --files "css/*.css, *.html"
+browser-sync start --server --files "**/*.css, **/*.html"  深度匹配
+```
 
 ## 代码展示
 1. codepen
@@ -23,5 +27,6 @@
 
 
 ```
+
 
 

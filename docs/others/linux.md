@@ -27,6 +27,16 @@ $ sudo systemctl start lightdm
 systemctl set-default graphical.target
 ```
 
+### 添加用户
+```linux
+使用adduser命令，自动创建用户和用户组
+adduser pm
+
+然后添加sudo
+当然必须在root用户下，usermod -aG sudo pm
+
+```
+
 
 ### 设置超级用户  
 ```
@@ -38,3 +48,30 @@ sudo passwd root
 
 ### ssh传递文件
 > scp local_file remote_username@remote_ip:remote_folder  
+
+
+### nginx
+nginx要指定配置文件运行
+sudo nginx -c /usr/local/etc/nginx/nginx.conf
+sudo nginx -s reload
+
+### mongodb
+```linux
+
+默认  
+数据保存在/var/lib/mongodb
+日志 /var/log/mongodb
+
+配置文件  
+/etc/mongod.conf
+  systemLog.path
+  storage.dbPath
+
+sudo service mongod start
+sudo service mongod stop
+sudo service mongod restart
+
+to remove Data & logs
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+```

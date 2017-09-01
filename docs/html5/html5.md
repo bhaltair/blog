@@ -20,6 +20,18 @@
 3. 表单事件
   * onchange
 
+### 表单属性
+```
+  maxlength
+  pattern
+  list
+  multiple
+  required
+  formnovalidate
+  autofocus
+  accept
+  autocomplete
+```
 
 ### 表单验证
 1. required
@@ -34,3 +46,6 @@
 
 
 ## history API
+
+
+## Modernizr
