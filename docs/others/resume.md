@@ -1,11 +1,11 @@
 # 简历
 ## 基本信息
 - 王其/Web前端工程师
-- 男/本科/2015年毕业 
+- 男/南京理工大学继续教育学院/2015年毕业 
+- 电话：17605254688
 - Email:  `njcit_wangqi@163.com`
 
-## 项目与工作经验  
-#### 上海优药网络  FE 201701 - 现在
+## 项目经验  
 
 [良医汇官网](http://www.liangyihui.net)  
 
@@ -19,7 +19,7 @@
 
 <img src="http://os6qw9n8e.bkt.clouddn.com/1502524556.png" width="100" height="100" alt="qrcode">
 
-重购以前app内h5页面，从vue + gulp 多页面转向 vue + webpack 单页SPA
+重构以前app内h5页面，从vue + gulp 多页面转向 vue + webpack 单页SPA
 
 核心页面包括：有公开课、专题专栏、病例等，包含用户系统、认证、权限等。
 
@@ -35,25 +35,31 @@
 
 方便商务人员查看数据，导出数据。
 
-[CSCO35投票](#)
+[CSCO35投票](http://doctor.liangyihui.net/#/35under35)
 
-负责全部前端vue开发，包含前端数据加密，支持微信内和APP内投票。
+负责全部前端页面开发，包含前端数据加密，支持微信内和APP内投票。
 
-#### 苏威尔网络 FE 201507 - 201610
+做了一些性能优化，以支撑大流量投票，包含图片的懒加载和预加载，一些静态数据上传七牛等措施。
 
-[BOS后台](#)
+## 工作经验 
+#### 上海优药网络  FE 201702 - 现在
+参与APP内H5页面和PC站的前端开发工作。
 
-jquery+handlebars
 
-负责项目的整体搭建，页面结构，数据处理交互等的整体流程。
+#### 苏威尔网络 FE 201510 - 201612
+负责网站页面制作、前端开发。
 
 ## 个人项目
-小程序 欢喜加一
+### 小程序 欢喜加一
 
 一个steam游戏推荐平台，推荐每日打折游戏。
 
 知晓程序推荐，积累大量重度用户。
 
+### [Pure Entertainment](https://peaceful-earth-82719.herokuapp.com/)
+responsive design 设计
+
+一个简易的CMS后台 vue+mongo+express
 
 ## 技术栈
 
@@ -64,14 +70,15 @@ jquery+handlebars
 
 ### Js
 - 了解ECMAScript相关规范，熟悉DOM/BOM API，熟悉常用的ES5/6语法。
-- 熟悉Vue全家桶SPA
+- 熟练使用Vue全家桶SPA
+- 熟悉React
 - 熟悉小程序 有上线小程序
 - 熟悉Gulp/Webpack等构建工具    
     
 ### 后端
-- 了解Node，熟悉常用内置模块
+- 熟悉Node，熟悉常用内置模块
 - 使用Express开发过Web应用 
-- 熟悉阿里云 node环境 搭建 部署 监控
+- 熟悉阿里云 heroku node环境的搭建 部署 监控
 
 
 

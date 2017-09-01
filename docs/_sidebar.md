@@ -20,7 +20,7 @@
   - [html5](html5/html5.md)
 
 
-- *Jquery*
+- Jquery
   - [jquery插件](jquery/plugin.md)
 
 
