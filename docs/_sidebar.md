@@ -25,19 +25,23 @@
 
 
 - Nodejs
-  - [Nodejs](nodejs/node.md)
+  - [核心模块](nodejs/node.md)
   - [express](nodejs/express.md)
+  - [周边](nodejs/other.md)
   - [深入浅出node](nodejs/deepnode.md)
 
 
 - 类库
   - [React](library/react.md)
   - [Vue](library/vue.md)
+  - [其他库推荐](library/other.md)
 
 
 - 推荐
-  - [Markdown语法](markdown.md)
+  - [Markdown语法](others/markdown.md)
   - [resume](resume.md)
-  - [awesome](awesome/good.md)
-  - [php](php/php.md)
+  - [php](backend/php.md)
   - [Ruby](ruby.md)
+
+
+  - [awesome](others/good.md)

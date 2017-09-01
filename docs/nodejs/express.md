@@ -1,6 +1,6 @@
 # express
 
-## express需要的中间件
+## express周边的中间件
 > express4.0不再捆绑connect ，所以有些中间件，需要手动安装引用 app.use()
 
 1. body-parser
@@ -13,12 +13,12 @@
 6. csurf
 7. errorhandler
 8. static-favicon
-9. morgan
+9. morgan 日志中间件
 10. query
 11. vhost
 
 ## 路由
-1. 子路由  
+1. 子域名
 使用vhost中间件
 2. 自动化渲染html  
 好处是不用给每一个文件添加一个路由  
@@ -28,9 +28,18 @@
 
 ## handlerbars模板引擎
 
-## 流程控制工具
+## 异步编程
+理解node的事件循环，在浏览器中，事件可能是用户的点击 scroll input等，而在nodejs中，可以是socket的data事件，或者readFile的error事件。
+
+针对一次性的事件，使用回调函数；针对重复性事件，使用eventEmitter。
+
+完。
+
+
+## 流程控制
 1. 串行和并行
-2. nimble
+2. 社区工具  
+  nimble
 
 ## 子进程
 > var exec = require('child_process').exec
