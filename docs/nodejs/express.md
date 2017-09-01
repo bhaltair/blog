@@ -39,8 +39,9 @@
 ## 流程控制
 1. 串行和并行
 2. 社区工具  
-  nimble
-
+  * nimble
+  * async
+  * step
 ## 子进程
 > var exec = require('child_process').exec
 

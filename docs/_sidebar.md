@@ -5,6 +5,7 @@
 - JS
   - [面向对象OOP](js/oop.md)
   - [基本知识](js/js.md)
+  - [API](js/api.md)
   - [DOM](dom/dom.md)
   - [BOM](bom/bom.md)
   - [es201X](js/es6.md)
@@ -20,14 +21,13 @@
 
 
 - Jquery
-  - [jquery插件](jquery/plugin.md)
+  - [插件编写](jquery/plugin.md)
 
 
 - Nodejs
   - [核心模块](nodejs/node.md)
   - [express](nodejs/express.md)
   - [周边](nodejs/other.md)
-  - [深入浅出node](nodejs/deepnode.md)
 
 
 - 类库
@@ -47,3 +47,5 @@
   - [awesome](others/good.md)
   - [性能优化](others/performance.md)
   - [最佳实践](others/dry.md)
+  - [测试](others/test.md)
+  - [算法](others/arithmetic.md)
