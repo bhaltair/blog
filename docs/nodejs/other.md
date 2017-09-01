@@ -26,13 +26,17 @@ console.log('\033[90m' + 'some info' + '\033[39m');
 3. node-redis
 
 ## 单元测试
-1. expect.js
 2. mocha
-3. should.js
-4. assert模块
 5. nodeunit
 6. Vows
 
+## 断言库
+1. should.js
+2. assert
+3. expect.js 这个好用
+
+## 覆盖率coverage
+istanbul
 
 ## 验收测试
 * Tobi
