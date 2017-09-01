@@ -7,8 +7,7 @@
   - [基本知识](js/js.md)
   - [DOM](dom/dom.md)
   - [BOM](bom/bom.md)
-  - [es5](js/es5.md)
-  - [es6](js/es6.md)
+  - [es201X](js/es6.md)
   - [错误处理](js/err.md)
   
 - CSS

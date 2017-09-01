@@ -29,4 +29,99 @@ browser-sync start --server --files "**/*.css, **/*.html"  深度匹配
 ```
 
 
+## 前端工程师技能书
+
+	* Content Management Systems (aka CMS)
+	* Node.js
+	* Cross-Browser Testing
+	* Cross-Platform Testing
+	* Unit Testing  单元测试
+	* Cross-Device Testing
+	* Accessibility / WAI-ARIA
+	* Search Engine Optimization (aka SEO)
+	* Interaction or User Interface Design
+	* User Experience  用户体验
+	* Usability
+	* E-commerce Systems
+	* Portal Systems
+	* Wireframing
+	* CSS Layout / Grids
+	* DOM Manipulation (e.g., jQuery)
+	* Mobile Web Performance
+	* Load Testing
+	* Performance Testing
+	* Progressive Enhancement / Graceful Degradation
+	* Version Control (e.g., GIT)
+	* MVC / MVVM / MV*
+	* Functional Programming
+	* Data Formats (e.g., JSON, XML)
+	* Data APIs (e.g Restful API)
+	* Web Font Embedding
+	* Scalable Vector Graphics (aka SVG)
+	* Regular Expressions
+	* Content Strategy
+	* Microdata / Microformats
+	* Task Runners, Build Tools, Process Automation Tools
+	* Responsive Web Design
+	* Object-Oriented Programming
+	* Application Architecture
+	* Modules
+	* Dependency Managers
+	* Package Managers
+	* JavaScript Animation
+	* CSS Animation
+	* Charts / Graphs
+	* UI Widgets
+	* Code Quality Testing
+	* Code Coverage Testing
+	* Code Complexity Analysis
+	* Integration Testing
+	* Command Line / CLI
+	* Templating Strategies
+	* Templating Engines
+	* Single Page Applications
+	* XHR Requests (aka AJAX)
+	* Web/Browser Security
+	* HTML Semantics
+	* Browser Developer Tools
+
+
+
+首先作为一个前端开发者，你应该想到在你的技能树里有以下所有的技能:
+
+	* HTML (整洁代码，语义化标签)
+	* CSS (模块化，可伸缩)
+	* CSS 方法 (BEM, SMACSS, OOCSS)
+	* CSS 预处理器 (像LESS, SCSS, PostCSS)
+	* 现代 CSS (Flexbox, Grid)
+	* JS
+	* 现代 JS (ES6, Typescript)
+	* JS 框架 (Angular, React, Vue [更多的之后在此插入]）
+	* JS 方法 (函数式编程, 面向对象)
+	* JS 库 (Immutable, Ramda, Lodash)
+	* 响应式设计原则
+	* 测试 (TDD)
+	* 测试框架 (Jasmine, Karma)
+	* SVG
+	* WebGL
+	* 动画技术
+	* 可访问性
+	* 可用性
+	* 性能
+	* 构建工具 (Grunt, Gulp, NPM 脚本)
+	* 资源打包工具 (WebPack, Browserify)
+	* NPM 生态系统
+	* 了解不同浏览器的怪癖
+	* 敏捷方法
+	* 版本控制 (通常是 Git)
+	* 视觉设计基础
+	* 软技能，时间管理
+	* 对使用的后端语言有基本的了解。
+
+此外，你要涉足或展望之类的东西像：
+
+	* Service workers
+	* Progressive Web Apps (PWA)
+	* Web组件化
+
 

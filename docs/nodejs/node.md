@@ -2,8 +2,6 @@
 
 > 构建高性能网络应用 非阻塞IO 异步 事件轮询 单线程 一个拥有大量共享状态的大进程
 
-<<<<<<< HEAD
-=======
 ## 安装nodejs
 ubuntu  
 * 包管理工具安装  
@@ -17,7 +15,6 @@ ln -s node-v8.4.0-linux-x64/bin/npm /usr/local/bin/npm
 ```
 
 ## process对象
->>>>>>> 17ef9021219df9c86d57f3f29d87d6ce64ed2e2d
 
 ## 1 process对象
 

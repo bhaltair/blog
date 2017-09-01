@@ -7,19 +7,18 @@
 3. Date
 4. RegExp
 5. Function
-
+```js
   *函数也是对象*
   * 内置的属性 this 和 arguments
-  ```
   arguments.callee  
   arguments.caller
-  ```
   * 内置的方法 call 和 apply 改变作用域
   * 内置的属性 length 和 prototype  
   length代表函数希望接受的命名参数的个数
   > 对于ES5中的引用类型来说，prototype保存了它们的所有实例方法，因此使用for-in无法实现
-
+```
 6. 包装类型
+```js
   > 为了便于操作基本类型值，引入3个特殊的引用类型，在读取一个基本类型值的时候，会自动创建一个基本包装类型的对象
 
   * Boolean
@@ -27,7 +26,14 @@
   * String
 
   > 引用类型与基本包装类型的主要区别就是对象的生存期，自动创建的基本包装类型的对象，只存在于代码执行瞬间，不能为其添加属性和方法
+```
 7. 单体内置对象
+
+## 类型判断
+     typeof运算符
+     instanceof运算符
+     Object.prototype.toString方法
+
 
 ## 垃圾收集
 *找出那些不使用的变量，释放其占用的内存*
@@ -40,8 +46,28 @@
 
 
 ## 挥舞函数
+
 ### 闭包
 > 模仿块级作用域 创建私有变量
+
+closure 是一个函数在创建时允许该函数访问并操作该自身函数之外的变量时所创建的*作用域*
+
+```js
+function f1() {　　　　
+    var n = 999;
+    function f2() {　　　　　　
+        console.log(n++);　　　　
+    }　　　　
+    return f2;　　
+}
+var result = f1();　　
+var result2 = f1();　　
+result(); // 999
+result(); // 1000
+result2(); // 999
+result(); // 1001
+
+```
 
 ### IIFE
 ### 匿名函数
