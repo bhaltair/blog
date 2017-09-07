@@ -4,12 +4,15 @@
 
 - JS
   - [面向对象OOP](js/oop.md)
+  - [函数式](js/ff.md)
   - [基本知识](js/js.md)
   - [API](js/api.md)
-  - [DOM](dom/dom.md)
-  - [BOM](bom/bom.md)
+  - [DOM](js/dom/dom.md)
+  - [BOM](js/bom/bom.md)
   - [es201X](js/es6.md)
   - [错误处理](js/err.md)
+  - [编码原则](others/dry.md)
+  - [性能优化](others/performance.md)
   
 - CSS
   - [CSS3](css3/css.md)
@@ -17,9 +20,8 @@
   - [sass](css3/sass.md)
   - [style](css3/style.md)
 
-- HTML5
+- HTML
   - [html5](html5/html5.md)
-
 
 - Jquery
   - [插件编写](jquery/plugin.md)
@@ -46,7 +48,5 @@
   - [Ruby](ruby.md)
   - [linux](others/linux.md)
   - [awesome](others/good.md)
-  - [性能优化](others/performance.md)
-  - [最佳实践](others/dry.md)
   - [测试](others/test.md)
   - [算法](others/arithmetic.md)

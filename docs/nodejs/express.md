@@ -28,25 +28,6 @@
 
 ## handlerbars模板引擎
 
-## 异步编程
-理解node的事件循环，在浏览器中，事件可能是用户的点击 scroll input等，而在nodejs中，可以是socket的data事件，或者readFile的error事件。
-
-针对一次性的事件，使用回调函数；针对重复性事件，使用eventEmitter。
-
-完。
-
-
-## 流程控制
-1. 串行和并行
-2. 社区工具  
-  * nimble
-  * async
-  * step
-  
-## 子进程
-> var exec = require('child_process').exec
-
-
 
 ## REST API  
 > 提供数据和服务
