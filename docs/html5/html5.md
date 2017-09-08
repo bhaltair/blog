@@ -20,8 +20,15 @@
 3. 表单事件
   * onchange
 
+
+### 表单元素
+* label 表单控件标题
+* filed 表单控件集合
+* datalist 其他表单控件的数据列表
+* 
+
 ### 表单属性
-```
+```html
   maxlength
   pattern
   list
@@ -31,6 +38,13 @@
   autofocus
   accept
   autocomplete
+
+  enctype
+  target
+  name
+
+
+
 ```
 
 ### 表单验证
@@ -42,7 +56,10 @@
 2. a元素添加download属性 可以下载对应的资源文件
 3. figure元素
 
-
+## 全局属性
+1. 可编辑
+2. 拖拽
+3. 文字方向 dir属性
 
 
 ## history API
