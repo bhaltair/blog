@@ -57,8 +57,8 @@
 3. figure元素
 
 ## 全局属性
-1. 可编辑
-2. 拖拽
+1. 可编辑 editable
+2. 拖拽 dragggable
 3. 文字方向 dir属性
 
 

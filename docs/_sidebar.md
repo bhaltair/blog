@@ -3,29 +3,30 @@
 - [Home](/)
 
 - JS
-  - [面向对象OOP](js/oop.md)
-  - [函数式](js/ff.md)
   - [基本知识](js/js.md)
+  - [面向对象](js/oop.md)
+  - [函数式](js/ff.md)
   - [API](js/api.md)
   - [DOM](js/dom/dom.md)
   - [BOM](js/bom/bom.md)
-  - [es201X](js/es6.md)
-  - [错误处理](js/err.md)
-  - [编码原则](others/dry.md)
-  - [性能优化](others/performance.md)
-  
+  - [编码原则](js/dry.md)
+  - [性能优化](js/performance.md)
+  - [jquery](js/jquery.md)
+  - [数据结构与算法](js/arithmetic.md)
+  - 【框架】
+      - [React](js/library/react.md)
+      - [Vue](js/library/vue.md)
+      - [其他库推荐](js/library/other.md)
+
 - CSS
   - [CSS3](css3/css.md)
   - [移动端](html5/mobile.md)
   - [sass](css3/sass.md)
-  - [style](css3/style.md)
+  - [CSS库](css3/library.md)
+  - [样式规范](css3/style.md)
 
 - HTML
   - [html5](html5/html5.md)
-
-- Jquery
-  - [插件编写](jquery/plugin.md)
-
 
 - Nodejs
   - [核心模块](nodejs/node.md)
@@ -33,20 +34,8 @@
   - [周边](nodejs/other.md)
 
 
-- 类库
-  - [React](library/react.md)
-  - [Vue](library/vue.md)
-  - [其他库推荐](library/other.md)
-
-
 - 推荐
-  - [Markdown语法](others/markdown.md)
   - [持续集成](others/ci.md)
   - [git](others/git.md)
-  - [resume](resume.md)
-  - [php](backend/php.md)
-  - [Ruby](ruby.md)
   - [linux](others/linux.md)
   - [awesome](others/good.md)
-  - [测试](others/test.md)
-  - [算法](others/arithmetic.md)

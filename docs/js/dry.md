@@ -3,10 +3,7 @@
 2. KISS
 
 
-## 一些实践
-1. 您的代码应该被划分为功能单元——模块、服务等等。避免将所有代码都放在一个巨大的$(document).就绪()块中。这个概念，松散地称为封装
-2. 不要重复你自己。识别功能块之间的相似点，并使用继承技术来避免重复的代码
-3. 功能单元应该是松散耦合的，也就是说，一个功能单元应该能够独立存在，并且单元之间的通信应该通过一个消息传递系统来处理，比如定制事件或者发布/订阅。尽量避免在功能单元之间进行直接通信。
+
 
 ## 减少if分支
 
@@ -161,5 +158,81 @@ feature.sayPrivateThing();
 ```
 
 
-## tips
+
+## 错误处理
+
+* try-catch
+
+* throw
+    1. throw new ReferenceError('you didn't cite youre references properly')
+    2. throw new TypeError
+    3. 自定义错误
+    ```js
+    function CustomError(msg){
+    this.name = 'CustomError'
+    this.message = msg;
+    }
+    CustomError.prototype = new Error();
+    throw new CustomError('My message')
+    ```
+
+## iife的写法
+```js
+// 推荐
+~function() {
+  // ...
+}();
+
+// 推荐
+void function() {
+  // ...
+}();
+
+// 不推荐
+(function() {
+  // ...
+})();
+
+```    
+
+
+
+## 函数注释
+```js
+/**
+  *
+  * @param {string} p1 参数1的说明
+  * @param {string} p2 参数2的说明
+  *     那就换行了
+  * @return {Object} 返回值描述
+  *
+  */
+
+  function foo(p1 ,p2, p3){
+    //todo
+  }
+
+
+```
+
+## 命名
+* 变量使用驼峰命名
+* 私有变量使用下划线_开头
+* 常量使用大写字母 var HTML_ENTITY = {}
+
+
+## 返回true的表达式
+  * '0'字符串
+  * [] 空数组
+  * {} 空对象
+
+## 三元操作符替代if条件判断
+
+## && 和 || 
+
+
+## 一些实践
+1. 您的代码应该被划分为功能单元——模块、服务等等。避免将所有代码都放在一个巨大的$(document).就绪()块中。这个概念，松散地称为封装
+2. 不要重复你自己。识别功能块之间的相似点，并使用继承技术来避免重复的代码
+3. 功能单元应该是松散耦合的，也就是说，一个功能单元应该能够独立存在，并且单元之间的通信应该通过一个消息传递系统来处理，比如定制事件或者发布/订阅。尽量避免在功能单元之间进行直接通信。
 * 活用函数重载，根据参数的个数不同，同样的函数名重载不同的方法

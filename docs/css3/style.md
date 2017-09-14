@@ -28,3 +28,53 @@ base + layout + module + state + theme
 
 ## less
 less建议嵌套层级不超过 3 层。
+
+
+## 最佳规范
+1. JS钩子
+
+避免在 CSS 和 JavaScript 中绑定相同的类。否则开发者在重构时通常会出现以下情况：轻则浪费时间在对照查找每个要改变的类，重则因为害怕破坏功能而不敢作出更改。
+
+```html
+<button class="btn btn-primary js-request-to-book">Request to Book</button>
+```
+
+
+## 代码组织
+```css
+/* =====================================================
+  组件块
+  =====================================================*/
+
+/* 子组件块
+  ======================================================*/
+  .selectror {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+/* 子组件块
+  ======================================================*/
+  .selectror-secondary {
+    display: block; /* 注释 */
+  }
+
+
+```
+
+## 声明顺序
+1. position
+2. box model
+3. typographic
+4. visual
+
+## 模块组织
+
+ 1. 组件应该在不同的上下文中都可以复用，所以避免设置以下属性
+
+    * Position
+    * float
+    * margin
+
+2. 如果需要为组件设置定位，在父元素中设置定位
+

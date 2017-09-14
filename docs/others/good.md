@@ -28,6 +28,14 @@ browser-sync start --server --files "**/*.css, **/*.html"  深度匹配
 
 ```
 
+# 书单推荐
+
+1. Unix编程艺术
+2. 图解HTTP
+3. 大化设计模式
+4. 七周七语言
+5. 
+
 
 ## 前端工程师技能书
 

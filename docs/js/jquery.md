@@ -1,3 +1,16 @@
+jquery.fn = jquery.prototype
+jquery.fn.extend就是在原型对象上添加方法
+jquery.extend 添加静态方法
+
+
+## 好的习惯
+1. 多个参数使用对象字面量存储
+2. 不要将css写在jquery里面
+3. 使用链式语法
+4. 可以对事件使用自定义的namespace 
+
+
+
 # jquery 插件
 
 ## 原则套路
@@ -8,6 +21,7 @@
 5. 单个插件，定义一个$.fn.plugin
 6. 使用默认值扩展选项
 7. 函数调用前使用分号
+8. 缓存数组长度
 
 ## 框架
 
