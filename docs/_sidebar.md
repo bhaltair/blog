@@ -41,7 +41,7 @@
   - [Markdown语法](others/markdown.md)
   - [持续集成](others/ci.md)
   - [git](others/git.md)
-  - [resume](resume.md)
+  - [resume](others/resume.md)
   - [php](backend/php.md)
   - [Ruby](ruby.md)
   - [linux](others/linux.md)
