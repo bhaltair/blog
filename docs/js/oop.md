@@ -217,3 +217,44 @@ toLocaleString
 toString
 valueOf
 ```
+
+## 原生插件
+```js
+;(function(doc,win){
+var Plugins = function(options) {  
+   this.setting = {
+    	pluginsID : '',
+    	alertHtml : ''
+    };
+    for(var i in this.setting){
+    	this.setting[i] = options[i] || this.setting[i];
+    }
+    // 使用必要条件进行检测，然后再往其原型中添加函数。  
+    if(typeof this.NULL != "function") {  
+        // 缓存Plugins.prototype
+        var proto = Plugins.prototype;  
+        // 抽象获取元素id方法
+        proto.g = function(id){
+			return document.getElementById(id);
+		},
+		// 抽象元素绑定事件
+		proto.on = function(id,type,fn){
+			this.g(id)['on'+type] = fn;
+		},
+		proto.init = function(){
+			var self = this;
+			self.on(self.setting.pluginsID,'click',function(){
+				alert(self.setting.alertHtml)
+			})
+		}
+    }  
+}; 
+window['Plugins'] = Plugins;
+})();
+
+
+new Plugins({
+	pluginsID : 'plugins',
+	alertHtml : '欢迎来到插件世界'
+}).init();
+```

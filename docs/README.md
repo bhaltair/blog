@@ -1,4 +1,4 @@
-# 苍南的前端笔记
+# 前端笔记
 
 > An awesome project.
 > 

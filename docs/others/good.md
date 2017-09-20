@@ -28,9 +28,38 @@ browser-sync start --server --files "**/*.css, **/*.html"  深度匹配
 
 ```
 
+## 计算机基础
+
+1. Unix编程艺术
+2. 图解HTTP
+3. 大化设计模式
+4. 七周七语言
+5. 深入理解计算机系统
+6. 数学之美
+
+
+## EE学过的
+```
+PN结
+汇编语言
+数字电路
+软件工程
+单片机原理
+计算机组成原理
+数字信号处理
+数字图像处理
+高等数学
+数据结构
+信号与系统
+通信原理
+控制工程
+工程经济
+物理
+
+```
+
 
 ## 前端工程师技能书
-
 	* Content Management Systems (aka CMS)
 	* Node.js
 	* Cross-Browser Testing
