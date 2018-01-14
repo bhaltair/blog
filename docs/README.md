@@ -9,3 +9,5 @@
 4. 知乎 https://www.zhihu.com/people/bhaltair
 5. segmentFault https://segmentfault.com/u/jueyuanzha
 6. imooc https://www.imooc.com/u/3547911
+7. stackoverflow https://stackoverflow.com/users/6582205
+8. Github blog https://github.com/bhaltair/studyDoc/issues
