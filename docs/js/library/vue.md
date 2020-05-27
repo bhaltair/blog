@@ -1,4 +1,4 @@
-## vue
+## Vue
 
 访问子组件
 ```js
@@ -21,7 +21,7 @@ var child = parent.$refs.profile
 ```
 
 
-## vue UI
+## Vue UI
 * ivew
 * mint-ui
 * elemen-ui
@@ -51,7 +51,7 @@ var child = parent.$refs.profile
 
 
 
-## vue单元测试
+## Vue 单元测试
 - Karma: 启动浏览器来跑测试，运行测试用例并将结果报告给我们。
 - karma-webpack: 使用webpack来跑Karma测试的插件
 - Mocha: 我们编写测试规范的测试框架。
@@ -59,7 +59,7 @@ var child = parent.$refs.profile
 - Sinon: 测试工具库，提供了spies, stubs 和 mocks。
 
 
-## lyh VUE工程
+## lyh Vue 工程
 
 * 样式reset引入  
 link标签引入  minireset.css 多一个http请求
@@ -81,8 +81,9 @@ Vue.prototype.method = function () {}
 必要的单元测试
 
 * jsbridge
+
 ```js
-//调用原生方法
+// 调用原生方法
 function nativefun(funname, param, callback) {
 	if(!param) {
 		param = {};
@@ -94,55 +95,45 @@ function nativefun(funname, param, callback) {
 		window.WebViewJavascriptBridge.callHandler(funname, param, callback);
 	}
 }
-
-//注册js方法 给native调用
+// 注册js方法 给native调用
 function registerfun(funname, dealfun) {
 	if(s == 'app') {
 		WebViewJavascriptBridge.registerHandler(funname, dealfun);
 	}
 }
-
-//初始化
+// 初始化
 function setupWebViewJavascriptBridge(callback) {
-
-  //ios
+  // ios
 	if(browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
 		if(window.WebViewJavascriptBridge) {
 			return callback(WebViewJavascriptBridge);
 		}
 		if(window.WVJBCallbacks) {
-
 			return window.WVJBCallbacks.push(callback);
 		}
-
 		window.WVJBCallbacks = [callback];
-
 		var WVJBIframe = document.createElement('iframe');
 		WVJBIframe.style.display = 'none';
 		WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
 		document.documentElement.appendChild(WVJBIframe);
-    
 		setTimeout(function() {
 			document.documentElement.removeChild(WVJBIframe)
 		}, 0)
-
-
 	}
 
-  //android
+  // android
 	if(browser.versions.android) {
-
 		document.addEventListener('WebViewJavascriptBridgeReady', function() {
 			callback(WebViewJavascriptBridge)
 		}, false)
-
 	}
-
 }
 ```
 
 * 通用utils
+
 ```
+
 1. 过滤Html标签的
 2. 处理时间戳的 moment.js
 3. 判断pc/mobile
@@ -150,8 +141,6 @@ function setupWebViewJavascriptBridge(callback) {
 5. 生成guid方法
 6. jsbridge方法
 7. wxshare方法
-
-
 
 ```
 

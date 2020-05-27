@@ -1,4 +1,3 @@
-# oop
 ## 理解对象
 ```
 var p = new Object()

@@ -2,44 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>前端笔记</title>
+  <title>流月同学</title>
   <link rel="icon" href="_media/favicon.ico">
   <meta name="keywords" content="doc,vue,react,css,generator,github,jekyll,github-pages">
-  <meta name="description" content="前端笔记">
+  <meta name="description" content="流月同学">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
-  <nav>
-    <a href="#/">EN</a>
-    <a href="#/zh-cn/">中文</a>
-  </nav>
-  <div id="app"></div>
+  <div id="app">加载中</div>
 </body>
 <script>
   window.$docsify = {
-    coverpage: false,
-    name: '前端笔记',
-    repo: 'https://github.com/bhaltair/blog.git',
+    onlyCover: false,
+    coverpage: true,
+    name: '流月同学',
+    repo: 'https://github.com/bhaltair',
     loadSidebar: true,
-    loadNavbar: true,
     subMaxLevel: 3,
-    ga: 'UA-105317808-1',
-    plugins: [
-      function (hook) {
-        var footer = [
-          '<hr/>',
-          '<footer>',
-          '<span><a href="https://github.com/bhaltair">bhaltair</a> &copy;2017.</span>',
-          '<span>Proudly published with <a href="https://github.com/QingWei-Li/docsify" target="_blank">docsify</a>.</span>',
-          '</footer>'
-        ].join('')
-
-        hook.afterEach(function (html) {
-          return html + footer
-        })
-      }
-    ]
+    auto2top: true,
+    ga: 'UA-105317808-1'
   }
 
   if (typeof navigator.serviceWorker !== 'undefined') {

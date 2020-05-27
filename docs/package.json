@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "docsify start .",
-    "deploy": "now -p"
+    "start": "docsify start ."
   },
   "docsify": {
     "config": {
@@ -10,7 +9,5 @@
       "loadNavbar": true
     }
   },
-  "dependencies": {
-    "now": "^7.4.0"
-  }
+  "dependencies": {}
 }

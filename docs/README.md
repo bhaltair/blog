@@ -1,4 +1,3 @@
-# blog
 
 现在转到issues写
 

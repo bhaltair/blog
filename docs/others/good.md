@@ -38,7 +38,7 @@ browser-sync start --server --files "**/*.css, **/*.html"  深度匹配
 6. 数学之美
 
 
-## EE学过的
+## EE 学过的
 ```
 PN结
 汇编语言
@@ -59,7 +59,7 @@ PN结
 ```
 
 
-## 前端工程师技能书
+## 前端工程师技能点
 	* Content Management Systems (aka CMS)
 	* Node.js
 	* Cross-Browser Testing

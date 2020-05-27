@@ -1,9 +1,9 @@
-# nodejs
+# 核心模块
 
 > 构建高性能网络应用 非阻塞IO 异步 事件轮询 单线程 一个拥有大量共享状态的大进程
 
-## 安装nodejs
-ubuntu  
+## 0 安装nodejs
+
 * 包管理工具安装  
 sudo apt-get install nodejs
 
@@ -13,8 +13,6 @@ tar -xvf node-v8.4.0-linux-x64.tar.xz
 ln -s node-v8.4.0-linux-x64/bin/node /usr/local/bin/node
 ln -s node-v8.4.0-linux-x64/bin/npm /usr/local/bin/npm
 ```
-
-## process对象
 
 ## 1 process对象
 

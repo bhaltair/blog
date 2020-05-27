@@ -1,4 +1,4 @@
-# 性能优化
+## 评测点
 ```
 评测点：首屏速度 白屏时间
 从http请求数量
@@ -8,15 +8,15 @@ domload事件
 
 ```
 
-DOM层面 
+
+## DOM层面 
 *  缓存DOM元素，提高页面性能
 *  CSS3 transform 取代传统DOM节点操作  使用GPU硬件加速
 *  减少reflow/repaint
 *  避免不必要的dom操作 使用domfragment
 
 
-
-http请求层面
+## http请求层面
 *  link preload prefetch
 *  script async defer  script标签再也不要放到页脚了 笑
 *  懒加载  code spliting / 图片懒加载
@@ -25,7 +25,7 @@ http请求层面
 *  缓存  pwa / http cache
 
 
-代码层面
+## 代码层面
 *  在循环中缓存length -> 代码优化
 *  缓存变量，减少作用域的查找
 

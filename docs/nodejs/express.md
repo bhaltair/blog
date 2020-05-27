@@ -1,6 +1,5 @@
-# express
 
-## express周边的中间件
+## Express 周边的中间件
 > express4.0不再捆绑connect ，所以有些中间件，需要手动安装引用 app.use()
 
 1. body-parser
@@ -55,7 +54,6 @@ npm install --save connect-rest
 2. Last-Modified/ETag
 3. 静态资源放到cdn上
 4. 文件加指纹
-5. 
 
 ## 邮件服务
 nodemailer
@@ -106,8 +104,8 @@ morgan设置为tiny
 
 
 ## 调试
-3. console.log
-4. debugger
+1. console.log
+2. debugger
 
 ### 调试工具
 1. 使用vscode调试
@@ -119,7 +117,7 @@ morgan设置为tiny
 1. https
 2. 域名注册
 3. 主机托管  
-heroku
+  - heroku
 
 
 ## 测试

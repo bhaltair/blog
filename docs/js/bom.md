@@ -1,5 +1,5 @@
 ## window对象
-setTimeout
+setTimeouxxt
 setInterval
 > 全局对象 下面的对象都是挂载在window对象下
 
