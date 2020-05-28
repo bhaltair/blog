@@ -7,6 +7,10 @@
 
 [个人博客](https://www.yuque.com/u3641/boikei)
 
+[语雀知识库](https://www.yuque.com/cashgw)
+
+[issues](https://github.com/bhaltair/blog/issues)
+
 <qin.ming101@gmail.com>
 
 <hr>
