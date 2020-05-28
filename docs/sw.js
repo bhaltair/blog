@@ -11,7 +11,8 @@ const HOSTNAME_WHITELIST = [
   self.location.hostname,
   'fonts.gstatic.com',
   'fonts.googleapis.com',
-  'unpkg.com'
+  'unpkg.com',
+  'cdn.jsdelivr.net'
 ]
 
 // The Util Function to hack URLs of intercepted requests
@@ -74,6 +75,7 @@ self.addEventListener('fetch', event => {
     )
 
     // Update the cache with the version we fetched (only for ok status)
+    // 使用我们获取的版本更新缓存（仅适用于正常状态）
     event.waitUntil(
       Promise.all([fetchedCopy, caches.open(RUNTIME)])
         .then(([response, cache]) => response.ok && cache.put(event.request, response))
