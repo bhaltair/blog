@@ -17,4 +17,4 @@
 
 欢迎我的关注公众号一起交流：
 
-![qrcode_for_gh_2e0e95ed33dd_258.jpg](https://img04.sogoucdn.com/app/a/100520146/9d238f5d77aff6f803905f6208f116ac)
+![qrcode_for_gh_2e0e95ed33dd_258.jpg](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/qrcode_for_gh_2e0e95ed33dd_258.jpg)
