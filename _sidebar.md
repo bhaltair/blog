@@ -30,7 +30,7 @@
   - [手写代码](算法/手写代码.md)
   - [数据结构与算法](算法/数据结构与算法.md)
 - 其他
-  - Chrome
+  - [Chrome](other/chrome.md)
   - VSCode
   - [git](others/git.md)
   - [linux](others/linux.md)
