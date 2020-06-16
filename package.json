@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "docsify start ./",
+    "dev": "browser-sync start --server --files ’**/*.md‘"
+  },
+  "docsify": {
+    "config": {
+      "basePath": "https://www.bhaltair.top/",
+      "loadSidebar": true,
+      "loadNavbar": true
+    }
+  },
+  "dependencies": {}
+}
