@@ -1,4 +1,90 @@
-# git
+## git 流程图
+
+![liuchengtu.png](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/%E6%88%AA%E5%B1%8F2020-06-16%20%E4%B8%8B%E5%8D%888.05.45.png)
+
+## 查看 git 信息
+
+```git
+# 查看系统配置
+$ git config --list
+
+# git 中 D 向下翻一行  F 向下翻页  B 向上翻页  Q 退出
+
+# 查看本地 git 命令历史
+git reflog
+
+# 查看提交历史
+$ git log --oneline  
+          --grep="关键字"
+          --graph 
+          --all      
+          --author "username"     
+          --reverse 
+          -num
+          -p
+          --before=  1  day/1  week/1  "2019-06-06" 
+          --after= "2019-06-06"
+          --stat 
+          --abbrev-commit 
+          --pretty=format:"xxx"
+          
+# oneline -> 将日志记录一行一行的显示
+# grep="关键字" -> 查找日志记录中(commit提交时的注释)与关键字有关的记录
+# graph -> 记录图形化显示 ！！！    
+# all -> 将所有记录都详细的显示出来
+# author "username" -> 查找这个作者提交的记录
+# reverse -> commit 提交记录顺序翻转      
+# before -> 查找规定的时间(如:1天/1周)之前的记录   
+# num -> git log -10 显示最近10次提交 ！！！    
+# stat -> 显示每次更新的文件修改统计信息，会列出具体文件列表 ！！！
+# abbrev-commit -> 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符 ！！！
+# pretty=format:"xxx" ->  可以定制要显示的记录格式 ！！！
+# p -> 显示每次提交所引入的差异（按 补丁 的格式输出）！！！
+
+```
+
+### git log 点线图
+
+```git
+*	表示一个 commit
+|	表示分支前进
+/	表示分叉
+\	表示合入
+|/	表示新分支
+
+```
+
+## git 常用命令
+
+```git
+# 查看工作区和暂存区的状态
+$ git status 
+# 将工作区的文件提交到暂存区
+$ git add .  
+# 提交到本地仓库
+$ git commit -m "本次提交说明"
+# add和commit的合并，便捷写法（未追踪的文件无法直接提交到暂存区/本地仓库）
+$ git commit -am "本次提交说明"  
+# 将本地分支和远程分支进行关联
+$ git push -u origin branchName 
+# 将本地仓库的文件推送到远程分支
+$ git push
+# 拉取远程分支的代码
+$ git pull origin branchName 
+# 合并分支
+$ git merge branchName 
+# 查看本地拥有哪些分支
+$ git branch
+# 查看所有分支（包括远程分支和本地分支）
+$ git branch -a 
+# 切换分支
+$ git checkout branchName 
+# 临时将工作区文件的修改保存至堆栈中
+$ git stash
+# 将之前保存至堆栈中的文件取出来
+$ git stash pop
+
+```
 
 ## 配置个人信息
 
@@ -30,6 +116,14 @@ git reset HEAD -- .
 # 简写
 git reset
 ```
+
+## git merge
+
+默认 fast-forward
+
+- fast-forward：会在当前分支的提交历史中添加进被合并分支的提交历史（得先理解什么时候会发生快速合并，并不是每次 merge 都会发生快速合并）；
+- --no-ff：会生成一个新的提交，让当前分支的提交历史不会那么乱；
+- --squash：不会生成新的提交，会将被合并分支多次提交的内容直接存到工作区和暂存区，由开发者手动去提交，这样当前分支最终只会多出一条提交记录，不会掺杂被合并分支的提交历史
 
 ## git rebase
 
@@ -72,6 +166,45 @@ git rebase --continue
 
 # 重写远端记录
 gp -f
+```
+
+## git stash
+
+?> 能够将所有未提交的修改保存至堆栈中，用于后续恢复当前工作区内容
+
+使用场景： 当你接到一个修复紧急 bug 的任务时候，一般都是先创建一个新的 bug 分支来修复它，然后合并，最后删除。但是，如果当前你正在开发功能中，短时间还无法完成，无法直接提交到仓库，这时候可以先把当前工作区的内容 git stash 一下，然后去修复 bug，修复后，再 git stash pop，恢复之前的工作内容。
+
+```git
+# 将所有未提交的修改（提交到暂存区）保存至堆栈中
+$ git stash 
+# 给本次存储加个备注，以防时间久了忘了
+$ git stash save "存储"
+# 存储未追踪的文件
+$ git stash -u
+
+# 查看存储记录
+$ git stash list
+
+在 Windows 上和 PowerShell 中，需要加双引号
+
+# 恢复后，stash 记录并不删除
+$ git stash apply "stash@{index}"
+
+# 恢复的同时把 stash 记录也删了
+$ git stash pop "stash@{index}"
+
+# 删除 stash 记录
+$ git stash drop "stash@{index}"
+
+# 删除所有存储的进度
+$ git stash clear
+
+# 查看当前记录中修改了哪些文件
+$ git stash show "stash@{index}"
+
+# 查看当前记录中修改了哪些文件的内容
+$ git stash show -p "stash@{index}" 
+
 ```
 
 ## git diff
@@ -225,7 +358,7 @@ git checkout -- .
 
 ```
 
-## pull request
+## pull request 流程
 
 
 ```sh
@@ -250,3 +383,5 @@ git push origin feat/ready_master
 ## 项目代码体积情况
 
 > git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+
+## 常见问题

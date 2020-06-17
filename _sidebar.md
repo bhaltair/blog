@@ -1,8 +1,8 @@
 - 前端
   - [HTML5](前端/html5.md)
   - [CSS3](前端/css3/_sidebar.md)
-  - [JavaScript](前端/js/目录.md)
-  - TypeScript
+  - [JavaScript](前端/js/_sidebar.md)
+  - [TypeScript](前端/typescript.md)
   - [React](前端/library/react.md)
   - [Vue](前端/library/vue.md)  
   - [可测试可维护](前端/测试.md)
@@ -21,7 +21,7 @@
   - redis  
 - 计算机
   - [安全基础](计算机/安全基础.md)
-  - 设计模式
+  - [设计模式](计算机/设计模式.md)
   - [网络基础](计算机/网络基础.md)
   - [正则基础](计算机/正则.md)
 - 算法
@@ -30,12 +30,11 @@
   - [手写代码](算法/手写代码.md)
   - [数据结构与算法](算法/数据结构与算法.md)
 - 其他
-  - [Chrome](other/chrome.md)
-  - VSCode
+  - [edge](others/edge.md)
+  - [VSCode](others/vscode.md)
   - [git](others/git.md)
   - [linux](others/linux.md)
   - [持续集成](others/持续集成.md)
-  - [第三方库](others/库推荐.md)
   - [编码原则](others/编码原则.md)
   - [安利](others/安利.md)
   - [防御编程](others/防御编程.md)

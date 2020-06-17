@@ -26,24 +26,26 @@ console.log('\033[90m' + 'some info' + '\033[39m');
 2. node-mysql
 3. node-redis
 
-## 单元测试
+## 测试
+
+### 单元测试
 2. mocha
 5. nodeunit
 6. Vows
 
-## 断言库
+### 断言库
 1. should.js
 2. assert
 3. expect.js 这个好用
 
-## 覆盖率coverage
+### 覆盖率 coverage
 istanbul
 
-## 验收测试
+### 验收测试
 * Tobi
 * Soda
-
-## npm命令
+ 
+## npm 命令
 ```
 npm remove <name> 移除包
 npm ls --depth 0 查看当前工程下的包
@@ -57,21 +59,17 @@ npm publish 发布模块
 
 ## 生产环境部署
 
-	* 将 NODE_ENV 设置为 “production”
-
-	* 保证你的应用在发生错误后自动重启
-
-	* 使用集群模式运行你的应用 多核优势
-
-	* 缓存请求结果
-
-	* 使用负载均衡
-
-	* 使用反向代理 Nginx代理静态文件
+* 将 NODE_ENV 设置为 “production”
+* 保证你的应用在发生错误后自动重启
+* 使用集群模式运行你的应用 多核优势
+* 缓存请求结果
+* 使用负载均衡
+* 使用反向代理 Nginx代理静态文件
 
 
 
 ## 异步编程
+
 理解node的事件循环，在浏览器中，事件可能是用户的点击 scroll input等，而在nodejs中，可以是socket的data事件，或者readFile的error事件。
 
 - 针对一次性的事件，使用回调函数；
@@ -86,9 +84,10 @@ npm publish 发布模块
   * step
   
 ## 子进程
+
 > var exec = require('child_process').exec
 
-## node monolithic
+## node monolithic 单体架构
 
 monolithic 单体架构
 
@@ -201,3 +200,56 @@ if (cluster.isMaster) {
   - Nginx负载均衡
     - 主备
   - Node应用负载均衡
+
+## 分布式
+
+## 异常处理
+
+### 处理未捕获的异常
+
+## 上线实践
+### 使用 winston 记录日志
+### 使用 nginx 反向代理
+
+Node 处理 CPU 密集型任务，如 gzipping，SSL termination 等，表现糟糕。
+
+相反，使用一个真正的中间件服务像 Nginx 更好。
+
+### 检测有漏洞的依赖项
+
+https://docs.npmjs.com/cli/audit
+
+## 性能优化
+
+### V8 内存管理与垃圾回收
+### 分析 GC 日志
+### 使用 headdump 堆快照
+### benchmark
+### 使用 prof 进行性能分析
+
+
+## 应用安全清单
+
+### 转义 HTML、JS 和 CSS 输出
+
+### 验证传入的 JSON schemas
+
+### 限制每个用户允许的登录请求
+
+### 使用非 root 用户运行 Node.js
+
+### 使用反向代理或中间件限制负载大小
+
+### 在沙箱中运行不安全代码
+
+### csurf 防止 CSRF
+
+## 综合应用
+
+### Node.js REST API
+
+### jwt
+
+### Web API 设计
+
+### node-schedule 使用

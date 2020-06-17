@@ -5,7 +5,14 @@ var o = {}
 ```
 
 ## 属性类型
-1. 数据属性
+
+### 数据属性
+
+- value：就是属性的值，可以为函数
+- writable：决定属性能否被赋值
+- enumerable：决定 for in 能否枚举该属性
+- configurable：决定该属性能否被删除或者改变特征值
+
 ```javascript
 var person = {}
 Object.defineProperty(person, 'name', {
@@ -16,9 +23,13 @@ Object.defineProperty(person, 'name', {
 })
 ```
 
-2. 访问器属性  
-包含四个属性，[[Configurable]] [[Enumberable]] [[Get]] [[Set]] 
-*IE8+支持*
+### 访问器属性  
+
+- [[Configurable]] 决定该属性能否被配置
+- [[Enumberable]] 决定 for in 能否枚举该属性
+- [[Get]] 在取属性值时被调用
+- [[Set]] 在设置属性值时被调用
+
 ```javascript
 var person = {}
 Object.defineProperty(person, 'name', {
@@ -33,7 +44,13 @@ Object.defineProperty(person, 'name', {
 })
 ```
 
-## 对象相关API
+## 访问原型
+
+- Object.create 根据指定的原型创建新对象，原型可以是 null，可以接收第二个参数
+- Object.getPrototypeOf 获得对象的原型
+- Object.setPrototypeOf 设置对象的原型
+
+## 对象相关 API
 ```javascript
 Object.definePropertyDescriptor() //读取属性访问器属性
 Object.defineProperties() //定义多个属性
@@ -104,10 +121,14 @@ var person1 = new Person('Nico', 29, 'Software Engineer')
 先在实例对象上找，如果找不到，那么去原型对象上找，如果原型对象上找不到，那么原型对象的原型上找
 
 ## 继承
+
 ### 原型式继承
+
 > SubType.prototype = new SuperType()
 
 问题：父类实例上的属性变为现在的原型属性了。
+
+```
 
 ### 组合继承
 *最常用的继承模式*
@@ -139,19 +160,6 @@ console.log(instance instanceof Super) //true
 ```
 
 *缺点：调用两次父类构造函数*
-
-
-### 原型式继承
-Object.create()
-
-```javascript
-function inherit(o){
-  function F(){}
-  F.prototype = o;
-  return new F();
-}
-
-```
 
 ### 寄生组合式继承
 > 组合继承和原型式继承的结合
@@ -206,16 +214,9 @@ SubType.prototype.sayAge = function() {
 
 优点： 只调用一次父类构造函数，避免了在SubType.prototype上面创建不必要的属性；而且还能正常用instanceof和isPrototypeOf()
 
+## prototype 的理解
 
-## Object.Prototype
-```
-constructor
-hasOwnProperty
-isPrototypeOf
-toLocaleString
-toString
-valueOf
-```
+## new 的过程
 
 ## 原生插件
 ```js

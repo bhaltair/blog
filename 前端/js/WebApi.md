@@ -1,4 +1,30 @@
-## 节点
+## BOM
+### window对象
+setTimeouxxt
+setInterval
+> 全局对象 下面的对象都是挂载在window对象下
+
+### location对象
+> window.location == document.location
+
+* hash
+* href
+* pathname
+* search
+
+### navigator对象
+
+
+### screen对象
+
+### history对象
+保存着用户上网的历史记录，是window对象的属性。
+```
+history.go(-1)
+history.go(2)
+```
+
+## node
 1. nodeType // 1是元素
 2. nodeName
 3. nodeValue
@@ -115,7 +141,15 @@ getBoundingClientRect()
   4. 插入文本 innerText
 
 ## 事件
+
+### 事件级别
+
+- DOM0
+- DOM2
+- DOM3
+
 ### 事件流
+
 事件冒泡 + 事件捕获 + 处于目标阶段
 
 ### 事件处理程序
@@ -130,7 +164,7 @@ btn.addEventListener('click',fn)
 4. IE事件处理程序  
 attachEvent/detachEvent
 
-### 标准DOM事件对象
+### 标准 DOM 事件对象
 > IE中的事件对象和DOM中的事件对象不一致  
 
 ```
@@ -140,6 +174,11 @@ target //实际的目标
 type
 preventDefault() //阻止默认事件
 ```
+### DOM 事件捕获的流程
+
+### 不支持冒泡的事件
+
+### 事件的方法
 
 ### 事件类型  
 1. UI事件  
@@ -182,6 +221,15 @@ preventDefault() //阻止默认事件
 1. 事件委托
 2. 及时移除事件处理程序
 
+### 自定义事件
+```js
+let myEvent = new Event('custome')
+$el.addEventListener('custome', () => {
+  console.log('custome')
+})
+$el.dispatchEvent(myEvent)
+```
+
 ### 模拟事件
 1. 创建鼠标事件
 ```javascript
@@ -207,20 +255,24 @@ if(document.implementation.hasFeature('CustomEvents', '3.0')) {
 }
 ```
 
+### target 与 currentTarget
 
-## 一些API
-```javascript
-document.createElement()
-document.appendChild()
-document.createTextNode()
-document.getElementById()
-removeChild(child);
-getPropertyValue()
-document.head || document.getElementByTagName('head')[0]
-document.body
-document.readyState == 'complete'
-```
+### 清除 DOM 事件
 
+### 具体事件
+
+#### 跨域通信
+
+#### animationend
+#### 鼠标事件
+#### DeviceOrientationEvent
+#### touch 事件
+#### touch 事件
+#### input 事件
+setSelectionRange
+compositionstart
+
+#### paste 事件
 
 
 ?> *TODO* 完善示例
@@ -274,3 +326,83 @@ form.addEventListener('reset', function(e){
     checkValidiry()
 
   ```
+
+## API
+
+### First-Contentful-Paint 首屏时间
+### MutationObserver 监听 DOM 变化
+### execCommand 复制文本
+### Promise
+### Blob 二进制大对象
+### iFrame 通信
+### try...catch...错误处理
+### ES6 Module 和 CommonJS
+
+### pushState、hashchange 前端路由
+
+### Cookie、localStorage、sessionStorage
+
+### Web Workers 单独运行线程
+
+
+## DOM 实践
+
+```javascript
+document.createElement()
+document.appendChild()
+document.createTextNode()
+document.getElementById()
+removeChild(child);
+getPropertyValue()
+document.head || document.getElementByTagName('head')[0]
+document.body
+document.readyState == 'complete'
+```
+
+### offset、scrollWidth
+### property 和 attribute
+### tagName 和 nodeName
+
+### 元素查找
+
+### querySelectorAll
+### 上下查找
+### DOM 元素的增删改查
+### createDocumentFragment
+### cloneNode
+### DOM 序列化与反序列化
+
+## 实践
+
+### video 自动播放
+### 日期格式化
+### 实现 Canvas 缩放的方法
+### Canvas Retina 适配
+### rem 适配移动端屏幕
+### 元素拖拽
+### 横屏竖屏切换监听
+### 前端动态生成屏幕快照
+### 移动端虚拟键盘弹出输入框上移
+### 判断元素是否在视窗内
+### H5软键盘兼容方案
+### URL Query 转对象
+### 注入 JS
+### 元素是否可滚动
+### 限制键盘输入
+### 计算元素位置
+### 访问 DOM 树的所有元素
+### 获取 document 宽高
+### 计算图片宽高
+### 键盘密码可见切换
+### 滚动到某个元素
+
+> ele.scrollIntoView({ behavior: 'smooth' });
+
+
+
+
+
+
+
+
+
