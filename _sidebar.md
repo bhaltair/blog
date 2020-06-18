@@ -5,7 +5,7 @@
   - [TypeScript](前端/typescript.md)
   - [React](前端/library/react.md)
   - [Vue](前端/library/vue.md)  
-  - [可测试可维护](前端/测试.md)
+  - [测试](前端/测试.md)
   - [工程化](前端/工程化.md)
   - [性能优化](前端/性能优化.md)  
   - [webpack](前端/Webpack.md)  
