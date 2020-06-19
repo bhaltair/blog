@@ -5,9 +5,9 @@
 
 ## Contact
 
-[语雀博客](https://www.yuque.com/u3641/boikei)
+[博客](https://www.yuque.com/u3641/boikei)
 
-[语雀知识库](https://www.yuque.com/cashgw)
+[另一个知识库](https://www.yuque.com/cashgw)
 
 [有什么想问的](https://github.com/bhaltair/blog/issues)
 

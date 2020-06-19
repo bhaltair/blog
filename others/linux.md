@@ -308,6 +308,34 @@ less index.html
 # 复制目录及目录内所有项目
 cp -r source_dir dist_dir
 ```
+
+### curl
+
+curl 命令的使用：HTTP请求、下载文件、FTP上传下载
+
+```bash
+# 下载文件
+curl -O http://doc.zwwill.com/css/%E3%80%8Acss%E6%8F%AD%E7%A7%98%E3%80%8B.pdf
+
+curl https://www.baidu.com/         # GET请求, 输出 响应内容
+curl -I https://www.baidu.com/      # GET请求, 只输出 响应头
+curl -i https://www.baidu.com/      # GET请求, 输出 响应头、响应内容
+curl -v https://www.baidu.com/      # GET请求, 输出 通讯过程、头部信息、响应内容等
+
+# POST 提交 JSON 数据（\表示命令语句还未结束, 换行继续）
+curl -H "Content-Type: application/json"                \
+     -d '{"username":"hello", "password":"123456"}'     \
+     http://localhost/login
+
+# POST 提交 表单数据
+curl -F "username=hello"                \
+     -F "password=123456"               \
+     -F "head_image=@filepath.jpg"      \
+     http://localhost/register
+
+```
+
+
 ## shell 脚本
 
 ### echo

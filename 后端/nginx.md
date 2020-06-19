@@ -1,205 +1,12 @@
-## Security 
+## 配置文件
 
-### Security HTTP Headers
+默认配置文件位于
 
-先读一下下面的文章
-- https://www.kiwii.ch/en/digital-marketing/security/http-headers-security-check/
-- https://geekflare.com/http-header-implementation/
+> /etc/nginx/nginx.conf
 
-有哪些 header？
-- HTTP Strict Transport Security(HSTS)
-- Cross-Site Scripting (XSS) header
-- X-Frame-Options "SAMEORIGIN" header
-- Referrer-Policy header
-- Content Security Policy(CSP) header
-- HTTP Public Key Pinning(HPKP) header
+### 配置文件的结构
 
-### X-XSS-Protection
-
-?> X-XSS 保护标头可以防止某些级别的 XSS（跨站点脚本）攻击，这与 IE 8+、Chrome、Opera、Safari 和 Android 兼容。
-
-?> 兼容性：Google，Facebook，Github使用此标头，并且大多数渗透测试咨询公司都将要求您实施此标头。
-
-可以选择的值
-
-- 0 XSS过滤器已禁用
-- 1 如果检测到攻击，则启用XSS筛选器并清理页面
-- 1;moder=block 启用XSS过滤器，并在检测到攻击时阻止渲染页面
-- 1;report=http://example.com/report_URI	启用XSS筛选器，并在检测到攻击时上报
-
-> add_header X-XSS-Protection "1; mode=block";
-
-### HTTP Strict Transport Security(HSTS) 严格的传输安全
-
-HSTS（HTTP严格传输安全）头，以确保浏览器的所有通信都通过HTTPS（HTTP安全）发送。这可以防止HTTPS点击提示，并将HTTP请求重定向到HTTPS。
-
-
-
-?> 兼容性：浏览器的所有主要最新版本（例如IE，Firefox，Opera，Safari和Chrome）都支持HSTS标头。
-
-有三个参数配置。
-
-- max-age 告诉浏览器请求仅通过HTTPS可用的持续时间（以秒为单位）。
-- includeSubdomains 该配置也对子域有效。
-- preload 如果您希望将域包含在 HSTS 预加载列表中，请使用
-
-```shell
-add_header Strict-Transport-Security "max-age=31536000; includeSubdomains" always;
-add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
-```
-
-### X-Frame-Options “SAMEORIGIN” header
-
-防止点击劫持。
-
-通过实现此 header ，可以指示浏览器不要将您的网页嵌入 frame / iframe。
-
-这个头部字段在浏览器支持方面有一些限制，因此您必须在实施之前进行检查。
-
-> add_header X-Frame-Options "SAMEORIGIN" always;
-
-可能的值有
-
-- SAMEORIGIN 同源
-- DENY 禁止所有域名
-- ALLOW-FROM 指定一个URL
-
-### X-Content-Type-Options header 
-
-TODO:
-
-?> 通过将此标头添加到网页的HTTP响应中，可以防止 MIME 类型的安全风险。具有此标头可指示浏览器将文件类型视为已定义，并禁止内容嗅探。您只需添加“ nosniff”一个参数。
-
-> add_header X-Content-Type-Options nosniff;
-
-### Referrer-Policy header
-
-想要控制您网站的 Referrer-Policy ？有一定的隐私和安全优势。然而，并不是所有的浏览器都支持所有的选项，所以在实施之前，请检查您的要求。
-
-> add_header Referrer-Policy "no-referrer-when-downgrade";
-
-> add_header Referrer-Policy same-origin;
-
-支持的语法：
-1. no-referrer referrer 信息不回随着请求发送
-2. no-referrer-when-downgrade	[默认设置，其中 当 HTTP到HTTP，HTTPS到HTTPS相同的协议发送 referrer。]
-3. unsafe-url	 （full URL will be sent with the request.）
-4. same-origin	[Referrer will be sent only for same origin site.]
-5. strict-origin	[send only when a protocol is HTTPS]
-6. strict-origin-when-cross-origin	(the full URL will be sent over a strict protocol like HTTPS)
-7. origin (send the origin URL in all the requests)
-8. origin-when-cross-origin	(send FULL URL on the same origin. However, send only origin URL in other cases.)
-
-
-### Content Security Policy (CSP) header
-
-?> 内容安全策略 （或 CSP ） 是一种安全机制，用于将网页上的内容（如 Javascript、图像、CSS 等）的来源限制为某些授权网站。
-这样可以更好地防范可能的 XSS 攻击。
-
-通过在网页HTTP响应中实施内容安全策略（CSP）标头，防止XSS，点击劫持，代码注入攻击。 CSP指示浏览器加载允许的内容以在网站上加载。
-
-让我们看一下两个最常用的参数。
-- default-src 
-  - Load everything from a defined source
-- script-src
-  - Load only scripts from a defined source
-
-以下示例将来自同一来源的所有内容加载到各种Web服务器中。
-
-?> add_header Content-Security-Policy "default-src 'self';";
-
-```bash
-add_header Content-Security-Policy "default-src 'none';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' 
-        https://apis.google.com 
-        www.google-analytics.com 
-        *.googlesyndication.com 
-        *.doubleclick.net 
-        *.cloudflare.com 
-        *.bootstrapcdn.com;
-    style-src 'self' 'unsafe-inline' 
-        https://fonts.googleapis.com
-        *.bootstrapcdn.com;
-    img-src 'self' data: 
-        www.google.com 
-        www.google.fr 
-        www.google-analytics.com 
-        *.cloudflare.com 
-        *.doubleclick.net; 
-    font-src 'self' 
-        https://fonts.googleapis.com 
-        https://fonts.gstatic.com 
-        *.bootstrapcdn.com; 
-        connect-src 'self'; 
-    frame-src 'self' 'unsafe-inline' 
-        *.doubleclick.net; 
-    frame-ancestors 'none'; 
-    form-action 'none'; 
-    upgrade-insecure-requests; 
-    block-all-mixed-content; 
-    reflected-xss block; 
-    base-uri 123run.com www.123run.com; 
-    referrer no-referrer-when-downgrade";
-```
-
-
-
-
-### HTTP Public Key Pinning (HPKP) header HTTP公共密钥固定
-TODO:
-
-通过固定证书来最大程度地降低中间人（MITM）的攻击风险。(它告诉Web客户端将特定的加密公共密钥与特定的Web服务器相关联，以降低使用伪造证书进行MITM攻击的风险)
-
-您可以固定根证书公钥或即时证书。
-
-HPKP当前可在Firefox和Chrome中运行，并支持SHA-256哈希算法。
-
-```bash
-Public-Key-Pins: 
-    pin-sha256="cUPcTAZWKaASuYWhhneDttWpY3oBAkE3h2+soZS7sWs="; 
-    pin-sha256="M8HztCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPWE="; 
-    max-age=5184000;
-    includeSubDomains; 
-    report-uri="https://www.example.com/hpkp-report"
-```
-
-
-### Feature-Policy
-控制浏览器的功能，例如地理位置，全屏，扬声器，USB，自动播放，扬声器，振动，麦克风，付款，VR等，以在Web应用程序中启用或禁用。
-
-### Expect-CT - 试验阶段
-仍处于试验状态的新标头将指示浏览器验证与Web服务器的连接以实现证书透明（CT）。 Google的这个项目旨在修复SSL / TLS证书系统中的某些缺陷。
-
-### X-Permitted-Cross-Domain-Policies
-TODO:
-
-使用Adobe产品（例如PDF，Flash等？您可以实现此标头，以指示浏览器如何处理跨域请求。
-
-通过实现此标头，您可以限制从其他域加载网站的资产，以避免资源滥用。
-
-// 只允许主策略
-
-> add_header X-Permitted-Cross-Domain-Policies master-only;
-
-
-### 示例
-
-```bash
-# security headers
-add_header X-Frame-Options "SAMEORIGIN" always;
-add_header X-XSS-Protection "1; mode=block" always;
-add_header X-Content-Type-Options "nosniff" always;
-add_header Referrer-Policy "no-referrer-when-downgrade" always;
-
-# CSP 内容安全策略 
-add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
-add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
-
-# . files
-location ~ /\.(?!well-known) {
-  deny all;
-}
-```
+![nginx.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1554952763237-fb523262-349b-469e-a04e-a48ddf04651f.png?x-oss-process=image%2Fresize%2Cw_640)
 
 ## 模板
 
@@ -434,3 +241,38 @@ server {
   ssl_certificate_key ...;
 }
 ```
+
+##  实践
+
+### 跳转到 H5
+
+```nginx
+server {
+    listen 80;
+    server_name www.xxx.com;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    gzip on;
+    gzip_min_length 1k;
+    gzip_comp_level 2;
+    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript image/jpeg image/gif image/png;
+
+    set $mobile_rewrite do_not_perform;
+
+    if ($http_user_agent ~* "(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino") {
+      set $mobile_rewrite perform;
+    }
+
+    if ($http_user_agent ~* "^(1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-)") {
+      set $mobile_rewrite perform;
+    }
+    
+    location / {
+      proxy_pass http://10.81.62.45:32520/static/;
+      proxy_set_header Host $http_host;
+    }
+}
+```
+

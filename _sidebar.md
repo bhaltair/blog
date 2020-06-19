@@ -19,6 +19,7 @@
   - Mongodb
   - [Docker](后端/docker.md)
   - redis  
+  - [其他](后端/其他.md)
 - 计算机
   - [安全基础](计算机/安全基础.md)
   - [设计模式](计算机/设计模式.md)
@@ -32,6 +33,7 @@
 - 其他
   - [edge](others/edge.md)
   - [VSCode](others/vscode.md)
+  - [Flutter](others/Flutter.md)
   - [git](others/git.md)
   - [linux](others/linux.md)
   - [持续集成](others/持续集成.md)
