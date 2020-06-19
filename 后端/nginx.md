@@ -6,7 +6,7 @@
 
 ### 配置文件的结构
 
-![nginx.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1554952763237-fb523262-349b-469e-a04e-a48ddf04651f.png?x-oss-process=image%2Fresize%2Cw_640)
+![nginx.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1554952763237-fb523262-349b-469e-a04e-a48ddf04651f.png)
 
 ## 模板
 
