@@ -1,15 +1,25 @@
-# 其他
+## Node.js 的意义
+
+- Serverless
+  - Node.js 的轻量化、容易分散与水平扩充、各种操作系统都容易运行的特性，将 Node.js 作为无服务器服务优先支持的框架，这也让 Node.js 更适合用于超大规模部署的应用
+- BFF
+  - 引入 Node.js 做 BFF 这样的 API proxy 中间层，使得 API 开发也成了前端的工作范围
+  - 让后端同学专注于开发 RPC 服务
+- SSR
+- 工程化工具
 
 ## 语义化版本规范semver
+
 版本格式：主版本号.次版本号.修订号，版本号递增规则如下：
 
-主版本号：当你做了不兼容的 API 修改，
-次版本号：当你做了向下兼容的功能性新增，
-修订号：当你做了向下兼容的问题修正。
+* 主版本号：当你做了不兼容的 API 修改，
+* 次版本号：当你做了向下兼容的功能性新增，
+* 修订号：当你做了向下兼容的问题修正。
 
 第一个版本: 0.0.1
 
 ## cli
+
 1. 彩色输出
 ANSI转义码
 
@@ -46,6 +56,7 @@ istanbul
 * Soda
  
 ## npm 命令
+
 ```
 npm remove <name> 移除包
 npm ls --depth 0 查看当前工程下的包
@@ -253,3 +264,11 @@ https://docs.npmjs.com/cli/audit
 ### Web API 设计
 
 ### node-schedule 使用
+
+### 生成 excel
+
+- js-xlsx : 目前 Github 上 star 数量最多的处理 Excel 的库，支持解析多种格式表格XLSX / XLSM / XLSB / XLS /CSV，解析采用纯js实现，写入需要依赖nodejs或者FileSaver.js实现生成写入Excel，可以生成子表Excel，功能强大，但上手难度稍大。不提供基础设置Excel表格api例单元格宽度，文档有些乱，不适合快速上手；[https://github.com/SheetJS/js-xlsx](https://github.com/SheetJS/js-xlsx)
+- node-xlsx : 基于Node.js解析excel文件数据及生成excel文件，仅支持xlsx格式文件；[https://github.com/mgcrea/node-xlsx](https://github.com/mgcrea/node-xlsx)
+- excel-parser : 基于Node.js解析excel文件数据，支持xls及xlsx格式文件，需要依赖python，太重不太实用；[https://github.com/leftshifters/excel-parser](https://github.com/leftshifters/excel-parser)
+- excel-export : 基于Node.js将数据生成导出excel文件，生成文件格式为xlsx，可以设置单元格宽度，API容易上手，无法生成worksheet字表，比较单一，基本功能可以基本满足；[https://github.com/functionscope/Node-Excel-Export](https://github.com/functionscope/Node-Excel-Export)
+- node-xlrd : 基于node.js从excel文件中提取数据，仅支持xls格式文件,不支持xlsx,有点过时，常用的都是XLSX 格式。

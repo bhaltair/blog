@@ -64,6 +64,7 @@ responsive design 设计
 ## 技术栈
 
 ### HTML/CSS
+
 - 熟悉常用已标准化的HTML与CSS3特性
 - 能够编写语义化的 HTML，模块化的 CSS，完成较复杂的布局
 - 熟悉LESS预编译器

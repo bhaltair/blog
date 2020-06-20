@@ -1,3 +1,6 @@
   - [基础知识](后端/nodejs/基础知识.md)
-  - [express](后端/nodejs/express.md)    
+  - [express](后端/nodejs/express.md)   
+  - [egg](后端/nodejs/egg.md)   
+  - [deno](后端/nodejs/deno.md)   
+  - [Node.js 开发实战](后端/nodejs/极客时间Node.js开发实战.md)
   - [其他](后端/nodejs/other.md)

@@ -8,6 +8,40 @@
 
 ![nginx.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1554952763237-fb523262-349b-469e-a04e-a48ddf04651f.png)
 
+- main
+  - nginx 的全局配置
+- events
+  - 设置网络连接
+- http
+  - 可以嵌套多个 server，配置代理、缓存、日志等功能和第三方模块的配置
+  - upstream
+    - 配置后端服务器具体地址
+    - 负载均衡配置在这里配置
+  - server
+    - 配置虚拟主机的参数，可以配置多个
+    - location
+      - 可以配置多个 location
+      - 配置请求的路由
+    - location
+  - server
+    - location    
+    - location    
+
+## 内置变量
+
+- $host 请求信息中的 Host
+- $request_method
+- $args 请求参数
+- $content_length 请求头中的 Content-length 字段
+- $http_user_agent 客户端 agent 信息
+- $http_cookie 客户端 cookie 信息
+- $remote_port 客户端端口
+- $remote_addr 客户端 IP
+- $server_addr 服务器地址
+- $server_protocol 请求使用的协议
+- $server_name 服务器名称
+- $server_port 服务器的端口号
+
 ## 模板
 
 ### 静态文件
@@ -45,6 +79,89 @@ server {
 https://www.digitalocean.com/community/tools/nginx
 
 https://nginxconfig.io/
+
+## 服务
+
+```bash
+nginx -t //检查配置文件语法问题
+nginx -s reload  // 重新载入配置文件
+nginx -s stop
+
+# 查看服务运行情况
+ps aux | grep nginx
+
+# 查看端口号
+netstat -tlnp
+
+# systemctl 控制服务
+systemctl stop nginx.service
+systemctl start nginx.service
+systemctl restart nginx.service
+```
+
+## 动态匹配
+
+### 根据ip访问控制
+
+```nginx
+location / {
+  deny   123.9.51.42;
+  allow  45.76.202.231;
+}
+```
+
+### 适配 PC 或 Mobile
+
+```nginx
+server{
+        listen 80;
+        server_name nginx2.jspang.com;
+        location / {
+         root /usr/share/nginx/pc;
+         if ($http_user_agent ~* '(Android|webOS|iPhone|iPod|BlackBerry)') {
+            root /usr/share/nginx/mobile;
+         }
+         index index.html;
+        }
+}
+
+### 清除缓存
+
+```nginx
+location ~* \.(js|css|png|jpg|gif)$ {
+    add_header Cache-Control no-store;
+}
+```
+
+```
+## 虚拟主机
+
+?> 利用虚拟主机把多个不同域名的网站部署在同一台服务器上
+
+```nginx
+# 虚拟主机server块
+server {
+  # 端口
+  listen   8080;
+  # 匹配请求中的host值
+  server_name  localhost;
+  
+  # 监听请求路径
+  location / {
+      # 查找目录
+      root /source;
+      # 默认查找
+      index index.html index.htm;
+  }
+}
+
+server{
+  listen 80;
+  server_name nginx2.jspang.com;
+  root /usr/share/nginx/html/html8001;
+  index index.html;
+}
+```
 
 ## location
 
@@ -99,6 +216,27 @@ location ~* \.(gif|jpg|jpeg)$ {
 5. location 部分起始路径
 6. location /
 
+## map
+
+```nginx
+map $sent_http_content_type $expires {
+    "text/html"                 epoch;
+    "text/html; charset=utf-8"  epoch;
+    "text/css"                  max;
+    application/javascript     max;
+    ~image/                    max;
+    default                     off;
+}
+
+location / {
+  expires $expires;
+}
+```
+
+- epoch 
+  - set “Expires” to the value “Thu, 01 Jan 1970 00:00:01 GMT”,
+  - set “Cache-Control” to “no-cache”.
+
 ### 最佳实践
 
 ```shell
@@ -124,7 +262,7 @@ location / {
 }
 ```
 
-## 指令
+## 实践
 
 ### add_header
 
@@ -202,7 +340,7 @@ $http_user_agent 记录客户端浏览器的相关信息
 
 ### keepalive 复用 TCP 连接
 
-### proxy_pass 反向代理
+### proxy_pass 反向代理解决跨域
 
 
 ```nginx
@@ -213,6 +351,35 @@ proxy_set_header X-NginX-Proxy true;
 proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection "upgrade";
 proxy_pass http://127.0.0.1:$node_port$request_uri;
+```
+
+```nginx
+location /api {   
+    # 请求host传给后端
+    proxy_set_header Host $http_host;
+    # 请求ip 传给后端
+    proxy_set_header X-Real-IP $remote_addr;
+    # 请求协议传给后端
+    proxy_set_header X-Scheme $scheme;
+    # 路径重写
+    rewrite  /api/(.*)  /$1  break;
+    # 代理服务器
+    proxy_pass http://localhost:9000;
+}
+```
+
+- $http_host、$remote_addr、$scheme 为Nginx内置变量。
+- break 继续本次请求后面的处理 ,停止匹配下面的location
+- proxy_pass 代理服务器。
+
+### 静态资源服务器
+```nginx
+location ~* \.(png|gif|jpg|jpeg)$ {
+    root    /root/static/;  
+    autoindex on;
+    access_log  off;
+    expires     10h;# 设置过期时间为10小时          
+}
 ```
 
 ### 缓存指令
@@ -241,8 +408,6 @@ server {
   ssl_certificate_key ...;
 }
 ```
-
-##  实践
 
 ### 跳转到 H5
 
@@ -276,3 +441,89 @@ server {
 }
 ```
 
+### 开启 gzip
+
+- 经过gzip压缩后，页面大小可以变为原来的30%甚至更小
+- gzip是需要服务器和浏览器同时支持的
+  - 当浏览器支持gzip压缩时，会在请求消息中包含Accept-Encoding:gzip
+  - 这样Nginx就会向浏览器发送听过gzip后的内容，同时在相应信息头中加入Content-Encoding:gzip
+
+```nginx
+server {
+    # 开启gzip 压缩
+    gzip on;
+    # 设置gzip所需的http协议最低版本 （HTTP/1.1, HTTP/1.0）
+    gzip_http_version 1.1;
+    # 设置压缩级别，压缩级别越高压缩时间越长  （1-9）
+    gzip_comp_level 4;
+    # 设置压缩的最小字节数， 页面Content-Length获取
+    gzip_min_length 1000;
+    # 设置压缩文件的类型  （text/html)
+    gzip_types text/plain application/javascript text/css;
+}
+```
+
+### 负载均衡
+
+- 轮询（默认），请求过来后，Nginx 随机分配流量到任一服务器
+- weight=number 设置服务器的权重，默认为1，权重大的会被优先分配
+  ```nginx
+  upstream backend {
+      server 127.0.0.1:3000 weight=2;
+      server 127.0.0.1:3001 weight=1;
+  }
+  ```
+- backup 标记为备份服务器。当主服务器不可用时，将传递与备份服务器的连接。
+  ```
+  upstream backend {
+      server 127.0.0.1:3000 backup;
+      server 127.0.0.1:3001;
+  }
+  ```
+- ip_hash 保持会话，保证同一客户端始终访问一台服务器。
+  ```nginx
+  upstream backend {
+      ip_hash;  
+      server 127.0.0.1:3000 backup;
+      server 127.0.0.1:3001;
+  }
+  ```
+- least_conn 优先分配最少连接数的服务器，避免服务器超载请求过多。
+  ```
+  upstream backend {
+      least_conn;
+      server 127.0.0.1:3000;
+      server 127.0.0.1:3001;
+  }  
+  ```
+
+#### 一个例子
+
+```nginx
+http {
+
+    upstream backend {
+        server 127.0.0.1:3000;
+        server 127.0.0.1:3001;
+    }
+
+    ...
+    server {
+        listen      9000;
+        server_name localhost;
+        
+        location / {
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Scheme $scheme;
+            
+            proxy_pass backend; 
+        }
+    }
+}
+```
+
+## 参考
+
+- https://zhuanlan.zhihu.com/p/51770774
+- https://juejin.im/post/5bd7a6046fb9a05d2c43f8c7#heading-1

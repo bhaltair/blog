@@ -9,7 +9,7 @@
 
 [另一个知识库](https://www.yuque.com/cashgw)
 
-[有什么想问的](https://github.com/bhaltair/blog/issues)
+[有什么想问的](https://github.com/bhaltair/blog/issues/new)
 
 <qin.ming101@gmail.com>
 

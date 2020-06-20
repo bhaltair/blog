@@ -1,6 +1,7 @@
 - 前端
   - [HTML5](前端/html5.md)
   - [CSS3](前端/css3/_sidebar.md)
+  - [WebAPI](前端/WebAPI.md)
   - [JavaScript](前端/js/_sidebar.md)
   - [TypeScript](前端/typescript.md)
   - [React](前端/library/react.md)
@@ -9,6 +10,7 @@
   - [工程化](前端/工程化.md)
   - [性能优化](前端/性能优化.md)  
   - [webpack](前端/Webpack.md)  
+  - [思考](前端/思考.md)  
 - 后端
   - [NodeJS](后端/nodejs/_sidebar.md)
   - Go

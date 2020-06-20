@@ -3,4 +3,5 @@
 - [网站](网站/网站.md)
 - [面试](面试/面试.md)
 - [英语](英语/英语.md)
+- [读书](读书/_sidebar.md)
 - [博客](https://www.yuque.com/u3641/boikei)
