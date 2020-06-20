@@ -1,6 +1,6 @@
 - 前端
-  - [HTML5](前端/html5.md)
-  - [CSS3](前端/css3/_sidebar.md)
+  - [HTML](前端/html5.md)
+  - [CSS](前端/css3/_sidebar.md)
   - [WebAPI](前端/WebAPI.md)
   - [JavaScript](前端/js/_sidebar.md)
   - [TypeScript](前端/typescript.md)
@@ -34,6 +34,7 @@
   - [数据结构与算法](算法/数据结构与算法.md)
 - 其他
   - [edge](others/edge.md)
+  - [chrome](others/chrome.md)
   - [VSCode](others/vscode.md)
   - [Flutter](others/Flutter.md)
   - [git](others/git.md)

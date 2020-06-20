@@ -78,6 +78,87 @@ var child = parent.$refs.profile
 - Chai: 提供更好的断言语法的测试断言库。
 - Sinon: 测试工具库，提供了spies, stubs 和 mocks。
 
+## Vue Compostion API
+
+- Options API 和 Composition API 孰优孰劣
+- API 
+	- reactive()
+		- return 的时候必须把整个 reactive() 对象返回出去，同时在引用的时候也必须对整个对象进行引用而无法解构，否则这个对象内容的响应式能力将会丢失
+		- 使用 toRefs() 把 reactive() 对象包装一下，就能够通过解构单独使用它里面的内容
+	- ref()
+	- computed()
+
+```vue
+<template>
+  <button @click="increment">
+    Count is: {{ state.count }}, double is: {{ state.double }}
+  </button>
+</template>
+
+<script>
+import { reactive, computed } from 'vue'
+
+export default {
+	// 注意这个setup
+	// function based 是趋势
+  setup() {
+    const state = reactive({
+      count: 0,
+      double: computed(() => state.count * 2)
+    })
+
+    function increment() {
+      state.count++
+    }
+
+		// 返回state和method
+    return {
+      state,
+      increment
+    }
+  }
+}
+</script>
+```
+
+## 3.0 beta
+
+- 2.x 的问题
+	- 数据和逻辑都被分散到了各个 `option`中，复用差
+	- ts 支持差
+- 新引入
+	- Function-based
+- 亮点
+	- performance
+	- tree-shaking support
+	- 组合 API composition api
+		 与 react hooks 类似的东西
+	- fragment、teleport、suspense
+	- 更好的 TS 支持
+		- class 组件继续支持
+	- 自定义渲染 API
+- 周边
+	- router
+		- vue-router-next
+	- vuex
+		- 没有 API 变动，兼容 Vue 3 为主
+	- cli
+		- vue-cli-plugin-vue-next 插件
+	- vue-test-utils
+		- vue-test-utils-next
+	- vite
+		- http 服务器
+		- 不需要 webpack 编译打包
+		- 直接渲染 vue 文件
+	- nuxt
+- 阶段
+	- 1 rfc 征集用户反馈
+	- 2 alpha 阶段
+	- 3 beta 阶段 目前
+	- 4 rc 阶段
+		- 各项 API 已经稳定
+	- 5 兼容 IE 11
+	- 6 发布
 
 ## lyh Vue 工程
 

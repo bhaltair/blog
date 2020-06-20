@@ -65,3 +65,26 @@ DevTools => More tools => Animations 监听动画，查看哪些属性正在被�
 - 点击 Page 右边的 >>，选择 Overrides，新建一个空文件夹
 - 修改原来的 JS，就会永久保存在本地
 - 查看 diff：右上角三个点 => more tools => Changes
+
+## edge chromium 开发者文档
+
+![edge.png](https://www.notion.so/Microsoft-Edge-19a24940118e48da903faf0a06bf9355#4dd00c689b2c4f5eb2880efb2c11323c)
+
+- DevTools
+  - Console
+  - Network
+  - Storage
+  - Command Menu
+  - JavaScript
+  - Performance
+  - Remote Debugging
+  - Security
+- Test & Automation
+  - Accessibility
+  - WebDreiver
+  - Puppeteer
+  - webhint
+  - Performance analysis
+- Extensions
+  - publish to the microsoft store
+- progressive web apps

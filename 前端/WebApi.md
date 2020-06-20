@@ -253,9 +253,10 @@ if(document.implementation.hasFeature('CustomEvents', '3.0')) {
 
 ### target 与 currentTarget
 
-### 清除 DOM 事件
 
 ### 具体事件
+
+#### 清除 DOM 事件
 
 #### 跨域通信
 
@@ -900,4 +901,102 @@ if(devicePixelRatio !== backingStoreRatio){
 // 使用CSS将整个内容恢复到原始大小
 canvas.style.width = originalWidth + 'px';
 canvas.style.height = originalHeight + 'px';
+```
+
+### 数字键盘
+
+```html
+<!-- 有"#" "*"符号输入 -->
+<input type="tel">
+
+<!-- 纯数字 -->
+<input pattern="\d*">
+
+```
+
+### 系统功能
+
+```html
+<!-- 拨号 -->
+<a href="tel:10086">打电话给: 10086</a>
+
+<!-- 发送短信 -->
+<a href="sms:10086">发短信给: 10086</a>
+
+<!-- 发送邮件 -->
+<a href="mailto:839626987@qq.com">发邮件给：839626987@qq.com</a>
+
+<!-- 选择照片或者拍摄照片 -->
+<input type="file" accept="image/*">
+
+<!-- 选择视频或者拍摄视频 -->
+<input type="file" accept="video/*">
+
+<!-- 多选 -->
+<input type="file" multiple>
+
+```
+
+### 打开 APP
+
+```html
+<a href="weixin://">打开微信</a>
+<a href="alipays://">打开支付宝</a>
+<a href="alipays://platformapi/startapp?saId=10000007">打开支付宝的扫一扫功能</a>
+<a href="alipays://platformapi/startapp?appId=60000002">打开支付宝的蚂蚁森林</a>
+```
+
+### 忽略自动识别
+
+```html
+<!-- 忽略浏览器自动识别数字为电话号码 -->
+<meta name="format-detection" content="telephone=no">
+
+<!-- 忽略浏览器自动识别邮箱账号 -->
+<meta name="format-detection" content="email=no">
+
+
+```
+
+### 解决 input 失焦后页面没有回弹
+
+一般出现在 iOS 设备中的微信内部浏览器，
+
+出现的条件为：
+
+1. 页面高度过小
+2. 聚焦时，页面需要往上移动的时候
+
+所以一般input在页面上方或者顶部都不会出现无法回弹🤣
+
+解决办法为
+- 在聚焦时，获取当前滚动条高度
+- 然后失焦时，赋值之前获取的高度：
+
+```vue
+<template>
+  <input type="text" @focus="focus" @blur="blur">
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        scrollTop: 0
+      }
+    },
+    
+    methods: {
+      focus() {
+        this.scrollTop = document.scrollingElement.scrollTop;
+      },
+      
+      blur() {
+        document.scrollingElement.scrollTo(0, this.scrollTop);
+      }
+    }
+  }
+</script>
+
+
 ```
