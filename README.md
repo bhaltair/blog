@@ -5,9 +5,7 @@
 
 ## Contact
 
-[博客](https://www.yuque.com/u3641/boikei)
-
-[另一个知识库](https://www.yuque.com/cashgw)
+[前端实战](https://www.yuque.com/u3641/dxlfpu)
 
 [有什么想问的](https://github.com/bhaltair/blog/issues/new)
 
