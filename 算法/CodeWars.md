@@ -1,3 +1,24 @@
+## kata
+
+## kyu
+
+- 初始是 8 kyu
+- 最难 1 kyu
+
+## level
+
+- leraning to program
+- junior developer
+- mid-level developer
+- senior developer 资深
+
+## 和 LC 比
+
+- CW 中既包含基础算法题，也包含语言特性题，设计模式题，系统设计题，编译器题...
+- CW 更偏实际应用，很多语言特性，最佳实践。
+- CW，全面，趣味，有创造力。
+- LC 都是些面试题，所以普遍难度不会很大，相当于 CW 的4，5，6kyu。
+
 ## 位运算
 ### 不用加减乘除做加法.js
 ### 二进制中1的个数.js
@@ -70,3 +91,68 @@
 ### 两个链表的第一个公共结点.js
 ### 从头到尾打印链表.js
 ### 链表indexOf.js
+
+## tags
+
+- Fundamentals
+- Data Types
+- Algorithms
+- Login
+- Numbers
+- Strings
+- Arrays
+- Mathematics
+- Basic Language Features
+- Puzzles
+- Games
+- Control Flow
+- Data Structures
+- Programming Paradigms
+- Declarative Programming
+- Lists
+- Loops
+- Advanced Language Features
+- Regular Expressions
+- Arithmetic
+- Functions
+- Algebra
+- Functional Programming
+- Geometry
+- Object-oriented Programming
+- Bugs
+- Binary
+- Conditional Statements
+- Objects
+- Sorting
+- Dates & Time
+- Integes
+- Sequences
+- Theoretical Computer Science
+- Computablity Theory
+- Recursion
+- Hashes
+- Parsing
+- Bists
+- Classes
+- Security
+- Cryptography
+- Formats
+- Utilities
+- Booleans
+- Data
+- Dynamic Arrays
+- Formatting
+- Graphs
+- Operators
+- Babel
+- ES2015
+- Refactoring
+- Higher-order Functions
+- Operators
+- Rules
+- Variables
+- Best Practices
+- Case/Switch Statements
+- Charts
+- Data Conversion
+- Exception Handing

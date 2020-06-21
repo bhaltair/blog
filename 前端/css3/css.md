@@ -255,6 +255,10 @@ SimSun,                   // Win old              中易宋体
 sans-serif;               // System Fallback
 ```
 
+## 布局
+
+![a.png](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/25962FF9-A886-485C-A6BF-823EEC288CD1.jpg)
+
 ## IFC 
 
 Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一个块级元素中仅包含内联级别元素时才会生成。
@@ -275,15 +279,17 @@ Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一�
 层模型有 3 中形式，absolute、fixed 可以使元素脱离文档流
 
 ## 伪类
+
 ```css
-@规则
+
+/* @规则 */
 @charset
 @import
 @media
 @font-face
 @keyframes
 
-伪类
+/* 伪类 */
 :active
 :checked
 :disabled
@@ -295,7 +301,7 @@ Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一�
 :nth-child
 
 
-伪元素
+/* 伪元素 */
 ::after
 ::placeholder
 ```
@@ -309,7 +315,29 @@ Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一�
 
 ## 应用
 
-## 1像素解决方案
+### 字符间距
+
+- letter-spacing
+  - 字符间隔    对英文、中文都适用
+  - 默认值是normal 即0
+- word-spacing
+  - 单词间隔
+  - 默认值是normal，等同于设置为0
+  - 可以用负值 将更为紧凑
+
+### transform-origin
+
+* transform-origin: 50% 50% 0 /这是默认值
+* transform-origin: 100% 100% 0 /以右下角为起点
+* transform-origin: 0 0 0 /*以左上角为起点
+* transform-origin: top left;
+
+### 1像素解决方案
+
+- 主要区别就在于是否可以使用圆角
+* 图片实现 border
+* 伪元素 + transform实现
+* box-shadow + transform实现
 
 1
 
@@ -640,3 +668,14 @@ https://chokcoco.github.io/CSS-Inspiration/#/./init
 
 ### CSS-Tricks
 https://qishaoxuan.github.io/css_tricks/
+
+
+## css 技巧进阶 
+https://github.com/AllThingsSmitty/css-protips
+
+## 30-seconds-of-css 
+https://github.com/30-seconds/30-seconds-of-css
+
+## you-neek-to-know-css 
+https://github.com/l-hammer/You-need-to-know-css  
+https://lhammer.cn/You-need-to-know-css/#/zh-cn/

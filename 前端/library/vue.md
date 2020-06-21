@@ -121,6 +121,17 @@ export default {
 </script>
 ```
 
+## 2.x 源码剖析
+
+1. 逐行剖析
+https://nlrx-wjc.github.io/Learn-Vue-Source-Code/
+
+2. Vue.js技术揭秘
+https://ustbhuangyi.github.io/vue-analysis/
+
+3. Vue技术内幕
+http://caibaojian.com/vue-design/art/
+
 ## 3.0 beta
 
 - 2.x 的问题
@@ -159,6 +170,49 @@ export default {
 		- 各项 API 已经稳定
 	- 5 兼容 IE 11
 	- 6 发布
+
+## 实践
+
+### 关注点分离
+
+![a.png](https://app.yinxiang.com/FileSharing.action?hash=1/5386deebbc6b706704a3f77416903319-41910)
+
+### 检测变化的注意事项
+
+- Vue 无法检测到对象属性的添加或删除
+	- 受现代 JavaScript 的限制 (而且 Object.observe 也已经被废弃)，
+- 属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的
+
+```js
+Object.assign(this.someObject, { a: 1, b: 2 })
+
+// 使用
+this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
+
+```
+
+### eslint-plugin-vue
+
+- 检查 template 和 script 
+- 发现语法错误
+- 错误的使用 Vue 质量
+
+### Vuex 结合使用 V-model
+
+```html
+<input v-model="message">
+
+computed: {
+  message: {
+    get () {
+      return this.$store.state.obj.message
+    },
+    set (value) {
+      this.$store.commit('updateMessage', value)
+    }
+  }
+}
+```
 
 ## lyh Vue 工程
 
