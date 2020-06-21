@@ -471,7 +471,21 @@ controller.signal.addEventListener('abort', rejectFn)
 ### First-Contentful-Paint 首屏时间
 ### MutationObserver 监听 DOM 变化
 ### execCommand 复制文本
+
 ### Promise
+
+**安全的 promise**
+
+```js
+const safePromise = promise => 
+  promise.then(data => [null, data]).catch(err => [err])
+
+async funcion fetchData(url) {
+  const [err, result] = await safePromise(fetchApi(url))
+  return err ? err ? result
+}
+
+```
 
 ### iframe 通信
 
@@ -998,5 +1012,35 @@ canvas.style.height = originalHeight + 'px';
   }
 </script>
 
+```
 
+### 解决 iOS 中 input 失焦后，页面上移，点击事件无效
+
+```js
+var u = navigator.userAgent;
+var flag;
+var timer;
+var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+if (isIOS) {
+    document.body.addEventListener('focusin', () => { //软键盘弹起事件
+        flag = true;
+        clearTimeout(timer);
+    })
+    document.body.addEventListener('focusout', () => { //软键盘关闭事件
+        flag = false;
+        if (!flag) {
+            timer = setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth"
+                }) //重点  =======当键盘收起的时候让页面回到原始位置(这里的top可以根据你们个人的需求改变，并不一定要回到页面顶部)
+            }, 200);
+        } else {
+            return false;
+        }
+    })
+} else {
+    return false;
+}
 ```
