@@ -41,5 +41,4 @@
   - [linux](others/linux.md)
   - [持续集成](others/持续集成.md)
   - [编码原则](others/编码原则.md)
-  - [安利](others/安利.md)
   - [防御编程](others/防御编程.md)

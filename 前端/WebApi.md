@@ -487,6 +487,9 @@ async funcion fetchData(url) {
 
 ```
 
+- Promise.resolve() 有什么用？
+  - 可以不用new一个Promise
+  - 是一个快捷方式
 ### iframe 通信
 
 - 父子跨域通信
@@ -1044,3 +1047,13 @@ if (isIOS) {
     return false;
 }
 ```
+
+### intersection Observer
+
+- 了解某个元素是否进入了"视口"（viewport），即用户能不能看到它
+  - 以前，监听 scroll 事件，判断对应视口左上角的坐标
+    - 容易造成性能问题
+  - 现在，有了 intersection Observer 交叉观察器
+- 可见（visible）的本质是，目标元素与视口产生一个交叉区
+  - 当页面滚动时，懒加载图片或其他内容
+  - 为计算广告收益，检测其广告元素的曝光情况
