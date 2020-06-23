@@ -10,5 +10,8 @@
       "loadNavbar": true
     }
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "cz-customizable": "^6.2.0"
+  }
 }
