@@ -412,6 +412,38 @@ docker-compose down
       - "443:443"
 ```
 
+#### 多个服务共享卷
+
+> 比如一个服务的assets，另一个nginx的服务要使用这些静态资源，如何共享？
+
+```dockerfile
+version: '3'
+services:
+  nginx:
+    volumes:
+      - asset-volume:/var/lib/assets
+  asset:
+    volumes:
+      - asset-volume:/var/lib/assets
+
+volumes:
+  asset-volume:
+```
+
+
+- 使用宿主机中转
+
+```docker
+version: '3'
+services:
+  nginx:
+    volumes:
+      - ./assets:/var/lib/assets
+  asset:
+    volumes:
+      - ./assets:/var/lib/assets
+```
+
 ## k8s
 
 Kubernetes 的概念，如何构建 Docker 镜像并通过 Kubernetes 进行部署，控制应用程序部署，添加 AI 服务以扩展应用程序以及保护和监视集群和应用程序。

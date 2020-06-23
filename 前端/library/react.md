@@ -82,7 +82,10 @@ constructor(props) {
     - 四散的代码不容易维护
 - hooks library
   * react-use https://www.npmjs.com/package/react-use
-
+- 使用 Hook 需要遵循的两条规则
+  - 只在最顶层使用Hook
+    - 不要在循环，条件，嵌套函数中调用Hook
+  - 只在 React 函数中调用 Hook
 ### 组件逻辑复用的发展历程
 
 mixin -> HOC & render-props -> Hook

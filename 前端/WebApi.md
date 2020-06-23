@@ -78,6 +78,7 @@ var fragment = document.createDocumentFragment();
 
 > Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
 
+- 大小：4kB 4096 个字节
 - name
 - value
 - domain
@@ -1057,3 +1058,24 @@ if (isIOS) {
 - 可见（visible）的本质是，目标元素与视口产生一个交叉区
   - 当页面滚动时，懒加载图片或其他内容
   - 为计算广告收益，检测其广告元素的曝光情况
+- intersectionRatio
+  - 返回目标元素出现在可视区的比例
+
+
+```js
+
+var intersectionObserver = new IntersectionObserver(function(entries) {
+
+  // If intersectionRatio is 0, the target is out of view
+  // and we do not need to do anything.
+
+  if (entries[0].intersectionRatio <= 0) return;
+
+  loadItems(10);
+  console.log('Loaded new items');
+});
+
+// start observing
+// 开始监听一个目标元素
+intersectionObserver.observe(document.querySelector('.scrollerFooter'));
+```
