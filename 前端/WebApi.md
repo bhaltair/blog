@@ -491,6 +491,7 @@ async funcion fetchData(url) {
 - Promise.resolve() 有什么用？
   - 可以不用new一个Promise
   - 是一个快捷方式
+  
 ### iframe 通信
 
 - 父子跨域通信

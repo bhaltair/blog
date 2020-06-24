@@ -15,26 +15,59 @@
 </body>
 <script>
   window.$docsify = {
+    themeColor: '#3F51B5',
     onlyCover: false,
     coverpage: false,
     name: '流月',
     repo: 'https://github.com/bhaltair',
     loadNavbar: true,
     loadSidebar: true,
-    maxLevel: 5,
-    subMaxLevel: 5, // 展示到二级目录
+    autoHeader: true,
+    maxLevel: 6, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
+    subMaxLevel: 3, // 自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
     auto2top: true,
-    ga: 'UA-105317808-1'
+    ga: 'UA-105317808-1',
+    mergeNavbar: true,
+    formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
+    requestHeaders: {
+      'cache-control': 'max-age=600',
+    },    
+    count:{
+      countable:true,
+      fontsize:'0.9em',
+      color:'rgb(90,90,90)',
+      language:'chinese'
+    },
+    plugins: [
+      function(hook, vm) {
+        hook.beforeEach(function(html) {
+          var url =
+            'https://github.com/bhaltair/blog/blob/master/' +
+            vm.route.file;
+          var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+          return (
+            editHtml +
+            html +
+            '\n----\n' +
+            '最后更新：{docsify-updated} ' +
+            editHtml
+          );
+        });
+      }
+    ]       
   }
 
   if (typeof navigator.serviceWorker !== 'undefined') {
     // navigator.serviceWorker.register('sw.js')
   }
 </script>
-<script src="//unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/ga.js"></script>
+<script src="//unpkg.com/vue@2.6.11/dist/vue.min.js" defer></script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js" defer></script>
+<script src="//unpkg.com/docsify/lib/plugins/emoji.js" async></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.min.js" async></script>
+<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js" async></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-copy-code" async></script>
+<script src="//unpkg.com/docsify/lib/plugins/ga.js" async></script>
+<script src="//unpkg.com/docsify-count/dist/countable.js" async></script>
 </html>
