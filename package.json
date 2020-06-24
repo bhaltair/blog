@@ -13,5 +13,13 @@
   "dependencies": {},
   "devDependencies": {
     "cz-customizable": "^6.2.0"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  }  
 }

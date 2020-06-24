@@ -10,7 +10,7 @@
   - [工程化](前端/工程化.md)
   - [性能优化](前端/性能优化.md)  
   - [webpack](前端/Webpack.md)  
-  - [思考](前端/思考.md)  
+  - [其他](前端/其他.md)  
 - 后端
   - [NodeJS](后端/nodejs/_sidebar.md)
   - Go

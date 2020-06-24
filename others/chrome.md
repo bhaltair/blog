@@ -69,7 +69,7 @@
 - [002《chrono》 让Chrome下载资源更容易](https://www.v2fy.com/p/002_chrono/)
 - [001《markdown-here》 Markdown一键转换到"富文本格式"](https://www.v2fy.com/p/001_markdown_here/)
 
-### Chrome扩展资源站点推荐
+## Chrome扩展资源站点推荐
 
 - 极简插件
   - [https://chrome.zzzmh.cn/](https://chrome.zzzmh.cn/)
