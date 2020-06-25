@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "docsify start ./",
+    "start": "docsify serve docs",
+    "build": "dumi build",
+    "start:dumi": "dumi dev",
     "dev": "browser-sync start --server --files ’**/*.md‘"
   },
   "docsify": {
@@ -12,7 +14,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "cz-customizable": "^6.2.0"
+    "cz-customizable": "^6.2.0",
+    "dumi": "^1.0.31"
   },
   "config": {
     "commitizen": {
@@ -21,5 +24,5 @@
     "cz-customizable": {
       "config": "./.cz-config.js"
     }
-  }  
+  }
 }

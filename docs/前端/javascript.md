@@ -1,0 +1,455 @@
+# JavaScript
+## 基本数据类型
+> 5种 undefined null boolean string number
+
+## 引用类型
+1. object
+2. Array
+3. Date
+4. RegExp
+5. Function
+```js
+  *函数也是对象*
+  * 内置的属性 this 和 arguments
+  arguments.callee  
+  arguments.caller
+  * 内置的方法 call 和 apply 改变作用域
+  * 内置的属性 length 和 prototype  
+  length代表函数希望接受的命名参数的个数
+  > 对于ES5中的引用类型来说，prototype保存了它们的所有实例方法，因此使用for-in无法实现
+```
+6. 包装类型
+```js
+  > 为了便于操作基本类型值，引入3个特殊的引用类型，在读取一个基本类型值的时候，会自动创建一个基本包装类型的对象
+
+  * Boolean
+  * Number
+  * String
+
+  > 引用类型与基本包装类型的主要区别就是对象的生存期，自动创建的基本包装类型的对象，只存在于代码执行瞬间，不能为其添加属性和方法
+```
+7. 单体内置对象
+
+## 运算符优先级
+
+从高到低
+
+- 一元运算符
+- 乘除
+- 加减
+- in、instanceof、>=、
+- 等于比较
+- 位运算符
+- 逻辑运算符
+- 条件运算符
+- 赋值运算符
+- yield
+- 展开运算符
+
+## 类型判断
+     typeof运算符
+     instanceof运算符
+     Object.prototype.toString方法
+
+
+## 垃圾收集
+*找出那些不使用的变量，释放其占用的内存*
+
+## JS 对象
+
+- 宿主对象（host Objects）：由 JavaScript 宿主环境提供的对象，它们的行为完全由宿主环境决定
+  - 全局对象是 window，window 上又有很多属性，如 document，这个全局对象 window 上的属性，一部分来自 JavaScript 语言，一部分来自浏览器环境
+  - 宿主对象也分为固有的和用户可创建的两种，比如 document.createElement 就可以创建一些 dom 对象
+  - 宿主也会提供一些构造器，比如我们可以使用 new Image 来创建 img 元素
+- 内置对象（Built-in Objects）：由 JavaScript 语言提供的对象
+- 固有对象（Intrinsic Objects ）：由标准规定，随着 JavaScript 运行时创建而自动创建的对象实例
+- 原生对象（Native Objects）：可以由用户通过 Array、RegExp 等内置构造器或者特殊语法创建的对象
+- 普通对象（Ordinary Objects）：由 {} 语法、Object 构造器或者 class 关键字定义类创建的对象，它能够被原型继承
+
+### 宿主对象
+
+window
+
+document
+
+screen
+
+navigator
+
+location
+
+history
+
+### 内置固有对象
+### 内置原生对象
+
+几乎所有这些构造器的能力都是无法用纯 JavaScript 代码实现的，它们也无法用 class/extend 语法来继承。
+
+
+- 基本类型
+  - Boolean、String、Number、Symbol、Object
+- 基础功能和数据类型
+  - Array、Date、RegExp、Promise、Proxy、Map、WeakMap、Set、WeapSet、Function
+- 错误类型
+  - Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError
+- 二进制操作
+  - ArrayBuffer、SharedArrayBuffer、DataView
+- 带类型的数组
+  - Float32Array、Float64Array、Int8Array、Int16Array、Int32Array、UInt8Array、UInt16Array、UInt32Array、Uint8ClampedArray
+
+### 内置普通对象
+
+- 函数：具有 [[call]] 私有字段的对象，任何对象只需要实现 [[call]]，它就是一个函数对象
+- 构造器对象：具有 [[construct]] 的对象，实现 [[construct]]，它就是一个构造器对象，可以作为构造器被调用
+
+## 作用域和内存管理
+不用的变量
+`global
+
+
+
+## 挥舞函数
+
+### arguments
+
+
+### 纯函数
+
+- 只有逻辑运算与数学运算
+- 同一个输入总是得到同一个输出
+- 没有副作用
+
+#### 缓存特性
+
+```js
+let memoize = function(f) {
+  let cache = {};
+  return function() {
+    let arg_str = JSON.stringify(arguments);
+    cache[arg_str] = cache[arg_str] || f.apply(f, arguments);
+    return cache[arg_str];
+  };
+};
+```
+#### 纯函数没有副作用
+
+- 更改文件系统
+-往数据库插入记录
+- 发送一个 http 请求
+- 可变数据
+- 打印/log
+- 获取用户输入
+- DOM 查询
+- 访问系统状态
+
+#### 避免副作用 return 一个函数
+
+```js
+// 非纯函数
+let signUp = function(attrs) {
+  let user = saveUser(attrs);
+  welcomeUser(user);
+};
+
+// 纯函数
+let signUp = function(Db, Email, attrs) {
+  return function() {
+    let user = saveUser(Db, attrs);
+    welcomeUser(Email, user);
+  }
+}
+```
+
+#### 优点
+
+- 可缓存、可测试、可并行（web worker）
+- 惰性计算
+
+### generator 迭代器函数
+
+### async-await 函数
+
+### 闭包
+> 模仿块级作用域 创建私有变量
+
+closure 是一个函数在创建时允许该函数访问并操作该自身函数之外的变量时所创建的*作用域*
+
+```js
+function f1() {　　　　
+    var n = 999;
+    function f2() {　　　　　　
+        console.log(n++);　　　　
+    }　　　　
+    return f2;　　
+}
+var result = f1();　　
+var result2 = f1();　　
+result(); // 999
+result(); // 1000
+result2(); // 999
+result(); // 1001
+
+```
+
+### IIFE
+### 匿名函数
+拉姆达函数
+### 模块模式
+
+## this
+this对象是在运行时基于函数的执行环境绑定的
+1. 全局函数，this等于window
+2. 当作对象的方法调用，this等于那个对象
+
+
+
+
+## array
+```js
+[].toString
+[].join
+[].concat
+[].pop
+[].push 将item插入数组尾部，返回新长度
+[].shift
+[].unshift  将item插入数组头部，返回新长度
+[].slice
+[].sort
+[].splice
+[].reverse
+
+- Array.prototype.indexOf
+- Array.prototype.lastIndexOf
+- Array.prototype.every
+- Array.prototype.some
+- Array.prototype.forEach
+- Array.prototype.map
+- Array.prototype.filter
+- Array.prototype.reduce
+- Array.prototype.reduceRight
+- Array.isArray 
+- Array.from
+- Arrary.of
+- Array.fill
+- Array.find
+
+
+```
+
+## object
+
+### 初始化
+
+- 可以通过new Object()，Object.create()方法，或者使用字面量初始化对象
+- 用方括号[]来表示计算属性
+- 重复属性名，后面的会覆盖前面的
+
+```js
+- Object.getPrototypeOf
+- Object.getOwnPropertyDescriptor
+- Object.getOwnPropertyNames
+- Object.create  以o为prototype创建新的对象并返回
+- Object.defineProperty
+- Object.defineProperties
+- Object.seal
+- Object.freeze
+- Object.preventExtensions
+- Object.isSealed
+- Object.isFrozen
+- Object.isExtensible
+- Object.keys  属性的遍历
+
+```
+
+## string
+
+```js
+String.prototype.trim  去除空格
+String.prototype.includes
+String.prototype.repeat
+startsWidth
+endsWith
+
+```
+
+## Number
+```js
+Number.isNaN
+```
+
+### Map WeakMap
+
+- 可以将一个二维键值对数组转换成一个 Map 对象
+  - > [[ 1, 'one' ],[ 2, 'two' ]]
+  - 使用 Array.from 函数可以将一个Map对象转换成一个二维键值对数组
+- Map 和 Object 有啥区别？
+  - Map 都可以作为一个键或一个值，包括函数、对象、基本类型
+    - Object呢，字符串和Symbols作为key
+  - Map 可以通过 size 属性获取键值对个数
+  - 
+## Event Loop
+
+### 调用动画
+
+- Call Stack
+- Web Apis
+- Callback Queue
+
+[在线查看调用过程](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+
+
+### 规范定义
+
+- 把宿主发起的任务称为宏观任务
+- 把 JavaScript 引擎发起的任务称为微观任务
+
+### 任务队列
+### 运行环境
+### 执行流程
+### rendering 实验
+
+### 应用
+
+#### 优化 DOM 操作
+
+### 异步更新策略
+
+#### 宏任务与微任务
+
+#### Event Loop 过程
+
+#### 渲染的时机
+
+#### Vue 异步更新策略 nextTick
+
+### 面试题
+
+https://juejin.im/post/5c9a43175188252d876e5903?utm_source=gold_browser_extension
+
+## 新特性
+
+### Array.flat([flat]) 数组拍平
+
+### Object.fromEntries 组成对象
+
+## babel
+```js
+// 转码前
+input.map(item => item + 1);
+
+// 转码后
+input.map(function (item) {
+  return item + 1;
+});
+```
+
+### babel配置文件
+```js
+  {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ],
+    "plugins": []
+  }
+
+# ES2015转码规则
+$ npm install --save-dev babel-preset-es2015
+
+# react转码规则
+$ npm install --save-dev babel-preset-react
+
+# ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个
+$ npm install --save-dev babel-preset-stage-0
+$ npm install --save-dev babel-preset-stage-1
+$ npm install --save-dev babel-preset-stage-2
+$ npm install --save-dev babel-preset-stage-3
+
+  
+```
+
+
+
+## Object.is polyfill
+
+```js
+if (!Object.is) {
+        Object.is = function(v1, v2) {
+                // 测试 `-0`
+                if (v1 === 0 && v2 === 0) {
+                        return 1 / v1 === 1 / v2;
+                }
+                // 测试 `NaN`
+                if (v1 !== v1) {
+                        return v2 !== v2;
+                }
+                // 其他的一切情况
+                return v1 === v2;
+        };
+}
+
+```
+
+## 原理
+
+### 浏览器架构
+
+- 用户界面
+- 主进程
+- 内核
+  - 渲染引擎
+  - JS 引擎
+  - 事件触发线程
+    - 消息队列
+      - 微任务
+      - 宏任务
+  - 网络异步线程
+  - 定时器线程
+
+### WebGL 与 Canvas
+
+- Canvas 是浏览器封装好的一个绘图环境，在实际进行绘图操作时，浏览器仍然需要调用 OpenGL API
+- WebGL API 几乎就是 OpenGL API 未经封装，直接套了一层壳
+
+### 获取一个对象上可枚举属性的方法
+
+* for in    会返回原型链上的属性或方法名 需要使用hasOwnProperty()过滤
+* Object.keys()    会返回原型链上的属性或方法名，继承的属性也会被返回
+* Object.getOwnPropertyNames()    不可枚举属性也返回
+
+### 解构赋值中的默认值
+
+- 数组、对象解构赋值时
+  - 只有当属性（数组索引对应的值）值为 undefined 时，才会使用默认值。
+
+```js
+function doSomething(options = { foo: 'bar' }) {
+  console.log(options);
+}
+
+
+doSomething(); // { foo: "bar" }
+doSomething(undefined); // { foo: "bar" }
+doSomething(null); // null
+```
+
+### NaN === NaN +0 !== -0
+
+### arr.toString() 和 Object.prototype.toString.call(arr) 的结果为什么不一样？
+
+- string 和 array 的 toString 方法被重写了，
+- 多了解一下继承
+- Object.prototype.toString调用的是object的原型（也就是父类）的tostring方法
+
+
+
+### iterable 迭代器
+
+- 任何数据结构只要部署 Iterator 接口，就可以完成遍历操作
+- ES6 新增的2个协议：可迭代协议与迭代器协议？
+- 内置可迭代对象
+  - String、Array、TypedArray、Map 和 Set 都是内置可迭代对象
+- 用于可迭代对象的语法
+  - for-of 循环，展开语法，yield* 和 解构赋值
+
