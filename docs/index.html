@@ -1,73 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>流月</title>
-  <link rel="icon" href="_media/favicon.ico">
-  <meta name="keywords" content="doc,vue,react,css,generator,github,jekyll,github-pages">
-  <meta name="description" content="流月同学">
-  <meta name="referrer" content="never">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-</head>
-<body>
-  <div id="app">加载中</div>
-</body>
-<script>
-  window.$docsify = {
-    themeColor: '#3F51B5',
-    onlyCover: false,
-    coverpage: false,
-    name: '流月',
-    repo: 'https://github.com/bhaltair',
-    loadNavbar: true,
-    loadSidebar: true,
-    autoHeader: true,
-    maxLevel: 6, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
-    subMaxLevel: 3, // 自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
-    auto2top: true,
-    ga: 'UA-105317808-1',
-    mergeNavbar: true,
-    formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
-    requestHeaders: {
-      'cache-control': 'max-age=600',
-    },    
-    count:{
-      countable:true,
-      fontsize:'0.9em',
-      color:'rgb(90,90,90)',
-      language:'chinese'
-    },
-    plugins: [
-      function(hook, vm) {
-        hook.beforeEach(function(html) {
-          var url =
-            'https://github.com/bhaltair/blog/blob/master/' +
-            vm.route.file;
-          var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/umi.b538b811.css" />
+    <script>
+      window.routerBase = "/blog/";
+    </script>
+    <script>
+      //! umi version: 3.2.3
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
 
-          return (
-            editHtml +
-            html +
-            '\n----\n' +
-            '最后更新：{docsify-updated} ' +
-            editHtml
-          );
-        });
-      }
-    ]       
-  }
-
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    // navigator.serviceWorker.register('sw.js')
-  }
-</script>
-<script src="//unpkg.com/vue@2.6.11/dist/vue.min.js" defer></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js" defer></script>
-<script src="//unpkg.com/docsify/lib/plugins/emoji.js" async></script>
-<script src="//unpkg.com/docsify/lib/plugins/search.min.js" async></script>
-<script src="//unpkg.com/docsify/lib/plugins/zoom-image.js" async></script>
-<script src="//cdn.jsdelivr.net/npm/docsify-copy-code" async></script>
-<script src="//unpkg.com/docsify/lib/plugins/ga.js" async></script>
-<script src="//unpkg.com/docsify-count/dist/countable.js" async></script>
+    <script src="/umi.42979fa2.js"></script>
+  </body>
 </html>

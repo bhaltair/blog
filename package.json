@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "docsify serve docs",
+    "start": "docsify serve src",
     "build": "dumi build",
     "start:dumi": "dumi dev",
     "dev": "browser-sync start --server --files ’**/*.md‘"
