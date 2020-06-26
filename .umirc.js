@@ -1,9 +1,9 @@
 export default {
   hash: true,
   outputPath: 'docs',
-  base: '/blog/',
+  // base: '/blog/',
   publicPath: '/blog/',
-  dynamicImport: {},
+  // dynamicImport: {},
   title: '流月的知识库',
   // navs: [],
   mode: 'site',
