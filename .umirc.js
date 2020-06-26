@@ -8,7 +8,9 @@ export default {
   // navs: [],
   mode: 'site',
   mode: 'doc',
-  history: {
-    type: 'hash'
-  }
+  // history: {
+  //   type: 'hash'
+  // },
+  ssr: {},
+  exportStatic: {}
 };
