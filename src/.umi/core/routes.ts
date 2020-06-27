@@ -6,7 +6,7 @@ const routes = [
   {
     "path": "/",
     "component": (props) => require('react').createElement(require('../../../node_modules/@umijs/preset-dumi/lib/themes/default/layout.js').default, {
-      ...{"menus":{"*":{"*":[{"path":"/","title":"README","meta":{"order":null}},{"title":"其他","path":"/其他","meta":{"order":0},"children":[{"path":"/其他/chrome","title":"Chrome","meta":{}},{"path":"/其他/edge","title":"Edge","meta":{}},{"path":"/其他/flutter","title":"Flutter","meta":{}},{"path":"/其他/git","title":"Git","meta":{}},{"path":"/其他/linux","title":"Linux","meta":{}},{"path":"/其他/持续集成","title":"持续集成","meta":{}},{"path":"/其他/编码原则","title":"编码原则","meta":{}},{"path":"/其他/防御编程","title":"防御编程","meta":{}}]},{"title":"前端","path":"/前端","meta":{"order":1},"children":[{"path":"/前端/css","title":"CSS","meta":{}},{"path":"/前端/html5","title":"HTML","meta":{}},{"path":"/前端/javascript","title":"JavaScript","meta":{}},{"path":"/前端/react","title":"React","meta":{}},{"path":"/前端/typescript","title":"TypeScript","meta":{}},{"path":"/前端/vue","title":"Vue","meta":{}},{"path":"/前端/web-api","title":"Web API","meta":{}},{"path":"/前端/webpack","title":"Webpack","meta":{}},{"path":"/前端/其他","title":"其他","meta":{}},{"path":"/前端/函数式编程","title":"函数式编程","meta":{}},{"path":"/前端/小程序","title":"小程序","meta":{}},{"path":"/前端/工程化","title":"工程化","meta":{}},{"path":"/前端/性能优化","title":"性能优化","meta":{}},{"path":"/前端/测试","title":"测试","meta":{}},{"path":"/前端/面向对象","title":"面向对象","meta":{}}]},{"title":"后端","path":"/后端","meta":{},"children":[{"path":"/后端/deno","title":"deno","meta":{}},{"path":"/后端/docker","title":"Docker","meta":{}},{"path":"/后端/express","title":"Express","meta":{}},{"path":"/后端/nginx","title":"Nginx","meta":{}},{"path":"/后端/nodejs","title":"Node.js","meta":{}},{"path":"/后端/其他","title":"其他","meta":{}}]},{"title":"库","path":"/库","meta":{},"children":[]},{"title":"算法","path":"/算法","meta":{},"children":[{"path":"/算法/code-wars","title":"CodeWars","meta":{}},{"path":"/算法/leet-code","title":"LeetCode","meta":{}},{"path":"/算法/手写代码","title":"手写代码","meta":{}},{"path":"/算法/数据结构与算法","title":"数据结构与算法","meta":{}}]},{"title":"网站","path":"/网站","meta":{},"children":[]},{"title":"英语","path":"/英语","meta":{},"children":[{"path":"/英语/摘抄","title":"摘抄","meta":{}},{"path":"/英语/英语","title":"英语","meta":{}},{"path":"/英语/语法","title":"语法","meta":{}}]},{"title":"计算机","path":"/计算机","meta":{},"children":[{"path":"/计算机/安全基础","title":"安全基础","meta":{}},{"path":"/计算机/正则","title":"正则表达式","meta":{}},{"path":"/计算机/网络基础","title":"网络基础","meta":{}},{"path":"/计算机/设计模式","title":"设计模式","meta":{}}]},{"title":"读书","path":"/读书","meta":{},"children":[{"path":"/读书/elon-musk","title":"Elon Musk","meta":{}},{"path":"/读书/王小波","title":"王小波","meta":{}}]},{"title":"面试","path":"/面试","meta":{},"children":[]}]}},"locales":[],"navs":{},"title":"流月的知识库","mode":"doc"},
+      ...{"menus":{"*":{"*":[{"path":"/","title":"README","meta":{"order":null}},{"title":"前端","path":"/前端","meta":{"order":1},"children":[{"path":"/前端/css","title":"CSS","meta":{}},{"path":"/前端/html5","title":"HTML","meta":{}},{"path":"/前端/javascript","title":"JavaScript","meta":{}},{"path":"/前端/react","title":"React","meta":{}},{"path":"/前端/typescript","title":"TypeScript","meta":{}},{"path":"/前端/vue","title":"Vue","meta":{}},{"path":"/前端/web-api","title":"Web API","meta":{}},{"path":"/前端/webpack","title":"Webpack","meta":{}},{"path":"/前端/其他","title":"其他","meta":{}},{"path":"/前端/函数式编程","title":"函数式编程","meta":{}},{"path":"/前端/小程序","title":"小程序","meta":{}},{"path":"/前端/工程化","title":"工程化","meta":{}},{"path":"/前端/性能优化","title":"性能优化","meta":{}},{"path":"/前端/测试","title":"测试","meta":{}},{"path":"/前端/面向对象","title":"面向对象","meta":{}}]},{"title":"后端","path":"/后端","meta":{"order":2},"children":[{"path":"/后端/deno","title":"deno","meta":{}},{"path":"/后端/docker","title":"Docker","meta":{}},{"path":"/后端/express","title":"Express","meta":{}},{"path":"/后端/nginx","title":"Nginx","meta":{}},{"path":"/后端/nodejs","title":"Node.js","meta":{}},{"path":"/后端/其他","title":"其他","meta":{}}]},{"title":"计算机","path":"/计算机","meta":{"order":3},"children":[{"path":"/计算机/安全基础","title":"安全基础","meta":{}},{"path":"/计算机/正则","title":"正则表达式","meta":{}},{"path":"/计算机/网络基础","title":"网络基础","meta":{}},{"path":"/计算机/设计模式","title":"设计模式","meta":{}}]},{"title":"算法","path":"/算法","meta":{"order":4},"children":[{"path":"/算法/code-wars","title":"CodeWars","meta":{}},{"path":"/算法/leet-code","title":"LeetCode","meta":{}},{"path":"/算法/手写代码","title":"手写代码","meta":{}},{"path":"/算法/数据结构与算法","title":"数据结构与算法","meta":{}}]},{"title":"英语","path":"/英语","meta":{"order":5},"children":[{"path":"/英语/摘抄","title":"摘抄","meta":{}},{"path":"/英语/英语","title":"英语","meta":{}},{"path":"/英语/语法","title":"语法","meta":{}}]},{"title":"读书","path":"/读书","meta":{"order":6},"children":[{"path":"/读书/elon-musk","title":"Elon Musk","meta":{}},{"path":"/读书/王小波","title":"王小波","meta":{}}]},{"title":"其他","path":"/其他","meta":{"order":100},"children":[{"path":"/其他/chrome","title":"Chrome","meta":{}},{"path":"/其他/edge","title":"Edge","meta":{}},{"path":"/其他/flutter","title":"Flutter","meta":{}},{"path":"/其他/git","title":"Git","meta":{}},{"path":"/其他/linux","title":"Linux","meta":{}},{"path":"/其他/持续集成","title":"持续集成","meta":{}},{"path":"/其他/编码原则","title":"编码原则","meta":{}},{"path":"/其他/防御编程","title":"防御编程","meta":{}}]},{"title":"库","path":"/库","meta":{},"children":[]},{"title":"网站","path":"/网站","meta":{},"children":[]},{"title":"面试","path":"/面试","meta":{},"children":[]}]}},"locales":[],"navs":{},"title":"流月的知识库","mode":"doc"},
       ...props,
     }),
     "routes": [
@@ -27,7 +27,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/Flutter.md",
-          "updatedTime": 1593073064768,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -89,7 +89,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/chrome.md",
-          "updatedTime": 1593073056326,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -121,7 +121,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/edge.md",
-          "updatedTime": 1593073060225,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -233,7 +233,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/git.md",
-          "updatedTime": 1593073068594,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -405,7 +405,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/linux.md",
-          "updatedTime": 1593073074876,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -508,84 +508,179 @@ const routes = [
               "heading": "top-系统状态"
             },
             {
-              "depth": 3,
-              "value": "free 内存占用",
-              "heading": "free-内存占用"
+              "depth": 1,
+              "value": "内存使用",
+              "heading": "内存使用"
             },
             {
-              "depth": 3,
-              "value": "netstat 网络情况",
-              "heading": "netstat-网络情况"
+              "depth": 1,
+              "value": "网络情况",
+              "heading": "网络情况"
             },
             {
-              "depth": 3,
-              "value": "lsof 查看端口占用",
-              "heading": "lsof-查看端口占用"
+              "depth": 1,
+              "value": "正在使用的端口",
+              "heading": "正在使用的端口"
             },
             {
-              "depth": 3,
-              "value": "usermod 用户与组",
-              "heading": "usermod-用户与组"
+              "depth": 1,
+              "value": "创建一个用户组(可以带上 -g 888 来在创建组的时候增加编号)",
+              "heading": "创建一个用户组可以带上--g-888-来在创建组的时候增加编号"
             },
             {
-              "depth": 3,
-              "value": "chmod 文件与权限",
-              "heading": "chmod-文件与权限"
+              "depth": 1,
+              "value": "修改组名称",
+              "heading": "修改组名称"
             },
             {
-              "depth": 3,
-              "value": "systemctl 服务管理",
-              "heading": "systemctl-服务管理"
+              "depth": 1,
+              "value": "修改组编号",
+              "heading": "修改组编号"
             },
             {
-              "depth": 3,
-              "value": "rm 删除文件",
-              "heading": "rm-删除文件"
+              "depth": 1,
+              "value": "删除用户组(必须先删除组里面的用户才能删除组)",
+              "heading": "删除用户组必须先删除组里面的用户才能删除组"
             },
             {
-              "depth": 3,
-              "value": "tail 动态查看日志",
-              "heading": "tail-动态查看日志"
+              "depth": 1,
+              "value": "设置组密码",
+              "heading": "设置组密码"
             },
             {
-              "depth": 3,
-              "value": "du 查看文件大小",
-              "heading": "du-查看文件大小"
+              "depth": 1,
+              "value": "创建一个用户",
+              "heading": "创建一个用户"
             },
             {
-              "depth": 3,
-              "value": "tar 打包解包",
-              "heading": "tar-打包解包"
+              "depth": 1,
+              "value": "修改一个用户所属用户组",
+              "heading": "修改一个用户所属用户组"
             },
             {
-              "depth": 3,
-              "value": "find 查找文件",
-              "heading": "find-查找文件"
+              "depth": 1,
+              "value": "删除用户",
+              "heading": "删除用户"
             },
             {
-              "depth": 3,
-              "value": "nohup 持续运行",
-              "heading": "nohup-持续运行"
+              "depth": 1,
+              "value": "设置用户密码",
+              "heading": "设置用户密码"
             },
             {
-              "depth": 3,
-              "value": "mkdir 创建文件夹",
-              "heading": "mkdir-创建文件夹"
+              "depth": 1,
+              "value": "更改文件属组，-R 递归更改目录所有文件属组",
+              "heading": "更改文件属组，-r-递归更改目录所有文件属组"
             },
             {
-              "depth": 3,
-              "value": "cat & less 查看文件",
-              "heading": "cat--less-查看文件"
+              "depth": 1,
+              "value": "更改所属主，可以同时更改文件属组",
+              "heading": "更改所属主，可以同时更改文件属组"
             },
             {
-              "depth": 3,
-              "value": "cp 复制文件",
-              "heading": "cp-复制文件"
+              "depth": 1,
+              "value": "更改文件9个属性，r=4、w=2、x=1",
+              "heading": "更改文件9个属性，r4、w2、x1"
             },
             {
-              "depth": 3,
-              "value": "curl",
-              "heading": "curl"
+              "depth": 1,
+              "value": "让某个服务开机自启(.service可以省略)",
+              "heading": "让某个服务开机自启service可以省略"
+            },
+            {
+              "depth": 1,
+              "value": "不让开机自启",
+              "heading": "不让开机自启"
+            },
+            {
+              "depth": 1,
+              "value": "查看服务状态",
+              "heading": "查看服务状态"
+            },
+            {
+              "depth": 1,
+              "value": "启动某个服务",
+              "heading": "启动某个服务"
+            },
+            {
+              "depth": 1,
+              "value": "停止某个服务",
+              "heading": "停止某个服务"
+            },
+            {
+              "depth": 1,
+              "value": "重启某个服务",
+              "heading": "重启某个服务"
+            },
+            {
+              "depth": 1,
+              "value": "重新加载服务配置文件",
+              "heading": "重新加载服务配置文件"
+            },
+            {
+              "depth": 1,
+              "value": "查询服务是否开机启动",
+              "heading": "查询服务是否开机启动"
+            },
+            {
+              "depth": 1,
+              "value": "查看文件大小",
+              "heading": "查看文件大小"
+            },
+            {
+              "depth": 1,
+              "value": "查看文件夹内容大小，-s 显示统计",
+              "heading": "查看文件夹内容大小，-s-显示统计"
+            },
+            {
+              "depth": 1,
+              "value": "打包",
+              "heading": "打包"
+            },
+            {
+              "depth": 1,
+              "value": "解包",
+              "heading": "解包"
+            },
+            {
+              "depth": 1,
+              "value": "找命令",
+              "heading": "找命令"
+            },
+            {
+              "depth": 1,
+              "value": "全局寻找文件，需要先安装 mlocate 并执行 updatedb 生成索引",
+              "heading": "全局寻找文件，需要先安装-mlocate-并执行-updatedb-生成索引"
+            },
+            {
+              "depth": 1,
+              "value": "文件查找",
+              "heading": "文件查找"
+            },
+            {
+              "depth": 1,
+              "value": "后台运行",
+              "heading": "后台运行"
+            },
+            {
+              "depth": 1,
+              "value": "递归创建目录",
+              "heading": "递归创建目录"
+            },
+            {
+              "depth": 1,
+              "value": "显示行号",
+              "heading": "显示行号"
+            },
+            {
+              "depth": 1,
+              "value": "交互式查看文件",
+              "heading": "交互式查看文件"
+            },
+            {
+              "depth": 1,
+              "value": "复制目录及目录内所有项目",
+              "heading": "复制目录及目录内所有项目"
             },
             {
               "depth": 2,
@@ -687,7 +782,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/持续集成.md",
-          "updatedTime": 1593059732402,
+          "updatedTime": 1593137011000,
           "group": {
             "order": 0,
             "path": "/其他",
@@ -730,7 +825,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/编码原则.md",
-          "updatedTime": 1593073028479,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 100,
+            "path": "/其他",
+            "title": "其他"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -799,6 +899,11 @@ const routes = [
             },
             {
               "depth": 2,
+              "value": "iife 的写法",
+              "heading": "iife-的写法"
+            },
+            {
+              "depth": 2,
               "value": "函数注释",
               "heading": "函数注释"
             },
@@ -843,11 +948,7 @@ const routes = [
               "heading": "易于修改"
             }
           ],
-          "title": "编码原则",
-          "group": {
-            "path": "/其他",
-            "title": "其他"
-          }
+          "title": "编码原则"
         },
         "title": "编码原则"
       },
@@ -857,7 +958,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/其他/防御编程.md",
-          "updatedTime": 1593073044776,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -879,7 +980,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/WebApi.md",
-          "updatedTime": 1593060061146,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -1466,7 +1567,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/css.md",
-          "updatedTime": 1593060669579,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -1973,7 +2074,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/html5.md",
-          "updatedTime": 1593060053322,
+          "updatedTime": 1593137011000,
           "title": "HTML",
           "slugs": [
             {
@@ -2120,7 +2221,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/javascript.md",
-          "updatedTime": 1593072837578,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -2442,7 +2543,13 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/react.md",
-          "updatedTime": 1592897424761,
+          "updatedTime": 1593137011000,
+          "title": "React",
+          "group": {
+            "order": 1,
+            "path": "/前端",
+            "title": "前端"
+          },
           "slugs": [
             {
               "depth": 2,
@@ -2490,6 +2597,11 @@ const routes = [
               "heading": "hooks"
             },
             {
+              "depth": 4,
+              "value": "Hooks library",
+              "heading": "hooks-library"
+            },
+            {
               "depth": 3,
               "value": "组件逻辑复用的发展历程",
               "heading": "组件逻辑复用的发展历程"
@@ -2503,11 +2615,6 @@ const routes = [
               "depth": 3,
               "value": "HOC 高阶组件",
               "heading": "hoc-高阶组件"
-            },
-            {
-              "depth": 4,
-              "value": "library",
-              "heading": "library"
             },
             {
               "depth": 3,
@@ -2824,12 +2931,7 @@ const routes = [
               "value": "资源",
               "heading": "资源"
             }
-          ],
-          "title": "React",
-          "group": {
-            "path": "/前端",
-            "title": "前端"
-          }
+          ]
         },
         "title": "React"
       },
@@ -2839,7 +2941,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/typescript.md",
-          "updatedTime": 1593072403159,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -2916,7 +3018,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/vue.md",
-          "updatedTime": 1593072437288,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3053,7 +3155,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/webpack.md",
-          "updatedTime": 1593072520340,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3180,7 +3282,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/其他.md",
-          "updatedTime": 1593059916695,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3397,7 +3499,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/函数式编程.md",
-          "updatedTime": 1593059903981,
+          "updatedTime": 1593137011000,
           "title": "函数式编程",
           "slugs": [
             {
@@ -3444,7 +3546,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/小程序.md",
-          "updatedTime": 1593059937079,
+          "updatedTime": 1593137011000,
           "title": "小程序",
           "slugs": [
             {
@@ -3476,7 +3578,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/工程化.md",
-          "updatedTime": 1593072487455,
+          "updatedTime": 1593137011000,
           "title": "工程化",
           "slugs": [
             {
@@ -3533,7 +3635,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/性能优化.md",
-          "updatedTime": 1593059948253,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3740,7 +3842,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/测试.md",
-          "updatedTime": 1593059768713,
+          "updatedTime": 1593137011000,
           "title": "测试",
           "group": {
             "order": 1,
@@ -3863,7 +3965,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/面向对象.md",
-          "updatedTime": 1593072852450,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3955,7 +4057,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/deno.md",
-          "updatedTime": 1593073286447,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -3987,7 +4089,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/docker.md",
-          "updatedTime": 1593073291738,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -4244,7 +4346,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/express.md",
-          "updatedTime": 1593073345717,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -4326,7 +4428,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/nginx.md",
-          "updatedTime": 1593073312307,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -4523,7 +4625,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/nodejs.md",
-          "updatedTime": 1593073354199,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -4970,7 +5072,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/后端/其他.md",
-          "updatedTime": 1593073272790,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 2,
+            "path": "/后端",
+            "title": "后端"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -5028,11 +5135,7 @@ const routes = [
               "heading": "学到什么"
             }
           ],
-          "title": "其他",
-          "group": {
-            "path": "/后端",
-            "title": "后端"
-          }
+          "title": "其他"
         },
         "title": "其他"
       },
@@ -5042,7 +5145,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/库/库推荐.md",
-          "updatedTime": 1593057195627,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -5154,7 +5257,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/CodeWars.md",
-          "updatedTime": 1593073443662,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -5501,7 +5604,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/LeetCode.md",
-          "updatedTime": 1593073449829,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -5515,8 +5618,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "常见考点",
-              "heading": "常见考点"
+              "value": "怎么刷？",
+              "heading": "怎么刷？"
             },
             {
               "depth": 3,
@@ -5918,7 +6021,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/手写代码.md",
-          "updatedTime": 1593073432135,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 4,
+            "path": "/算法",
+            "title": "算法"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -6101,11 +6209,7 @@ const routes = [
               "heading": "扁平对象转树形对象"
             }
           ],
-          "title": "手写代码",
-          "group": {
-            "path": "/算法",
-            "title": "算法"
-          }
+          "title": "手写代码"
         },
         "title": "手写代码"
       },
@@ -6115,7 +6219,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593073437866,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -6213,7 +6317,7 @@ const routes = [
               "heading": "王争---数据结构和算法必知必会的50个代码实现"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "教程",
               "heading": "教程"
             },
@@ -6224,26 +6328,46 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "考察什么",
-              "heading": "考察什么"
+              "value": "考察维度",
+              "heading": "考察维度"
             },
             {
               "depth": 2,
-              "value": "伪代码怎么写",
-              "heading": "伪代码怎么写"
+              "value": "伪代码",
+              "heading": "伪代码"
             },
             {
               "depth": 2,
-              "value": "数据结构",
-              "heading": "数据结构"
-            },
-            {
-              "depth": 3,
               "value": "基本概念",
               "heading": "基本概念"
             },
             {
+              "depth": 2,
+              "value": "如何应对算法题",
+              "heading": "如何应对算法题"
+            },
+            {
+              "depth": 2,
+              "value": "复杂度",
+              "heading": "复杂度"
+            },
+            {
               "depth": 3,
+              "value": "常见复杂度",
+              "heading": "常见复杂度"
+            },
+            {
+              "depth": 3,
+              "value": "时间复杂度",
+              "heading": "时间复杂度"
+            },
+            {
+              "depth": 3,
+              "value": "空间复杂度",
+              "heading": "空间复杂度"
+            },
+            {
+              "depth": 2,
               "value": "存储结构",
               "heading": "存储结构"
             },
@@ -6253,277 +6377,447 @@ const routes = [
               "heading": "没有完美的数据结构"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "字符串",
               "heading": "字符串-1"
             },
             {
               "depth": 3,
+              "value": "翻转整数",
+              "heading": "翻转整数"
+            },
+            {
+              "depth": 3,
+              "value": "反转字符串",
+              "heading": "反转字符串"
+            },
+            {
+              "depth": 3,
+              "value": "验证回文字符串",
+              "heading": "验证回文字符串"
+            },
+            {
+              "depth": 2,
+              "value": "数学",
+              "heading": "数学"
+            },
+            {
+              "depth": 3,
+              "value": "罗马数字转整数、Fizz Buzz 和 计数质数",
+              "heading": "罗马数字转整数、fizz-buzz-和-计数质数"
+            },
+            {
+              "depth": 3,
+              "value": "3 的幂、Execel 表格序号、快乐数和阶乘后的零",
+              "heading": "3-的幂、execel-表格序号、快乐数和阶乘后的零"
+            },
+            {
+              "depth": 3,
+              "value": "Pow(x, n)、两数相除、分数到小数和 x 的平方根",
+              "heading": "powx-n、两数相除、分数到小数和-x-的平方根"
+            },
+            {
+              "depth": 2,
               "value": "数组",
               "heading": "数组"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "基本操作",
               "heading": "基本操作"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "优势",
               "heading": "优势"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "V8 中关于数组的两种存储模式",
               "heading": "v8-中关于数组的两种存储模式"
             },
             {
-              "depth": 4,
-              "value": "真题",
-              "heading": "真题"
+              "depth": 3,
+              "value": "翻转数组",
+              "heading": "翻转数组"
             },
             {
               "depth": 3,
+              "value": "从排序树组中删除重复项",
+              "heading": "从排序树组中删除重复项"
+            },
+            {
+              "depth": 3,
+              "value": "两个数组的交集",
+              "heading": "两个数组的交集"
+            },
+            {
+              "depth": 3,
+              "value": "字谜分组",
+              "heading": "字谜分组"
+            },
+            {
+              "depth": 2,
               "value": "链表 Link-List",
               "heading": "链表-link-list"
             },
             {
-              "depth": 4,
-              "value": "复杂度比较",
-              "heading": "复杂度比较"
+              "depth": 3,
+              "value": "复杂度",
+              "heading": "复杂度-1"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "LC 探索",
               "heading": "lc-探索"
             },
             {
-              "depth": 4,
+              "depth": 3,
+              "value": "边界",
+              "heading": "边界"
+            },
+            {
+              "depth": 3,
               "value": "题目",
               "heading": "题目"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "数组和链表比较",
               "heading": "数组和链表比较"
             },
             {
-              "depth": 4,
+              "depth": 3,
+              "value": "双向链表",
+              "heading": "双向链表"
+            },
+            {
+              "depth": 3,
+              "value": "设计一个链表",
+              "heading": "设计一个链表"
+            },
+            {
+              "depth": 3,
               "value": "解题技巧 - 快慢双指针",
               "heading": "解题技巧---快慢双指针"
             },
             {
-              "depth": 4,
-              "value": "翻转单链表",
-              "heading": "翻转单链表"
-            },
-            {
-              "depth": 4,
-              "value": "回文链表 isPalindrome",
-              "heading": "回文链表-ispalindrome"
-            },
-            {
-              "depth": 4,
-              "value": "环形链表",
-              "heading": "环形链表"
+              "depth": 3,
+              "value": "移除链表元素",
+              "heading": "移除链表元素"
             },
             {
               "depth": 3,
+              "value": "1-1 回文链表 isPalindrome",
+              "heading": "1-1-回文链表-ispalindrome"
+            },
+            {
+              "depth": 3,
+              "value": "1-2 环形链表",
+              "heading": "1-2-环形链表"
+            },
+            {
+              "depth": 3,
+              "value": "1-3 删除链表中的节点",
+              "heading": "1-3-删除链表中的节点"
+            },
+            {
+              "depth": 3,
+              "value": "2-1 翻转单链表",
+              "heading": "2-1-翻转单链表"
+            },
+            {
+              "depth": 3,
+              "value": "2-2 删除链表的倒数第N个节点",
+              "heading": "2-2-删除链表的倒数第n个节点"
+            },
+            {
+              "depth": 3,
+              "value": "2-3 合并两个有序链表",
+              "heading": "2-3-合并两个有序链表"
+            },
+            {
+              "depth": 3,
+              "value": "2-4 两数相加",
+              "heading": "2-4-两数相加"
+            },
+            {
+              "depth": 3,
+              "value": "3-1 排序链表",
+              "heading": "3-1-排序链表"
+            },
+            {
+              "depth": 3,
+              "value": "3-2 相交链表",
+              "heading": "3-2-相交链表"
+            },
+            {
+              "depth": 3,
+              "value": "3-3 奇偶链表",
+              "heading": "3-3-奇偶链表"
+            },
+            {
+              "depth": 3,
+              "value": "3-4 相交链表",
+              "heading": "3-4-相交链表"
+            },
+            {
+              "depth": 2,
               "value": "栈 Stack",
               "heading": "栈-stack"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "队列 Queue",
               "heading": "队列-queue"
             },
             {
-              "depth": 4,
+              "depth": 2,
+              "value": "栈和队列",
+              "heading": "栈和队列"
+            },
+            {
+              "depth": 3,
+              "value": "汉明距离",
+              "heading": "汉明距离"
+            },
+            {
+              "depth": 3,
+              "value": "有效的括号",
+              "heading": "有效的括号"
+            },
+            {
+              "depth": 3,
+              "value": "两整数之和",
+              "heading": "两整数之和"
+            },
+            {
+              "depth": 3,
+              "value": "有序矩阵中第K小的元素和多数元素",
+              "heading": "有序矩阵中第k小的元素和多数元素"
+            },
+            {
+              "depth": 3,
               "value": "优先队列",
               "heading": "优先队列"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "堆栈、队列比较",
               "heading": "堆栈、队列比较"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "散列表",
               "heading": "散列表"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "树",
               "heading": "树"
             },
             {
-              "depth": 4,
-              "value": "二叉树遍历",
-              "heading": "二叉树遍历"
+              "depth": 3,
+              "value": "二叉树",
+              "heading": "二叉树-1"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "二叉查找树 BST",
               "heading": "二叉查找树-bst"
             },
             {
               "depth": 3,
+              "value": "最小栈",
+              "heading": "最小栈"
+            },
+            {
+              "depth": 3,
+              "value": "对称二叉树",
+              "heading": "对称二叉树"
+            },
+            {
+              "depth": 3,
+              "value": "二叉树的层次遍历",
+              "heading": "二叉树的层次遍历"
+            },
+            {
+              "depth": 3,
+              "value": "中序遍历二叉树",
+              "heading": "中序遍历二叉树"
+            },
+            {
+              "depth": 3,
+              "value": "填充每个节点的下一个右侧节点指针",
+              "heading": "填充每个节点的下一个右侧节点指针"
+            },
+            {
+              "depth": 2,
               "value": "堆",
               "heading": "堆-1"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "binary heap",
               "heading": "binary-heap"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "图",
               "heading": "图-1"
             },
             {
-              "depth": 3,
-              "value": "其他",
-              "heading": "其他"
+              "depth": 2,
+              "value": "其他数据结构",
+              "heading": "其他数据结构"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "布隆过滤器",
               "heading": "布隆过滤器"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "用于索引的数据结构",
               "heading": "用于索引的数据结构"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "数据结构比较",
               "heading": "数据结构比较"
             },
             {
               "depth": 2,
-              "value": "算法",
-              "heading": "算法"
-            },
-            {
-              "depth": 3,
-              "value": "复杂度",
-              "heading": "复杂度"
-            },
-            {
-              "depth": 4,
-              "value": "常见复杂度",
-              "heading": "常见复杂度"
-            },
-            {
-              "depth": 4,
-              "value": "时间复杂度",
-              "heading": "时间复杂度"
-            },
-            {
-              "depth": 4,
-              "value": "空间复杂度",
-              "heading": "空间复杂度"
-            },
-            {
-              "depth": 3,
               "value": "递归",
               "heading": "递归"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "斐波那契",
               "heading": "斐波那契"
             },
             {
-              "depth": 3,
+              "depth": 2,
               "value": "分治",
               "heading": "分治"
             },
             {
-              "depth": 3,
-              "value": "贪心",
-              "heading": "贪心"
-            },
-            {
-              "depth": 3,
+              "depth": 2,
               "value": "回溯算法",
               "heading": "回溯算法"
             },
             {
               "depth": 3,
+              "value": "括号生成、子集和电话号码的字母组合",
+              "heading": "括号生成、子集和电话号码的字母组合"
+            },
+            {
+              "depth": 3,
+              "value": "实现数组的全排列和单词搜索",
+              "heading": "实现数组的全排列和单词搜索"
+            },
+            {
+              "depth": 2,
+              "value": "贪心",
+              "heading": "贪心"
+            },
+            {
+              "depth": 2,
               "value": "动态规划",
               "heading": "动态规划"
             },
             {
               "depth": 3,
-              "value": "其他",
-              "heading": "其他-1"
+              "value": "最大子序和、爬楼梯和买卖股票的最佳时机",
+              "heading": "最大子序和、爬楼梯和买卖股票的最佳时机"
             },
             {
-              "depth": 4,
+              "depth": 3,
+              "value": "打家劫舍、零钱兑换和跳跃游戏",
+              "heading": "打家劫舍、零钱兑换和跳跃游戏"
+            },
+            {
+              "depth": 3,
+              "value": "不同路径和单词拆分",
+              "heading": "不同路径和单词拆分"
+            },
+            {
+              "depth": 2,
               "value": "排序与搜索",
               "heading": "排序与搜索"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "广度优先搜索、深度优先搜索",
               "heading": "广度优先搜索、深度优先搜索"
             },
             {
-              "depth": 4,
-              "value": "查找",
-              "heading": "查找"
+              "depth": 3,
+              "value": "合并两个有序数组",
+              "heading": "合并两个有序数组"
             },
             {
-              "depth": 4,
-              "value": "二分查找",
-              "heading": "二分查找"
+              "depth": 3,
+              "value": "在排序数组中查找元素的第一个和最后一个位置",
+              "heading": "在排序数组中查找元素的第一个和最后一个位置"
             },
             {
-              "depth": 4,
-              "value": "数学",
-              "heading": "数学"
+              "depth": 3,
+              "value": "前 K 个高频元素",
+              "heading": "前-k-个高频元素"
             },
             {
-              "depth": 4,
+              "depth": 3,
+              "value": "搜索二位矩阵 II",
+              "heading": "搜索二位矩阵-ii"
+            },
+            {
+              "depth": 2,
+              "value": "其他算法",
+              "heading": "其他算法"
+            },
+            {
+              "depth": 3,
+              "value": "查找（搜索）算法与二分查找（搜索）",
+              "heading": "查找（搜索）算法与二分查找（搜索）"
+            },
+            {
+              "depth": 3,
               "value": "剪枝",
               "heading": "剪枝"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "hash 算法",
               "heading": "hash-算法"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "字典树",
               "heading": "字典树"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "并查集",
               "heading": "并查集"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "位运算的运用",
               "heading": "位运算的运用"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "布隆过滤器",
               "heading": "布隆过滤器-1"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "0 - 1 背包",
               "heading": "0---1-背包"
             },
             {
-              "depth": 4,
+              "depth": 3,
               "value": "LRU 缓存 淘汰算法",
               "heading": "lru-缓存-淘汰算法"
             },
@@ -6555,7 +6849,7 @@ const routes = [
             {
               "depth": 4,
               "value": "二分查找",
-              "heading": "二分查找-1"
+              "heading": "二分查找"
             },
             {
               "depth": 4,
@@ -6587,7 +6881,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/网站/网站.md",
-          "updatedTime": 1593072917949,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -6714,7 +7008,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/英语/摘抄.md",
-          "updatedTime": 1593072941913,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -6736,7 +7030,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/英语/英语.md",
-          "updatedTime": 1593072935187,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 5,
+            "path": "/英语",
+            "title": "英语"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -6859,11 +7158,7 @@ const routes = [
               "heading": "问题四：滥用抽象名词"
             }
           ],
-          "title": "英语",
-          "group": {
-            "path": "/英语",
-            "title": "英语"
-          }
+          "title": "英语"
         },
         "title": "英语"
       },
@@ -6873,7 +7168,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/英语/语法.md",
-          "updatedTime": 1592451541602,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -7065,7 +7360,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/计算机/安全基础.md",
-          "updatedTime": 1593073466041,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 3,
+            "path": "/计算机",
+            "title": "计算机"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -7198,11 +7498,7 @@ const routes = [
               "heading": "如何防止云主机被扫"
             }
           ],
-          "title": "安全基础",
-          "group": {
-            "path": "/计算机",
-            "title": "计算机"
-          }
+          "title": "安全基础"
         },
         "title": "安全基础"
       },
@@ -7212,7 +7508,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/计算机/正则.md",
-          "updatedTime": 1593073416100,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -7399,7 +7695,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/计算机/网络基础.md",
-          "updatedTime": 1593073408663,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -7741,7 +8037,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/计算机/设计模式.md",
-          "updatedTime": 1593073400215,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -7798,7 +8094,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/读书/ElonMusk.md",
-          "updatedTime": 1593073017702,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -7835,7 +8131,12 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/读书/王小波.md",
-          "updatedTime": 1593073010084,
+          "updatedTime": 1593137011000,
+          "group": {
+            "order": 6,
+            "path": "/读书",
+            "title": "读书"
+          },
           "slugs": [
             {
               "depth": 1,
@@ -7863,11 +8164,7 @@ const routes = [
               "heading": "有意思"
             }
           ],
-          "title": "王小波",
-          "group": {
-            "path": "/读书",
-            "title": "读书"
-          }
+          "title": "王小波"
         },
         "title": "王小波"
       },
@@ -7877,7 +8174,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/面试/面试.md",
-          "updatedTime": 1593101156334,
+          "updatedTime": 1593137011000,
           "slugs": [
             {
               "depth": 1,
@@ -8072,7 +8369,9 @@ const routes = [
       },
       {
         "path": "/计算机",
-        "meta": {},
+        "meta": {
+          "order": 3
+        },
         "exact": true,
         "redirect": "/计算机/安全基础"
       },

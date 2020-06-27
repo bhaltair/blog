@@ -1,3 +1,8 @@
+---
+title: React
+group:
+  order: 1
+---
 ## React
 > React 进行开发时所有的 DOM 构造都是通过虚拟 DOM 进行，每当数据变化时，React 都会重新构建整个 DOM 树，然后 React 将当前整个 DOM 树和上一次的 DOM 树进行对比，得到 DOM 结构的区别，然后仅仅将需要变化的部分进行实际的浏览器 DOM 更新
 
@@ -86,6 +91,63 @@ constructor(props) {
   - 只在最顶层使用Hook
     - 不要在循环，条件，嵌套函数中调用Hook
   - 只在 React 函数中调用 Hook
+
+#### Hooks library
+
+- umi-hooks
+- [react-use](https://github.com/streamich/react-use#readme)
+  - sensors
+    - useBattery
+    - ...
+  - ui
+    - useCss
+    - useSlider
+  - animations
+    - useSpring
+  - side-effects
+    - useAsync
+    - useDebounce
+  - lifecycles
+    - usePromise
+    - useMount
+  - state
+    - useToggle
+    - useMap
+    - useQueue
+  - miscellaneous
+  - API 太多了
+- [阿里巴巴 ahooks](https://ahooks.js.org/zh-CN)
+  - Async
+    - useRequest
+  - Table
+  - UI
+    - useDrag & useDrop
+    - useDynamicList
+    - useVirtualList
+  - SideEffect
+    - useDebounce
+    - useDebounceFn
+  - LifeCycle
+    - useMount
+    - useUnmount
+  - State
+    - useBoolean
+    - useToggle
+  - Dom
+    - useScroll
+    - useEventListener
+  - Advanced
+- use-swr
+    - from next
+    - 特性
+        1. 间隔轮询
+        2. 请求重复数据删除
+        3. 对于同一个 key 的数据进行缓存
+        4. 对数据进行乐观更新
+        5. 在标签页聚焦的时候重新发起请求
+        6. 分页支持
+        7. 完备的 TypeScript 支持
+
 ### 组件逻辑复用的发展历程
 
 mixin -> HOC & render-props -> Hook
@@ -109,21 +171,6 @@ mixin -> HOC & render-props -> Hook
     - 接受一个组件作为参数
     - 返回一个组件
 - 我们习惯使用 `with` 开头代表 `HOC`
-
-#### library
-
-- umi-hooks
-- react-use
-- use-swr
-    - from next
-    - 特性
-        1. 间隔轮询
-        2. 请求重复数据删除
-        3. 对于同一个 key 的数据进行缓存
-        4. 对数据进行乐观更新
-        5. 在标签页聚焦的时候重新发起请求
-        6. 分页支持
-        7. 完备的 TypeScript 支持
 
 ### VNode
 

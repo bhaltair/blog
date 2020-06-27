@@ -1,18 +1,18 @@
 // @ts-nocheck
-import { createBrowserHistory } from '/Users/wangqi/development/blog/node_modules/@umijs/runtime';
+import { createHashHistory } from '/Users/wangqi/development/blog/node_modules/@umijs/runtime';
 
 let options = {
-  "basename": "/blog"
+  "basename": "/"
 };
 if ((<any>window).routerBase) {
   options.basename = (<any>window).routerBase;
 }
 
 // remove initial history because of ssr
-let history: any = process.env.__IS_SERVER ? null : createBrowserHistory(options);
+let history: any = process.env.__IS_SERVER ? null : createHashHistory(options);
 export const createHistory = (hotReload = false) => {
   if (!hotReload) {
-    history = createBrowserHistory(options);
+    history = createHashHistory(options);
   }
 
   return history;
