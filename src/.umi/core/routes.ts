@@ -6021,7 +6021,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/手写代码.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593252877000,
           "group": {
             "order": 4,
             "path": "/算法",
@@ -6207,6 +6207,11 @@ const routes = [
               "depth": 3,
               "value": "扁平对象转树形对象",
               "heading": "扁平对象转树形对象"
+            },
+            {
+              "depth": 2,
+              "value": "编程题",
+              "heading": "编程题"
             }
           ],
           "title": "手写代码"
@@ -6219,7 +6224,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593252877000,
           "slugs": [
             {
               "depth": 1,
@@ -6488,13 +6493,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "双向链表",
-              "heading": "双向链表"
-            },
-            {
-              "depth": 3,
-              "value": "设计一个链表",
-              "heading": "设计一个链表"
+              "value": "设计一个单链表",
+              "heading": "设计一个单链表"
             },
             {
               "depth": 3,
@@ -6618,13 +6618,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "二叉树",
-              "heading": "二叉树-1"
-            },
-            {
-              "depth": 3,
-              "value": "二叉查找树 BST",
-              "heading": "二叉查找树-bst"
+              "value": "二叉查找树 BST （Binar Search Tree）",
+              "heading": "二叉查找树-bst-（binar-search-tree）"
             },
             {
               "depth": 3,
