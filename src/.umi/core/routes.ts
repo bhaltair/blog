@@ -5604,7 +5604,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/LeetCode.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593252877000,
           "slugs": [
             {
               "depth": 1,
@@ -5648,8 +5648,13 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "真题分类",
-              "heading": "真题分类"
+              "value": "前端真题分类",
+              "heading": "前端真题分类"
+            },
+            {
+              "depth": 2,
+              "value": "随便刷刷",
+              "heading": "随便刷刷"
             },
             {
               "depth": 3,
@@ -6224,7 +6229,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593252877000,
+          "updatedTime": 1593269891000,
           "slugs": [
             {
               "depth": 1,
@@ -6662,6 +6667,11 @@ const routes = [
               "heading": "图-1"
             },
             {
+              "depth": 3,
+              "value": "广度优先搜索、深度优先搜索",
+              "heading": "广度优先搜索、深度优先搜索"
+            },
+            {
               "depth": 2,
               "value": "其他数据结构",
               "heading": "其他数据结构"
@@ -6680,6 +6690,11 @@ const routes = [
               "depth": 2,
               "value": "数据结构比较",
               "heading": "数据结构比较"
+            },
+            {
+              "depth": 2,
+              "value": "**算法**",
+              "heading": "算法"
             },
             {
               "depth": 2,
@@ -6723,18 +6738,43 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "最大子序和、爬楼梯和买卖股票的最佳时机",
-              "heading": "最大子序和、爬楼梯和买卖股票的最佳时机"
+              "value": "1-1 最大子序和",
+              "heading": "1-1-最大子序和"
             },
             {
               "depth": 3,
-              "value": "打家劫舍、零钱兑换和跳跃游戏",
-              "heading": "打家劫舍、零钱兑换和跳跃游戏"
+              "value": "1-2 爬楼梯",
+              "heading": "1-2-爬楼梯"
             },
             {
               "depth": 3,
-              "value": "不同路径和单词拆分",
-              "heading": "不同路径和单词拆分"
+              "value": "1-3 买卖股票的最佳时机",
+              "heading": "1-3-买卖股票的最佳时机"
+            },
+            {
+              "depth": 3,
+              "value": "2-1 打家劫舍",
+              "heading": "2-1-打家劫舍"
+            },
+            {
+              "depth": 3,
+              "value": "2-2 零钱兑换",
+              "heading": "2-2-零钱兑换"
+            },
+            {
+              "depth": 3,
+              "value": "2-3 跳跃游戏",
+              "heading": "2-3-跳跃游戏"
+            },
+            {
+              "depth": 3,
+              "value": "3-1 不同路径",
+              "heading": "3-1-不同路径"
+            },
+            {
+              "depth": 3,
+              "value": "3-2 单词拆分",
+              "heading": "3-2-单词拆分"
             },
             {
               "depth": 2,
@@ -6743,8 +6783,33 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "广度优先搜索、深度优先搜索",
-              "heading": "广度优先搜索、深度优先搜索"
+              "value": "冒泡排序",
+              "heading": "冒泡排序"
+            },
+            {
+              "depth": 3,
+              "value": "选择排序",
+              "heading": "选择排序"
+            },
+            {
+              "depth": 3,
+              "value": "插入排序",
+              "heading": "插入排序"
+            },
+            {
+              "depth": 3,
+              "value": "希尔排序",
+              "heading": "希尔排序"
+            },
+            {
+              "depth": 3,
+              "value": "快速排序",
+              "heading": "快速排序"
+            },
+            {
+              "depth": 3,
+              "value": "归并排序",
+              "heading": "归并排序"
             },
             {
               "depth": 3,
