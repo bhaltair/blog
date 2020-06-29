@@ -59,94 +59,6 @@ constructor(props) {
 
 ### 性能优化
 
-### Hooks
-
-!> 一个不用编写 class 就能使用 state 和其他 React 特性的方法
-
-- Hooks 的出现使函数式组件焕然一新
-  - 给与函数式组件类似于 class 组件生命周期的概念
-  - 扩大了函数式组件的应用范围
-- 之前，函数式组件基本只用于纯展示组件
-  - 一旦耦合有义务逻辑，就需要通过 Props 的传递，通过子组件触发父组件方法的方式来实现业务逻辑的传递
-  - Hooks 的出现使得函数式组件也有了自己的状态与义务逻辑，简单逻辑在自己内部处理即可，不再需要通过 props 的传递，也使使用者无需关系组件内部的逻辑，只关心 Hooks 组件返回的结果即可。
-- Hooks 允许你在不使用 class 的情况下使用 state 和 React 其他特性
-- 目标
-  - 不是取代类组件
-  - 而是增加函数式组件的使用率
-  - 明确通用工具函数和业务工具函数的边界
-    - 鼓励开发者将业务通用逻辑封装成 Hooks 而不是工具函数
-- 帮助你用一种更简单的方式来编写你的组件
-- 为什么要用 Hooks ?
-  - 组件嵌套问题  
-    - 以前抽离逻辑，会选择 HOC 或者 render props 的方式
-    - 缺点是打开 React DevTools 发现组件被各种其他组件包裹在里面。
-      - 提高了 debug 的难度
-      - 很难实现共享状态
-  - class 组件的问题
-    - 编译出来的代码相比函数组件多得多
-    - 四散的代码不容易维护
-- hooks library
-  * react-use https://www.npmjs.com/package/react-use
-- 使用 Hook 需要遵循的两条规则
-  - 只在最顶层使用Hook
-    - 不要在循环，条件，嵌套函数中调用Hook
-  - 只在 React 函数中调用 Hook
-
-#### Hooks library
-
-- umi-hooks
-- [react-use](https://github.com/streamich/react-use#readme)
-  - sensors
-    - useBattery
-    - ...
-  - ui
-    - useCss
-    - useSlider
-  - animations
-    - useSpring
-  - side-effects
-    - useAsync
-    - useDebounce
-  - lifecycles
-    - usePromise
-    - useMount
-  - state
-    - useToggle
-    - useMap
-    - useQueue
-  - miscellaneous
-  - API 太多了
-- [阿里巴巴 ahooks](https://ahooks.js.org/zh-CN)
-  - Async
-    - useRequest
-  - Table
-  - UI
-    - useDrag & useDrop
-    - useDynamicList
-    - useVirtualList
-  - SideEffect
-    - useDebounce
-    - useDebounceFn
-  - LifeCycle
-    - useMount
-    - useUnmount
-  - State
-    - useBoolean
-    - useToggle
-  - Dom
-    - useScroll
-    - useEventListener
-  - Advanced
-- use-swr
-    - from next
-    - 特性
-        1. 间隔轮询
-        2. 请求重复数据删除
-        3. 对于同一个 key 的数据进行缓存
-        4. 对数据进行乐观更新
-        5. 在标签页聚焦的时候重新发起请求
-        6. 分页支持
-        7. 完备的 TypeScript 支持
 
 ### 组件逻辑复用的发展历程
 
@@ -371,6 +283,95 @@ effects: {
 
 ### Redux-actions
 
+## Hooks
+
+> 一个不用编写 class 就能使用 state 和其他 React 特性的方法
+
+- Hooks 的出现使函数式组件焕然一新
+  - 给与函数式组件类似于 class 组件生命周期的概念
+  - 扩大了函数式组件的应用范围
+- 之前，函数式组件基本只用于纯展示组件
+  - 一旦耦合有义务逻辑，就需要通过 Props 的传递，通过子组件触发父组件方法的方式来实现业务逻辑的传递
+  - Hooks 的出现使得函数式组件也有了自己的状态与义务逻辑，简单逻辑在自己内部处理即可，不再需要通过 props 的传递，也使使用者无需关系组件内部的逻辑，只关心 Hooks 组件返回的结果即可。
+- Hooks 允许你在不使用 class 的情况下使用 state 和 React 其他特性
+- 目标
+  - 不是取代类组件
+  - 而是增加函数式组件的使用率
+  - 明确通用工具函数和业务工具函数的边界
+    - 鼓励开发者将业务通用逻辑封装成 Hooks 而不是工具函数
+- 帮助你用一种更简单的方式来编写你的组件
+- 为什么要用 Hooks ?
+  - 组件嵌套问题  
+    - 以前抽离逻辑，会选择 HOC 或者 render props 的方式
+    - 缺点是打开 React DevTools 发现组件被各种其他组件包裹在里面。
+      - 提高了 debug 的难度
+      - 很难实现共享状态
+  - class 组件的问题
+    - 编译出来的代码相比函数组件多得多
+    - 四散的代码不容易维护
+- hooks library
+  * react-use https://www.npmjs.com/package/react-use
+- 使用 Hook 需要遵循的两条规则
+  - 只在最顶层使用Hook
+    - 不要在循环，条件，嵌套函数中调用Hook
+  - 只在 React 函数中调用 Hook
+
+### Hooks library
+
+- umi-hooks
+- [react-use](https://github.com/streamich/react-use#readme)
+  - sensors
+    - useBattery
+    - ...
+  - ui
+    - useCss
+    - useSlider
+  - animations
+    - useSpring
+  - side-effects
+    - useAsync
+    - useDebounce
+  - lifecycles
+    - usePromise
+    - useMount
+  - state
+    - useToggle
+    - useMap
+    - useQueue
+  - miscellaneous
+  - API 太多了
+- [阿里巴巴 ahooks](https://ahooks.js.org/zh-CN)
+  - Async
+    - useRequest
+  - Table
+  - UI
+    - useDrag & useDrop
+    - useDynamicList
+    - useVirtualList
+  - SideEffect
+    - useDebounce
+    - useDebounceFn
+  - LifeCycle
+    - useMount
+    - useUnmount
+  - State
+    - useBoolean
+    - useToggle
+  - Dom
+    - useScroll
+    - useEventListener
+  - Advanced
+- use-swr
+    - from next
+    - 特性
+        1. 间隔轮询
+        2. 请求重复数据删除
+        3. 对于同一个 key 的数据进行缓存
+        4. 对数据进行乐观更新
+        5. 在标签页聚焦的时候重新发起请求
+        6. 分页支持
+        7. 完备的 TypeScript 支持
+
 ## immutable
 
 ### 引用带来的副作用
@@ -561,15 +562,12 @@ export default function () {
 }
 ```
 
-## cheatsheet
 
-https://devhints.io/react
 
 ## Mobx
 
 ## Dva
 
-- 
 - 简化开发体验
   - 内置了 react-router 和 fetch + redux-saga
 - 仅有 6 个 api
@@ -608,7 +606,7 @@ https://devhints.io/react
 ### 特性
 
 - 面向未来
-    - 在满足需求的同时，我们也不会停止对新技术的探索。比如 modern mode、webpack@5、自动化化 external、bundler less 等等。
+    - 在满足需求的同时，我们也不会停止对新技术的探索。比如 modern mode、webpack@5、自动化 external、bundler less 等等。
 - 大量自研
     - 包含微前端、组件打包、文档工具、请求库、hooks 库、数据流等，满足日常项目的周边需求。
 - 完备路由
@@ -862,3 +860,7 @@ https://redux.js.org/recipes/usage-with-typescript
 
 - [Awesome React](https://github.com/enaqx/awesome-react) - A collection of awesome things regarding React ecosystem.
 - [Awesome React Components](https://github.com/brillout/awesome-react-components) - A curated list of React components.
+
+### cheatsheet
+
+https://devhints.io/react
