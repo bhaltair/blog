@@ -6,7 +6,7 @@ const routes = [
   {
     "path": "/",
     "component": (props) => require('react').createElement(require('../../../node_modules/@umijs/preset-dumi/lib/themes/default/layout.js').default, {
-      ...{"menus":{"*":{"*":[{"path":"/","title":"README","meta":{"order":null}},{"title":"前端","path":"/前端","meta":{"order":1},"children":[{"path":"/前端/css","title":"CSS","meta":{}},{"path":"/前端/html5","title":"HTML","meta":{}},{"path":"/前端/javascript","title":"JavaScript","meta":{}},{"path":"/前端/react","title":"React","meta":{}},{"path":"/前端/typescript","title":"TypeScript","meta":{}},{"path":"/前端/vue","title":"Vue","meta":{}},{"path":"/前端/web-api","title":"Web API","meta":{}},{"path":"/前端/webpack","title":"Webpack","meta":{}},{"path":"/前端/其他","title":"其他","meta":{}},{"path":"/前端/函数式编程","title":"函数式编程","meta":{}},{"path":"/前端/小程序","title":"小程序","meta":{}},{"path":"/前端/工程化","title":"工程化","meta":{}},{"path":"/前端/性能优化","title":"性能优化","meta":{}},{"path":"/前端/测试","title":"测试","meta":{}},{"path":"/前端/面向对象","title":"面向对象","meta":{}}]},{"title":"后端","path":"/后端","meta":{"order":2},"children":[{"path":"/后端/deno","title":"deno","meta":{}},{"path":"/后端/docker","title":"Docker","meta":{}},{"path":"/后端/express","title":"Express","meta":{}},{"path":"/后端/nginx","title":"Nginx","meta":{}},{"path":"/后端/nodejs","title":"Node.js","meta":{}},{"path":"/后端/其他","title":"其他","meta":{}}]},{"title":"计算机","path":"/计算机","meta":{"order":3},"children":[{"path":"/计算机/安全基础","title":"安全基础","meta":{}},{"path":"/计算机/正则","title":"正则表达式","meta":{}},{"path":"/计算机/网络基础","title":"网络基础","meta":{}},{"path":"/计算机/设计模式","title":"设计模式","meta":{}}]},{"title":"算法","path":"/算法","meta":{"order":4},"children":[{"path":"/算法/code-wars","title":"CodeWars","meta":{}},{"path":"/算法/leet-code","title":"LeetCode","meta":{}},{"path":"/算法/手写代码","title":"手写代码","meta":{}},{"path":"/算法/数据结构与算法","title":"数据结构与算法","meta":{}}]},{"title":"英语","path":"/英语","meta":{"order":5},"children":[{"path":"/英语/摘抄","title":"摘抄","meta":{}},{"path":"/英语/英语","title":"英语","meta":{}},{"path":"/英语/语法","title":"语法","meta":{}}]},{"title":"读书","path":"/读书","meta":{"order":6},"children":[{"path":"/读书/elon-musk","title":"Elon Musk","meta":{}},{"path":"/读书/王小波","title":"王小波","meta":{}}]},{"title":"其他","path":"/其他","meta":{"order":100},"children":[{"path":"/其他/chrome","title":"Chrome","meta":{}},{"path":"/其他/edge","title":"Edge","meta":{}},{"path":"/其他/flutter","title":"Flutter","meta":{}},{"path":"/其他/git","title":"Git","meta":{}},{"path":"/其他/linux","title":"Linux","meta":{}},{"path":"/其他/持续集成","title":"持续集成","meta":{}},{"path":"/其他/编码原则","title":"编码原则","meta":{}},{"path":"/其他/防御编程","title":"防御编程","meta":{}}]},{"title":"库","path":"/库","meta":{},"children":[]},{"title":"网站","path":"/网站","meta":{},"children":[]},{"title":"面试","path":"/面试","meta":{},"children":[]}]}},"locales":[],"navs":{},"title":"流月的知识库","mode":"doc"},
+      ...{"menus":{"*":{"*":[{"path":"/","title":"README","meta":{"order":null}},{"title":"前端","path":"/前端","meta":{"order":1},"children":[{"path":"/前端/css","title":"CSS","meta":{}},{"path":"/前端/html5","title":"HTML","meta":{}},{"path":"/前端/javascript","title":"JavaScript","meta":{}},{"path":"/前端/react","title":"React","meta":{}},{"path":"/前端/typescript","title":"TypeScript","meta":{}},{"path":"/前端/vue","title":"Vue","meta":{}},{"path":"/前端/web-api","title":"Web API","meta":{}},{"path":"/前端/webpack","title":"Webpack","meta":{}},{"path":"/前端/其他","title":"其他","meta":{}},{"path":"/前端/函数式编程","title":"函数式编程","meta":{}},{"path":"/前端/小程序","title":"小程序","meta":{}},{"path":"/前端/工程化","title":"工程化","meta":{}},{"path":"/前端/性能优化","title":"性能优化","meta":{}},{"path":"/前端/测试","title":"测试","meta":{}},{"path":"/前端/面向对象","title":"面向对象","meta":{}}]},{"title":"后端","path":"/后端","meta":{"order":2},"children":[{"path":"/后端/deno","title":"deno","meta":{}},{"path":"/后端/docker","title":"Docker","meta":{}},{"path":"/后端/express","title":"Express","meta":{}},{"path":"/后端/nginx","title":"Nginx","meta":{}},{"path":"/后端/nodejs","title":"Node.js","meta":{}},{"path":"/后端/其他","title":"其他","meta":{}}]},{"title":"计算机","path":"/计算机","meta":{"order":3},"children":[{"path":"/计算机/安全基础","title":"安全基础","meta":{}},{"path":"/计算机/正则","title":"正则表达式","meta":{}},{"path":"/计算机/网络基础","title":"网络基础","meta":{}},{"path":"/计算机/设计模式","title":"设计模式","meta":{}}]},{"title":"算法","path":"/算法","meta":{"order":4},"children":[{"path":"/算法/code-wars","title":"CodeWars","meta":{}},{"path":"/算法/leet-code","title":"LeetCode","meta":{}},{"path":"/算法/剑指offer","title":"剑指 Offer","meta":{}},{"path":"/算法/手写代码","title":"手写代码","meta":{}},{"path":"/算法/数据结构与算法","title":"数据结构与算法","meta":{}}]},{"title":"英语","path":"/英语","meta":{"order":5},"children":[{"path":"/英语/摘抄","title":"摘抄","meta":{}},{"path":"/英语/英语","title":"英语","meta":{}},{"path":"/英语/语法","title":"语法","meta":{}}]},{"title":"读书","path":"/读书","meta":{"order":6},"children":[{"path":"/读书/elon-musk","title":"Elon Musk","meta":{}},{"path":"/读书/王小波","title":"王小波","meta":{}}]},{"title":"其他","path":"/其他","meta":{"order":100},"children":[{"path":"/其他/chrome","title":"Chrome","meta":{}},{"path":"/其他/edge","title":"Edge","meta":{}},{"path":"/其他/flutter","title":"Flutter","meta":{}},{"path":"/其他/git","title":"Git","meta":{}},{"path":"/其他/linux","title":"Linux","meta":{}},{"path":"/其他/持续集成","title":"持续集成","meta":{}},{"path":"/其他/编码原则","title":"编码原则","meta":{}},{"path":"/其他/防御编程","title":"防御编程","meta":{}}]},{"title":"库","path":"/库","meta":{},"children":[]},{"title":"网站","path":"/网站","meta":{},"children":[]},{"title":"面试","path":"/面试","meta":{},"children":[]}]}},"locales":[],"navs":{},"title":"流月的知识库","mode":"doc"},
       ...props,
     }),
     "routes": [
@@ -5604,7 +5604,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/LeetCode.md",
-          "updatedTime": 1593252877000,
+          "updatedTime": 1593316615000,
           "slugs": [
             {
               "depth": 1,
@@ -5615,11 +5615,6 @@ const routes = [
               "depth": 2,
               "value": "LeetCode 探索",
               "heading": "leetcode-探索"
-            },
-            {
-              "depth": 3,
-              "value": "怎么刷？",
-              "heading": "怎么刷？"
             },
             {
               "depth": 3,
@@ -5648,13 +5643,18 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "前端真题分类",
-              "heading": "前端真题分类"
+              "value": "如何通过 LeetCode 提高自我",
+              "heading": "如何通过-leetcode-提高自我"
             },
             {
               "depth": 2,
-              "value": "随便刷刷",
-              "heading": "随便刷刷"
+              "value": "五道算法题题入职 LC",
+              "heading": "五道算法题题入职-lc"
+            },
+            {
+              "depth": 2,
+              "value": "LeetCode 经典题目分类",
+              "heading": "leetcode-经典题目分类"
             },
             {
               "depth": 3,
@@ -6021,6 +6021,28 @@ const routes = [
         "title": "LeetCode"
       },
       {
+        "path": "/算法/剑指offer",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: '算法__剑指Offer.md' */'../../算法/剑指Offer.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "src/算法/剑指Offer.md",
+          "updatedTime": 1593400358491,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "剑指 Offer",
+              "heading": "剑指-offer"
+            }
+          ],
+          "title": "剑指 Offer",
+          "group": {
+            "path": "/算法",
+            "title": "算法"
+          }
+        },
+        "title": "剑指 Offer"
+      },
+      {
         "path": "/算法/手写代码",
         "component": dynamic({ loader: () => import(/* webpackChunkName: '算法__手写代码.md' */'../../算法/手写代码.md')}),
         "exact": true,
@@ -6229,7 +6251,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593269891000,
+          "updatedTime": 1593316615000,
           "slugs": [
             {
               "depth": 1,
@@ -6327,9 +6349,9 @@ const routes = [
               "heading": "王争---数据结构和算法必知必会的50个代码实现"
             },
             {
-              "depth": 2,
-              "value": "教程",
-              "heading": "教程"
+              "depth": 3,
+              "value": "其他教程",
+              "heading": "其他教程"
             },
             {
               "depth": 2,
@@ -6388,23 +6410,63 @@ const routes = [
             },
             {
               "depth": 2,
+              "value": "准备篇？",
+              "heading": "准备篇？"
+            },
+            {
+              "depth": 2,
               "value": "字符串",
               "heading": "字符串-1"
             },
             {
               "depth": 3,
-              "value": "翻转整数",
-              "heading": "翻转整数"
+              "value": "1-1 整数翻转",
+              "heading": "1-1-整数翻转"
             },
             {
               "depth": 3,
-              "value": "反转字符串",
-              "heading": "反转字符串"
+              "value": "1-2 有效的字母异位词",
+              "heading": "1-2-有效的字母异位词"
             },
             {
               "depth": 3,
-              "value": "验证回文字符串",
-              "heading": "验证回文字符串"
+              "value": "1-3 字符串转换整数",
+              "heading": "1-3-字符串转换整数"
+            },
+            {
+              "depth": 3,
+              "value": "2-1 报数",
+              "heading": "2-1-报数"
+            },
+            {
+              "depth": 3,
+              "value": "2-2 反转字符串",
+              "heading": "2-2-反转字符串"
+            },
+            {
+              "depth": 3,
+              "value": "2-3 字符串中的第一个唯一字符",
+              "heading": "2-3-字符串中的第一个唯一字符"
+            },
+            {
+              "depth": 3,
+              "value": "3-1 验证回文字符串",
+              "heading": "3-1-验证回文字符串"
+            },
+            {
+              "depth": 3,
+              "value": "3-2 实现 strStr()",
+              "heading": "3-2-实现-strstr"
+            },
+            {
+              "depth": 3,
+              "value": "3-3 最长公共前缀",
+              "heading": "3-3-最长公共前缀"
+            },
+            {
+              "depth": 3,
+              "value": "3-4 最长回文子串",
+              "heading": "3-4-最长回文子串"
             },
             {
               "depth": 2,
@@ -6413,8 +6475,13 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "罗马数字转整数、Fizz Buzz 和 计数质数",
-              "heading": "罗马数字转整数、fizz-buzz-和-计数质数"
+              "value": "1-1 罗马数字转整数",
+              "heading": "1-1-罗马数字转整数"
+            },
+            {
+              "depth": 3,
+              "value": "Fizz Buzz 和 计数质数",
+              "heading": "fizz-buzz-和-计数质数"
             },
             {
               "depth": 3,
@@ -6941,7 +7008,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/网站/网站.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593252877000,
           "slugs": [
             {
               "depth": 1,
