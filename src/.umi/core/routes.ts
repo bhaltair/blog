@@ -5643,6 +5643,11 @@ const routes = [
             },
             {
               "depth": 2,
+              "value": "热门题",
+              "heading": "热门题"
+            },
+            {
+              "depth": 2,
               "value": "LeetCode 经典题目分类",
               "heading": "leetcode-经典题目分类"
             },
@@ -6241,7 +6246,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593443500000,
+          "updatedTime": 1593481418000,
           "slugs": [
             {
               "depth": 1,
@@ -6710,8 +6715,18 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "最小栈",
-              "heading": "最小栈"
+              "value": "1-1 最小栈",
+              "heading": "1-1-最小栈"
+            },
+            {
+              "depth": 3,
+              "value": "1-2 打乱数组",
+              "heading": "1-2-打乱数组"
+            },
+            {
+              "depth": 3,
+              "value": "1-3 将有序数组转换为二叉搜索树",
+              "heading": "1-3-将有序数组转换为二叉搜索树"
             },
             {
               "depth": 3,
@@ -6740,8 +6755,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "binary heap",
-              "heading": "binary-heap"
+              "value": "binary heap 二叉堆",
+              "heading": "binary-heap-二叉堆"
             },
             {
               "depth": 2,
@@ -6780,8 +6795,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "递归",
-              "heading": "递归"
+              "value": "递归算法",
+              "heading": "递归算法"
             },
             {
               "depth": 3,
@@ -6790,8 +6805,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "分治",
-              "heading": "分治"
+              "value": "分治算法",
+              "heading": "分治算法"
             },
             {
               "depth": 2,
@@ -6810,8 +6825,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "贪心",
-              "heading": "贪心"
+              "value": "贪心算法",
+              "heading": "贪心算法"
             },
             {
               "depth": 2,
@@ -6860,58 +6875,73 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "排序与搜索",
-              "heading": "排序与搜索"
+              "value": "排序",
+              "heading": "排序"
             },
             {
               "depth": 3,
-              "value": "冒泡排序",
-              "heading": "冒泡排序"
+              "value": "冒泡排序 bubbleSort",
+              "heading": "冒泡排序-bubblesort"
             },
             {
               "depth": 3,
-              "value": "选择排序",
-              "heading": "选择排序"
+              "value": "选择排序 selectionSort",
+              "heading": "选择排序-selectionsort"
             },
             {
               "depth": 3,
-              "value": "插入排序",
-              "heading": "插入排序"
+              "value": "插入排序 insertionSort",
+              "heading": "插入排序-insertionsort"
             },
             {
               "depth": 3,
-              "value": "希尔排序",
-              "heading": "希尔排序"
+              "value": "希尔排序 shellSort",
+              "heading": "希尔排序-shellsort"
             },
             {
               "depth": 3,
-              "value": "快速排序",
-              "heading": "快速排序"
+              "value": "快速排序 quickSort",
+              "heading": "快速排序-quicksort"
             },
             {
               "depth": 3,
-              "value": "归并排序",
-              "heading": "归并排序"
+              "value": "归并排序 mergeSort",
+              "heading": "归并排序-mergesort"
             },
             {
               "depth": 3,
-              "value": "合并两个有序数组",
-              "heading": "合并两个有序数组"
+              "value": "堆排序",
+              "heading": "堆排序"
             },
             {
               "depth": 3,
-              "value": "在排序数组中查找元素的第一个和最后一个位置",
-              "heading": "在排序数组中查找元素的第一个和最后一个位置"
+              "value": "计数排序",
+              "heading": "计数排序"
             },
             {
               "depth": 3,
-              "value": "前 K 个高频元素",
-              "heading": "前-k-个高频元素"
+              "value": "桶排序",
+              "heading": "桶排序"
             },
             {
               "depth": 3,
-              "value": "搜索二位矩阵 II",
-              "heading": "搜索二位矩阵-ii"
+              "value": "1-1 合并两个有序数组",
+              "heading": "1-1-合并两个有序数组"
+            },
+            {
+              "depth": 3,
+              "value": "2-1 在排序数组中查找元素的第一个和最后一个位置",
+              "heading": "2-1-在排序数组中查找元素的第一个和最后一个位置"
+            },
+            {
+              "depth": 3,
+              "value": "3-1 前 K 个高频元素",
+              "heading": "3-1-前-k-个高频元素"
+            },
+            {
+              "depth": 3,
+              "value": "4-1 搜索二位矩阵 II",
+              "heading": "4-1-搜索二位矩阵-ii"
             },
             {
               "depth": 2,
@@ -6920,8 +6950,13 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "查找（搜索）算法与二分查找（搜索）",
-              "heading": "查找（搜索）算法与二分查找（搜索）"
+              "value": "查找（搜索）算法",
+              "heading": "查找（搜索）算法"
+            },
+            {
+              "depth": 3,
+              "value": "二分查找（搜索）",
+              "heading": "二分查找（搜索）"
             },
             {
               "depth": 3,
@@ -6945,8 +6980,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "位运算的运用",
-              "heading": "位运算的运用"
+              "value": "位运算",
+              "heading": "位运算"
             },
             {
               "depth": 3,
@@ -8462,6 +8497,11 @@ const routes = [
               "depth": 3,
               "value": "LiuL0703 面试总结",
               "heading": "liul0703-面试总结"
+            },
+            {
+              "depth": 3,
+              "value": "为什么前端面试官问的问题都是各种原理呢？",
+              "heading": "为什么前端面试官问的问题都是各种原理呢？"
             }
           ],
           "title": "面试",
