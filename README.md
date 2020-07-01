@@ -1,6 +1,8 @@
 # Introduction
 
-处于萌芽阶段的前端核心知识库。
+处于萌芽阶段的前端核心知识库
+
+[在线访问](bhaltair.github.io/blog/)
 
 ## Contact
 

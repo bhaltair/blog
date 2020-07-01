@@ -6246,7 +6246,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593602187000,
+          "updatedTime": 1593604131000,
           "slugs": [
             {
               "depth": 1,
@@ -6960,13 +6960,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "查找（搜索）算法",
-              "heading": "查找（搜索）算法"
-            },
-            {
-              "depth": 3,
-              "value": "二分查找（搜索）",
-              "heading": "二分查找（搜索）"
+              "value": "查找算法",
+              "heading": "查找算法"
             },
             {
               "depth": 3,
@@ -8371,7 +8366,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/面试/面试.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593595415000,
           "slugs": [
             {
               "depth": 1,

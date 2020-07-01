@@ -15,6 +15,7 @@ module.exports = {
   ],
 
   scopes: [
+    {name: '工具'},
     {name: '前端'},
     {name: '后端'},
     {name: '算法'},
@@ -23,7 +24,7 @@ module.exports = {
     {name: '网站'},
     {name: '读书'},
     {name: '库'},
-    {name: '英语'},
+    {name: '英语'}
   ],
 
   // it needs to match the value for field type. Eg.: 'fix'
