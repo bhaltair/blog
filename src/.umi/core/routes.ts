@@ -3391,8 +3391,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "计算机书籍推荐",
-              "heading": "计算机书籍推荐"
+              "value": "书籍推荐",
+              "heading": "书籍推荐"
             },
             {
               "depth": 2,
@@ -6246,7 +6246,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593608194000,
+          "updatedTime": 1593666489000,
           "slugs": [
             {
               "depth": 1,
@@ -6855,13 +6855,18 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "动态规划",
-              "heading": "动态规划"
+              "value": "动态规划 DP Dynamic Programming",
+              "heading": "动态规划-dp-dynamic-programming"
             },
             {
               "depth": 3,
               "value": "最长公共子串",
               "heading": "最长公共子串"
+            },
+            {
+              "depth": 4,
+              "value": "0 - 1 背包问题 （0 - 1 Knapsack）",
+              "heading": "0---1-背包问题-（0---1-knapsack）"
             },
             {
               "depth": 3,
@@ -8401,7 +8406,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/面试/面试.md",
-          "updatedTime": 1593595415000,
+          "updatedTime": 1593608194000,
           "slugs": [
             {
               "depth": 1,
