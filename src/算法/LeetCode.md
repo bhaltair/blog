@@ -28,6 +28,28 @@
 - 力扣高频
   - 算法面试题汇总
 
+### 链表
+
+- 单链表
+  - 设计链表
+- 双指针技巧
+  - 环形链表
+  - 相交链表
+  - 删除链表的倒数第N个节点
+- 经典问题
+  - 反转链表
+  - 移除链表元素
+    - 给定 val
+    - 删除所有节点 value 为 val 的节点
+  - 奇偶链表
+  - 回文链表
+- 双链表
+- 小结
+  - 合并两个有序链表
+  - 两数相加
+  - 旋转链表
+
+
 ### 主题要点
 
 算法 - Algorithms
@@ -218,44 +240,44 @@ https://leetcode-cn.com/circle/article/qDaN1Y/
 - [Triangle（三角形最小路径和）](https://leetcode-cn.com/problems/triangle/)
 
 
-## array
+## 数组 array
 ### 189.rotate-array.js
 ### 238.product-of-array-except-self.js
 ### 41.first-missing-positive.js
 
-## backtracking
+## 回溯 backtracking
 ### 17.letter-combinations-of-a-phone-number.js
 ### 22.generate-parentheses.js
 ### 46.permutations.js
 
-## binary-search
+## 二分查找 binary-search
 ### 69.sqrtx.js
 
 
-## bit-manipulation
+## 位操作 bit-manipulation
 ### 136.single-number.js
 
 
-## depth-first-search 深度优先搜索
+## 深度优先搜索 depth-first-search 
 ### 104.maximum-depth-of-binary-tree.js
 ### 111.minimum-depth-of-binary-tree.js
 ### 112.path-sum.js
 
-## divide-and-conquer
+## 分治 divide-and-conquer
 ### 148.sort-list.js
 ### 215.kth-largest-element-in-an-array.js
 ### 23.merge-k-sorted-lists.js
 
-## dynamic-programming
-### 120.triangle.js
+## 动态规划 dynamic-programming
+### 120.triangle.js 三角形
 ### 121.best-time-to-buy-and-sell-stock.js
 ### 152.maximum-product-subarray.js
-### 32.longest-valid-parentheses.js
+### 32.longest-valid-parentheses.js 最长有效的括号
 
-## greedy
+## greedy 贪婪
 ### 392.is-subsequence.js
 
-## hash-table
+## 哈希表 hash-table
 ### 1.two-sum.js
 ### 169.majority-element.js
 ### 217.contains-duplicate.js
@@ -263,10 +285,10 @@ https://leetcode-cn.com/circle/article/qDaN1Y/
 ### 347.top-k-frequent-elements.js
 
 
-## heap
+## 堆 heap 
 ### 239.sliding-window-maximum.js
 
-## linked-list
+## 链表 linked-list
 ### 141.linked-list-cycle.js
 ### 142.linked-list-cycle-ii.js
 ### 160.intersection-of-two-linked-lists.js
@@ -275,24 +297,24 @@ https://leetcode-cn.com/circle/article/qDaN1Y/
 ### 21.merge-two-sorted-lists.js
 ### 237.delete-node-in-a-linked-list.js
 
-## math
+## 数学 math
 ### 231.power-of-two.js
 ### 43.multiply-strings.js
 ### 633.sum-of-square-numbers.js
 
-## queue
+## 队列 queue
 ### 641.design-circular-deque.js
 ## stack
 ### 20.valid-parentheses.js
 
-## string
+## 字符串 string
 ### 10.regular-expression-matching.js
 ### 14.longest-common-prefix.js
 
-## tree
+## 树 tree
 ### 102.binary-tree-level-order-traversal.js
 
-## two-pointers
+## 双指针 two-pointers
 ### 11.container-with-most-water.js
 ### 15.3sum.js
 ### 16.3sum-closest.js

@@ -3272,7 +3272,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/前端/其他.md",
-          "updatedTime": 1593137011000,
+          "updatedTime": 1593681631000,
           "slugs": [
             {
               "depth": 1,
@@ -5594,7 +5594,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/LeetCode.md",
-          "updatedTime": 1593415170000,
+          "updatedTime": 1593595415000,
           "slugs": [
             {
               "depth": 1,
@@ -5605,6 +5605,11 @@ const routes = [
               "depth": 2,
               "value": "LeetCode 探索",
               "heading": "leetcode-探索"
+            },
+            {
+              "depth": 3,
+              "value": "链表",
+              "heading": "链表"
             },
             {
               "depth": 3,
@@ -5683,8 +5688,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "array",
-              "heading": "array"
+              "value": "数组 array",
+              "heading": "数组-array"
             },
             {
               "depth": 3,
@@ -5703,8 +5708,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "backtracking",
-              "heading": "backtracking"
+              "value": "回溯 backtracking",
+              "heading": "回溯-backtracking"
             },
             {
               "depth": 3,
@@ -5723,8 +5728,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "binary-search",
-              "heading": "binary-search"
+              "value": "二分查找 binary-search",
+              "heading": "二分查找-binary-search"
             },
             {
               "depth": 3,
@@ -5733,8 +5738,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "bit-manipulation",
-              "heading": "bit-manipulation"
+              "value": "位操作 bit-manipulation",
+              "heading": "位操作-bit-manipulation"
             },
             {
               "depth": 3,
@@ -5743,8 +5748,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "depth-first-search 深度优先搜索",
-              "heading": "depth-first-search-深度优先搜索"
+              "value": "深度优先搜索 depth-first-search",
+              "heading": "深度优先搜索-depth-first-search"
             },
             {
               "depth": 3,
@@ -5763,8 +5768,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "divide-and-conquer",
-              "heading": "divide-and-conquer"
+              "value": "分治 divide-and-conquer",
+              "heading": "分治-divide-and-conquer"
             },
             {
               "depth": 3,
@@ -5783,13 +5788,13 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "dynamic-programming",
-              "heading": "dynamic-programming"
+              "value": "动态规划 dynamic-programming",
+              "heading": "动态规划-dynamic-programming"
             },
             {
               "depth": 3,
-              "value": "120.triangle.js",
-              "heading": "120trianglejs"
+              "value": "120.triangle.js 三角形",
+              "heading": "120trianglejs-三角形"
             },
             {
               "depth": 3,
@@ -5803,13 +5808,13 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "32.longest-valid-parentheses.js",
-              "heading": "32longest-valid-parenthesesjs"
+              "value": "32.longest-valid-parentheses.js 最长有效的括号",
+              "heading": "32longest-valid-parenthesesjs-最长有效的括号"
             },
             {
               "depth": 2,
-              "value": "greedy",
-              "heading": "greedy"
+              "value": "greedy 贪婪",
+              "heading": "greedy-贪婪"
             },
             {
               "depth": 3,
@@ -5818,8 +5823,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "hash-table",
-              "heading": "hash-table"
+              "value": "哈希表 hash-table",
+              "heading": "哈希表-hash-table"
             },
             {
               "depth": 3,
@@ -5848,8 +5853,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "heap",
-              "heading": "heap"
+              "value": "堆 heap",
+              "heading": "堆-heap"
             },
             {
               "depth": 3,
@@ -5858,8 +5863,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "linked-list",
-              "heading": "linked-list"
+              "value": "链表 linked-list",
+              "heading": "链表-linked-list"
             },
             {
               "depth": 3,
@@ -5898,8 +5903,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "math",
-              "heading": "math"
+              "value": "数学 math",
+              "heading": "数学-math"
             },
             {
               "depth": 3,
@@ -5918,8 +5923,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "queue",
-              "heading": "queue"
+              "value": "队列 queue",
+              "heading": "队列-queue"
             },
             {
               "depth": 3,
@@ -5938,8 +5943,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "string",
-              "heading": "string"
+              "value": "字符串 string",
+              "heading": "字符串-string"
             },
             {
               "depth": 3,
@@ -5953,8 +5958,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "tree",
-              "heading": "tree"
+              "value": "树 tree",
+              "heading": "树-tree"
             },
             {
               "depth": 3,
@@ -5963,8 +5968,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "two-pointers",
-              "heading": "two-pointers"
+              "value": "双指针 two-pointers",
+              "heading": "双指针-two-pointers"
             },
             {
               "depth": 3,
@@ -6246,7 +6251,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593666489000,
+          "updatedTime": 1593681631000,
           "slugs": [
             {
               "depth": 1,
@@ -6259,9 +6264,29 @@ const routes = [
               "heading": "入门"
             },
             {
-              "depth": 2,
-              "value": "学习",
-              "heading": "学习"
+              "depth": 3,
+              "value": "算法可视化",
+              "heading": "算法可视化"
+            },
+            {
+              "depth": 3,
+              "value": "考察维度",
+              "heading": "考察维度"
+            },
+            {
+              "depth": 3,
+              "value": "伪代码",
+              "heading": "伪代码"
+            },
+            {
+              "depth": 3,
+              "value": "基本概念",
+              "heading": "基本概念"
+            },
+            {
+              "depth": 3,
+              "value": "如何应对算法题",
+              "heading": "如何应对算法题"
             },
             {
               "depth": 3,
@@ -6344,39 +6369,9 @@ const routes = [
               "heading": "王争---数据结构和算法必知必会的50个代码实现"
             },
             {
-              "depth": 3,
-              "value": "其他教程",
-              "heading": "其他教程"
-            },
-            {
               "depth": 2,
-              "value": "算法可视化",
-              "heading": "算法可视化"
-            },
-            {
-              "depth": 2,
-              "value": "考察维度",
-              "heading": "考察维度"
-            },
-            {
-              "depth": 2,
-              "value": "伪代码",
-              "heading": "伪代码"
-            },
-            {
-              "depth": 2,
-              "value": "基本概念",
-              "heading": "基本概念"
-            },
-            {
-              "depth": 2,
-              "value": "如何应对算法题",
-              "heading": "如何应对算法题"
-            },
-            {
-              "depth": 2,
-              "value": "复杂度",
-              "heading": "复杂度"
+              "value": "算法复杂度",
+              "heading": "算法复杂度"
             },
             {
               "depth": 3,
@@ -6395,18 +6390,13 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "存储结构",
-              "heading": "存储结构"
-            },
-            {
-              "depth": 3,
-              "value": "没有完美的数据结构",
-              "heading": "没有完美的数据结构"
+              "value": "数据结构的存储结构",
+              "heading": "数据结构的存储结构"
             },
             {
               "depth": 2,
-              "value": "准备篇？",
-              "heading": "准备篇？"
+              "value": "***数据结构**",
+              "heading": "数据结构"
             },
             {
               "depth": 2,
@@ -6561,12 +6551,7 @@ const routes = [
             {
               "depth": 3,
               "value": "复杂度",
-              "heading": "复杂度-1"
-            },
-            {
-              "depth": 3,
-              "value": "LC 探索",
-              "heading": "lc-探索"
+              "heading": "复杂度"
             },
             {
               "depth": 3,
@@ -6665,8 +6650,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "使用队列对数据进行排序 基数排序",
-              "heading": "使用队列对数据进行排序-基数排序"
+              "value": "使用队列对数据进行排序（基数排序）",
+              "heading": "使用队列对数据进行排序（基数排序）"
             },
             {
               "depth": 3,
@@ -6675,8 +6660,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "栈和队列",
-              "heading": "栈和队列"
+              "value": "栈和队列应用",
+              "heading": "栈和队列应用"
             },
             {
               "depth": 3,
@@ -6710,8 +6695,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "又称哈希表",
-              "heading": "又称哈希表"
+              "value": "哈希表",
+              "heading": "哈希表-1"
             },
             {
               "depth": 2,
@@ -6840,8 +6825,13 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "括号生成、子集和电话号码的字母组合",
-              "heading": "括号生成、子集和电话号码的字母组合"
+              "value": "1-1 括号生成",
+              "heading": "1-1-括号生成"
+            },
+            {
+              "depth": 3,
+              "value": "子集和电话号码的字母组合",
+              "heading": "子集和电话号码的字母组合"
             },
             {
               "depth": 3,
@@ -6864,7 +6854,17 @@ const routes = [
               "heading": "最长公共子串"
             },
             {
-              "depth": 4,
+              "depth": 3,
+              "value": "最长公共子序列",
+              "heading": "最长公共子序列"
+            },
+            {
+              "depth": 3,
+              "value": "最大子序和",
+              "heading": "最大子序和"
+            },
+            {
+              "depth": 3,
               "value": "0 - 1 背包问题 （0 - 1 Knapsack）",
               "heading": "0---1-背包问题-（0---1-knapsack）"
             },
@@ -6910,8 +6910,13 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "排序",
-              "heading": "排序"
+              "value": "排序算法",
+              "heading": "排序算法"
+            },
+            {
+              "depth": 3,
+              "value": "排序算法可视化",
+              "heading": "排序算法可视化"
             },
             {
               "depth": 3,
@@ -6950,18 +6955,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "计数排序",
-              "heading": "计数排序"
-            },
-            {
-              "depth": 3,
-              "value": "桶排序",
-              "heading": "桶排序"
-            },
-            {
-              "depth": 3,
-              "value": "基数排序",
-              "heading": "基数排序"
+              "value": "计数排序、桶排序、基数排序",
+              "heading": "计数排序、桶排序、基数排序"
             },
             {
               "depth": 3,
@@ -7005,8 +7000,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "hash 算法",
-              "heading": "hash-算法"
+              "value": "哈希算法",
+              "heading": "哈希算法"
             },
             {
               "depth": 3,
@@ -7020,8 +7015,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "位运算",
-              "heading": "位运算"
+              "value": "位运算(二进制)",
+              "heading": "位运算二进制"
             },
             {
               "depth": 3,
@@ -7030,13 +7025,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "0 - 1 背包",
-              "heading": "0---1-背包"
-            },
-            {
-              "depth": 3,
-              "value": "LRU 缓存 淘汰算法",
-              "heading": "lru-缓存-淘汰算法"
+              "value": "LRU 缓存算法",
+              "heading": "lru-缓存算法"
             },
             {
               "depth": 3,
@@ -7055,13 +7045,13 @@ const routes = [
             },
             {
               "depth": 4,
-              "value": "DFS",
-              "heading": "dfs"
+              "value": "DFS 深度优先搜索",
+              "heading": "dfs-深度优先搜索"
             },
             {
               "depth": 4,
-              "value": "BFS",
-              "heading": "bfs"
+              "value": "BFS 广度优先搜索",
+              "heading": "bfs-广度优先搜索"
             },
             {
               "depth": 4,
@@ -7070,8 +7060,8 @@ const routes = [
             },
             {
               "depth": 4,
-              "value": "dp 方程",
-              "heading": "dp-方程"
+              "value": "动态规划",
+              "heading": "动态规划"
             },
             {
               "depth": 2,
@@ -7098,7 +7088,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/网站/网站.md",
-          "updatedTime": 1593442618000,
+          "updatedTime": 1593602187000,
           "slugs": [
             {
               "depth": 1,
@@ -7139,6 +7129,11 @@ const routes = [
               "depth": 2,
               "value": "JavaScript",
               "heading": "javascript"
+            },
+            {
+              "depth": 2,
+              "value": "面试(综合，大前端内容)",
+              "heading": "面试综合，大前端内容"
             },
             {
               "depth": 2,
@@ -7217,8 +7212,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "程序员博客",
-              "heading": "程序员博客"
+              "value": "程序员 Podcast",
+              "heading": "程序员-podcast"
             }
           ],
           "title": "网站",
@@ -7779,8 +7774,8 @@ const routes = [
             },
             {
               "depth": 2,
-              "value": "cheatsheets",
-              "heading": "cheatsheets"
+              "value": "正则 cheatsheets",
+              "heading": "正则-cheatsheets"
             },
             {
               "depth": 2,
@@ -8406,7 +8401,7 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/面试/面试.md",
-          "updatedTime": 1593608194000,
+          "updatedTime": 1593681631000,
           "slugs": [
             {
               "depth": 1,
@@ -8480,6 +8475,21 @@ const routes = [
             },
             {
               "depth": 2,
+              "value": "面经",
+              "heading": "面经"
+            },
+            {
+              "depth": 3,
+              "value": "老码农的字节跳动前端面试总结",
+              "heading": "老码农的字节跳动前端面试总结"
+            },
+            {
+              "depth": 3,
+              "value": "LiuL0703 面试总结",
+              "heading": "liul0703-面试总结"
+            },
+            {
+              "depth": 2,
               "value": "其他",
               "heading": "其他"
             },
@@ -8502,11 +8512,6 @@ const routes = [
               "depth": 3,
               "value": "简历常用例句集合",
               "heading": "简历常用例句集合"
-            },
-            {
-              "depth": 3,
-              "value": "面经",
-              "heading": "面经"
             },
             {
               "depth": 3,
@@ -8537,16 +8542,6 @@ const routes = [
               "depth": 3,
               "value": "字节 三年社招岗位 前端面试 - 看准网",
               "heading": "字节-三年社招岗位-前端面试---看准网"
-            },
-            {
-              "depth": 3,
-              "value": "老码农的字节跳动前端面试总结",
-              "heading": "老码农的字节跳动前端面试总结"
-            },
-            {
-              "depth": 3,
-              "value": "LiuL0703 面试总结",
-              "heading": "liul0703-面试总结"
             },
             {
               "depth": 3,

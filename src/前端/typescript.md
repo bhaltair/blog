@@ -45,7 +45,7 @@
 
 ## 学习资源
 
-- 官网 https://www.typescriptlang.org/
+- [官网](https://www.typescriptlang.org/)
 - 官网翻译
   - https://www.tslang.cn/
   - https://typescript.bootcss.com/
