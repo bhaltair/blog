@@ -3,7 +3,9 @@
     "start": "docsify serve src",
     "build": "dumi build",
     "start:dumi": "dumi dev",
-    "dev": "browser-sync start --server --files ’**/*.md‘"
+    "dev": "browser-sync start --server --files ’**/*.md‘",
+    "docs:dev": "vuepress dev src",
+    "docs:build": "vuepress build src"    
   },
   "docsify": {
     "config": {
@@ -15,7 +17,8 @@
   "dependencies": {},
   "devDependencies": {
     "cz-customizable": "^6.2.0",
-    "dumi": "^1.0.31"
+    "dumi": "^1.0.31",
+    "vuepress": "^1.5.2"
   },
   "config": {
     "commitizen": {
