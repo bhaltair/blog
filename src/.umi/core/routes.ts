@@ -6251,12 +6251,17 @@ const routes = [
         "exact": true,
         "meta": {
           "filePath": "src/算法/数据结构与算法.md",
-          "updatedTime": 1593681631000,
+          "updatedTime": 1593749580000,
           "slugs": [
             {
               "depth": 1,
               "value": "数据结构与算法",
               "heading": "数据结构与算法"
+            },
+            {
+              "depth": 2,
+              "value": "❤️算法解题模板",
+              "heading": "️算法解题模板"
             },
             {
               "depth": 2,
@@ -6405,8 +6410,8 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "1-1 整数翻转",
-              "heading": "1-1-整数翻转"
+              "value": "1-1 👌 整数翻转",
+              "heading": "1-1--整数翻转"
             },
             {
               "depth": 3,
@@ -6425,17 +6430,17 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "2-2 反转字符串",
+              "value": "2-2 👌反转字符串",
               "heading": "2-2-反转字符串"
             },
             {
               "depth": 3,
-              "value": "2-3 字符串中的第一个唯一字符",
+              "value": "2-3 👌字符串中的第一个唯一字符",
               "heading": "2-3-字符串中的第一个唯一字符"
             },
             {
               "depth": 3,
-              "value": "3-1 验证回文字符串",
+              "value": "3-1 👌验证回文字符串",
               "heading": "3-1-验证回文字符串"
             },
             {
@@ -6460,7 +6465,7 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "1-1 罗马数字转整数",
+              "value": "1-1 👌罗马数字转整数",
               "heading": "1-1-罗马数字转整数"
             },
             {
@@ -6480,7 +6485,7 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "3-1 Pow(x, n)",
+              "value": "3-1 👌Pow(x, n)",
               "heading": "3-1-powx-n"
             },
             {
@@ -6510,7 +6515,7 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "1-1 翻转数组",
+              "value": "1-1 👌翻转数组",
               "heading": "1-1-翻转数组"
             },
             {
@@ -6520,7 +6525,7 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "1-3 两数之和",
+              "value": "1-3 👌两数之和",
               "heading": "1-3-两数之和"
             },
             {
@@ -6542,6 +6547,26 @@ const routes = [
               "depth": 3,
               "value": "4-1 字谜分组",
               "heading": "4-1-字谜分组"
+            },
+            {
+              "depth": 3,
+              "value": "4-2 三数之和",
+              "heading": "4-2-三数之和"
+            },
+            {
+              "depth": 3,
+              "value": "4-3 无重复字符的最长子串",
+              "heading": "4-3-无重复字符的最长子串"
+            },
+            {
+              "depth": 3,
+              "value": "4-4 矩阵置零",
+              "heading": "4-4-矩阵置零"
+            },
+            {
+              "depth": 3,
+              "value": "4-5 递增的三元子序列",
+              "heading": "4-5-递增的三元子序列"
             },
             {
               "depth": 2,
@@ -6585,37 +6610,37 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "1-1 回文链表 isPalindrome",
+              "value": "1-1 👌回文链表 isPalindrome",
               "heading": "1-1-回文链表-ispalindrome"
             },
             {
               "depth": 3,
-              "value": "1-2 环形链表",
+              "value": "1-2 👌环形链表",
               "heading": "1-2-环形链表"
             },
             {
               "depth": 3,
-              "value": "1-3 删除链表中的节点",
+              "value": "1-3 👌删除链表中的节点",
               "heading": "1-3-删除链表中的节点"
             },
             {
               "depth": 3,
-              "value": "2-1 翻转单链表",
+              "value": "2-1 👌翻转单链表",
               "heading": "2-1-翻转单链表"
             },
             {
               "depth": 3,
-              "value": "2-2 删除链表的倒数第N个节点",
+              "value": "2-2 👌删除链表的倒数第N个节点",
               "heading": "2-2-删除链表的倒数第n个节点"
             },
             {
               "depth": 3,
-              "value": "2-3 合并两个有序链表",
+              "value": "2-3 👌合并两个有序链表",
               "heading": "2-3-合并两个有序链表"
             },
             {
               "depth": 3,
-              "value": "2-4 两数相加",
+              "value": "2-4 👌两数相加",
               "heading": "2-4-两数相加"
             },
             {
@@ -6644,6 +6669,31 @@ const routes = [
               "heading": "栈-stack"
             },
             {
+              "depth": 3,
+              "value": "155：最小栈（包含getMin函数的栈）",
+              "heading": "155：最小栈（包含getmin函数的栈）"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode20：有效的括号",
+              "heading": "leetcode20：有效的括号"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode1047：删除字符串中的所有相邻重复项",
+              "heading": "leetcode1047：删除字符串中的所有相邻重复项"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode1209：删除字符串中的所有相邻重复项 II",
+              "heading": "leetcode1209：删除字符串中的所有相邻重复项-ii"
+            },
+            {
+              "depth": 3,
+              "value": "删除字符串中出现次数 >= 2 次的相邻字符",
+              "heading": "删除字符串中出现次数--2-次的相邻字符"
+            },
+            {
               "depth": 2,
               "value": "队列 Queue",
               "heading": "队列-queue"
@@ -6657,6 +6707,26 @@ const routes = [
               "depth": 3,
               "value": "优先队列",
               "heading": "优先队列"
+            },
+            {
+              "depth": 3,
+              "value": "1-1 剑指offer09：用两个栈实现队列",
+              "heading": "1-1-剑指offer09：用两个栈实现队列"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode239：滑动窗口最大值问题",
+              "heading": "leetcode239：滑动窗口最大值问题"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode151：翻转字符串里的单词",
+              "heading": "leetcode151：翻转字符串里的单词"
+            },
+            {
+              "depth": 3,
+              "value": "Leetcode3：无重复字符的最长子串",
+              "heading": "leetcode3：无重复字符的最长子串"
             },
             {
               "depth": 2,
@@ -6699,14 +6769,44 @@ const routes = [
               "heading": "哈希表-1"
             },
             {
+              "depth": 3,
+              "value": "腾讯&leetcode349：给定两个数组，编写一个函数来计算它们的交集",
+              "heading": "腾讯leetcode349：给定两个数组，编写一个函数来计算它们的交集"
+            },
+            {
+              "depth": 3,
+              "value": "字节&leetcode1：两数之和",
+              "heading": "字节leetcode1：两数之和"
+            },
+            {
+              "depth": 3,
+              "value": "腾讯&leetcode15：三数之和",
+              "heading": "腾讯leetcode15：三数之和"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode380：常数时间插入、删除和获取随机元素",
+              "heading": "leetcode380：常数时间插入、删除和获取随机元素"
+            },
+            {
+              "depth": 3,
+              "value": "剑指Offer：第一个只出现一次的字符",
+              "heading": "剑指offer：第一个只出现一次的字符"
+            },
+            {
               "depth": 2,
               "value": "树",
               "heading": "树"
             },
             {
               "depth": 3,
-              "value": "二叉查找树 BST （Binar Search Tree）",
-              "heading": "二叉查找树-bst-（binar-search-tree）"
+              "value": "二叉树的遍历",
+              "heading": "二叉树的遍历-1"
+            },
+            {
+              "depth": 3,
+              "value": "二叉查找树 BST (Binar Search Tree)",
+              "heading": "二叉查找树-bst-binar-search-tree"
             },
             {
               "depth": 3,
@@ -6740,28 +6840,83 @@ const routes = [
             },
             {
               "depth": 3,
-              "value": "对称二叉树",
-              "heading": "对称二叉树"
+              "value": "2-1 leetcode101 对称二叉树",
+              "heading": "2-1-leetcode101-对称二叉树"
             },
             {
               "depth": 3,
-              "value": "二叉树的层次遍历",
-              "heading": "二叉树的层次遍历"
+              "value": "2-2 二叉树的最大深度",
+              "heading": "2-2-二叉树的最大深度"
             },
             {
               "depth": 3,
-              "value": "中序遍历二叉树",
-              "heading": "中序遍历二叉树"
+              "value": "2-3 验证二叉搜索树",
+              "heading": "2-3-验证二叉搜索树"
             },
             {
               "depth": 3,
-              "value": "填充每个节点的下一个右侧节点指针",
-              "heading": "填充每个节点的下一个右侧节点指针"
+              "value": "3-1 二叉树的层次遍历",
+              "heading": "3-1-二叉树的层次遍历"
+            },
+            {
+              "depth": 3,
+              "value": "3-2 二叉树的序列化与反序列化",
+              "heading": "3-2-二叉树的序列化与反序列化"
+            },
+            {
+              "depth": 3,
+              "value": "3-3 常数时间内插入删除",
+              "heading": "3-3-常数时间内插入删除"
+            },
+            {
+              "depth": 3,
+              "value": "3-4 获得随机数",
+              "heading": "3-4-获得随机数"
+            },
+            {
+              "depth": 3,
+              "value": "4-1 中序遍历二叉树",
+              "heading": "4-1-中序遍历二叉树"
+            },
+            {
+              "depth": 3,
+              "value": "5-1 填充每个节点的下一个右侧节点指针",
+              "heading": "5-1-填充每个节点的下一个右侧节点指针"
+            },
+            {
+              "depth": 3,
+              "value": "5-2 岛屿数量",
+              "heading": "5-2-岛屿数量"
+            },
+            {
+              "depth": 3,
+              "value": "5-3 二叉树的锯齿形层次遍历",
+              "heading": "5-3-二叉树的锯齿形层次遍历"
             },
             {
               "depth": 2,
               "value": "堆",
               "heading": "堆-1"
+            },
+            {
+              "depth": 3,
+              "value": "腾讯&字节等：最小的k个数",
+              "heading": "腾讯字节等：最小的k个数"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode347：前 K 个高频元素",
+              "heading": "leetcode347：前-k-个高频元素"
+            },
+            {
+              "depth": 3,
+              "value": "字节&leetcode215：数组中的第K个最大元素",
+              "heading": "字节leetcode215：数组中的第k个最大元素"
+            },
+            {
+              "depth": 3,
+              "value": "剑指Offer&leetcode295：数据流的中位数",
+              "heading": "剑指offerleetcode295：数据流的中位数"
             },
             {
               "depth": 3,
@@ -6777,6 +6932,21 @@ const routes = [
               "depth": 3,
               "value": "广度优先搜索、深度优先搜索",
               "heading": "广度优先搜索、深度优先搜索"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode997：找到小镇的法官",
+              "heading": "leetcode997：找到小镇的法官"
+            },
+            {
+              "depth": 3,
+              "value": "leetcode207：课程表问题",
+              "heading": "leetcode207：课程表问题"
+            },
+            {
+              "depth": 3,
+              "value": "剑指Offer&Bigo：旋转矩阵",
+              "heading": "剑指offerbigo：旋转矩阵"
             },
             {
               "depth": 2,
