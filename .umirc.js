@@ -1,6 +1,6 @@
 export default {
   hash: true,
-  outputPath: 'docs',
+  outputPath: 'dist',
   // base: '/blog/',
   publicPath: '/blog/',
   dynamicImport: {},

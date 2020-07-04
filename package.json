@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "start": "docsify serve src",
+    "start": "docsify serve docs",
     "build": "dumi build",
     "start:dumi": "dumi dev",
     "dev": "browser-sync start --server --files ’**/*.md‘",
-    "docs:dev": "vuepress dev src",
-    "docs:build": "vuepress build src"    
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"    
   },
   "docsify": {
     "config": {

@@ -15,7 +15,6 @@ module.exports = {
   ],
 
   scopes: [
-    {name: '工具'},
     {name: '前端'},
     {name: '后端'},
     {name: '算法'},
