@@ -1,5 +1,5 @@
 # CSS
-## position
+## 位置 position
 
 ## line-height
 
@@ -39,7 +39,7 @@ z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
   > content: url(mark.png)
 
 
-### 选择器优先级
+**选择器优先级**
 
 1. !important最屌，不care任何优先级
 2. 然后是行内优先级最高
@@ -50,22 +50,21 @@ z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
 
 ## @ 规则
 
-### @charset
-### @keyframes
-### @fontface
-### @supports
-### @media
-### @import
+* @charset
+* @keyframes
+* @fontface
+* @supports
+* @media
+* @import
 
 ## 盒模型
 
-### content-box
+content-box
 
-### border-box
+border-box
 
 ## L-V-H-A
 
-## rgba 和 opacity
 
 ## 响应式设计
 
@@ -116,11 +115,79 @@ flex 是一个简写属性 flex-grow, flex-shrink与flex-basis
 
 ## 动画
 
-### 理论知识
-### transition
-### animation
+* 理论知识
+* transition
+* animation
 
-## 原理
+## 布局
+
+![a.png](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/25962FF9-A886-485C-A6BF-823EEC288CD1.jpg)
+
+## IFC BFC
+
+Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一个块级元素中仅包含内联级别元素时才会生成。
+
+BFC
+* 父元素设置overflow: hidden
+* 父元素float为left或者right
+* position为absolute或者fixed
+* display为inline-block5
+          
+## 布局模型
+
+- Flow Model：流动模型
+块状元素、内联元素以及父子元素的默认展示形式
+- Float Model：浮动模型
+父元素的高度无法自适应，因为浮动子元素脱离了文档流
+- Layer Model：层模型
+层模型有 3 中形式，absolute、fixed 可以使元素脱离文档流
+
+## 伪类
+
+```css
+
+/* @规则 */
+@charset
+@import
+@media
+@font-face
+@keyframes
+
+/* 伪类 */
+:active
+:checked
+:disabled
+:enabled
+:fist-child
+:focus
+:hover
+:not
+:nth-child
+
+
+/* 伪元素 */
+::after
+::placeholder
+```
+
+## 单位
+* px
+* rem
+* em
+* vw & vh // vmin & vmax
+* %
+
+## 其他
+
+### 如何优化 `css` d的性能
+1. 避免选择器层级开销
+2. 避免不必要的 Layout 和 Paint 开销
+3. 页面上的动画可以合理使用硬件加速，提升动画性能
+4. 浏览器渲染路径的开销，去除未使用样式减小样式体积。
+
+
+### rgba 和 opacity
+
 
 ### translateZ 硬件加速原理
 
@@ -262,66 +329,6 @@ font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans
 SimSun,                   // Win old              中易宋体
 sans-serif;               // System Fallback
 ```
-
-## 布局
-
-![a.png](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/25962FF9-A886-485C-A6BF-823EEC288CD1.jpg)
-
-## IFC 
-
-Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一个块级元素中仅包含内联级别元素时才会生成。
-
-## BFC
-        父元素设置overflow: hidden
-        父元素float为left或者right
-        position为absolute或者fixed
-        display为inline-block5
-          
-## 布局模型
-
-- Flow Model：流动模型
-块状元素、内联元素以及父子元素的默认展示形式
-- Float Model：浮动模型
-父元素的高度无法自适应，因为浮动子元素脱离了文档流
-- Layer Model：层模型
-层模型有 3 中形式，absolute、fixed 可以使元素脱离文档流
-
-## 伪类
-
-```css
-
-/* @规则 */
-@charset
-@import
-@media
-@font-face
-@keyframes
-
-/* 伪类 */
-:active
-:checked
-:disabled
-:enabled
-:fist-child
-:focus
-:hover
-:not
-:nth-child
-
-
-/* 伪元素 */
-::after
-::placeholder
-```
-
-## 单位
-* px
-* rem
-* em
-* vw & vh // vmin & vmax
-* %
-
-## 应用
 
 ### 字符间距
 
@@ -668,8 +675,6 @@ root.setAttribute( 'class', 'myCssClass' )
 
 ### iOS 开关
 
-## 写 CSS 的方式
-
 ### BEM 
 .block
 .block__element
@@ -693,10 +698,6 @@ base + layout + module + state + theme
 - 减少对 HTML 结构的依赖
 - 增加 CSS class 重复性的使用
 
-
-### less
-
-Less 建议嵌套层级不超过 3 层。
 
 ### Bulma
 
@@ -780,7 +781,7 @@ Less 建议嵌套层级不超过 3 层。
  - CSS Modules React 推荐使用
  - Styled Componetns 
 
-## less
+### less
 
 ```css
  声明不带参混合
@@ -803,14 +804,14 @@ Less 建议嵌套层级不超过 3 层。
 .imgicon(@position,@size);
 ```
 
-## postcss
+### postcss
 
-### cssnext 
+**cssnext** 
 原仓库已经废弃 改名为 postcss-preset-env
 
 ![b.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1547177110811-2d21314b-1751-46c8-8af2-195851ad99b3.png)
 
-### 手淘实践
+***手淘实践***
 
 * postcss-import
 * postcss-url
@@ -825,6 +826,6 @@ Less 建议嵌套层级不超过 3 层。
 * postcss-viewport-units
 
 
-### Autoprefixer
+**Autoprefixer**
 
 这是我们最常使用的插件，自动加浏览器厂商的前缀

@@ -286,7 +286,7 @@ Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏
 
 核心就是客户端从服务端拉去更新后的文件，chunk diff
 
-客户端和服务端通过 WebSocket，当本地资源发送变动，服务端会向浏览器推送更新，并带上构建时的 hash，客户端对比差异发起 Ajax 请求来获取 chunk 的增量更新。
+客户端和服务端通过 WebSocket，当本地资源发生变动，服务端会向浏览器推送更新，并带上构建时的 hash，客户端对比差异发起 Ajax 请求来获取 chunk 的增量更新。
 
 拿到增量更新后，由 HotModulePlugin 来完成后续的操作，哪些状态该保留？哪些需要更新，像 react-hot-loader 和 vue-loader 都是借助这些 API 实现 HMR。
 
