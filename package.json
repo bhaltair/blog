@@ -8,7 +8,7 @@
   },
   "docsify": {
     "config": {
-      "basePath": "https://www.bhaltair.top/",
+      "basePath": "https://bhaltair.github.io/blog/",
       "loadSidebar": true,
       "loadNavbar": true
     }
