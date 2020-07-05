@@ -2,6 +2,7 @@ module.exports = {
   title: '流月',
   description: '处于萌芽阶段的前端核心知识库',
   plugins: ['@vuepress/medium-zoom'],
+  base: '/blog/',
   dest: 'dist',
   themeConfig: {
     nav: [
