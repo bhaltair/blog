@@ -322,15 +322,36 @@ Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏
     - 使用 `package.json` 中的 `postinstall` 清除缓存目录
 - Tree shaking
   - 检测没有引用的模块进行标记，在资源压缩时将它们从 `bundle` 中去掉
+  - TODO:
 - 避免在开发环境引入生产环境才会用到的工具
   - UglifyJsPlugin
   - ExtraceTextPlugin
   - [hash] / [chunkHash]
 
 ## 是否写过 Loader? 写 Loader 的思路？
+
+Loader 支持链式调用，开发时要遵循 `单一职责`。
+
+TODO:
 ## 是否写过 Plugin? 写 Plugin 的思路？
+
+webpack 在运行的生命周期会广播很多事件，Plugin 可以监听这些事件，在特定的阶段添加一些自定义功能。
+
+Webpack 的 `Tapable` 事件流机制保证了插件的有序性
+
+TODO:
+
+
 ## 聊一聊 Babel 原理吧
 
+1. 解析：将代码转换成 AST
+  - 词法分析：将代码字符串分割成 token 流，即语法单元组成的数组
+  - 语法分析：分析上面生成的语法数组，生成 AST
+2. 转换：旧 AST 生成新的 AST
+  - Taro 就是利用 babel 完成小程序语法转换
+3. 生成：以新的 AST 为基础生成代码
+
+TODO:
 
 
 ## 在项目中使用 webpack

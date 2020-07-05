@@ -1,13 +1,71 @@
 # Vue
 
-访问子组件
-```js
-<user-profile ref="profile"></user-profile>
-var parent = new Vue({ el: '#parent' })
-// 访问子组件
-var child = parent.$refs.profile
+[Vue 纪录片](https://mp.weixin.qq.com/s/kAjdvDfeBW5xJT4DfE0bjA)
 
-```
+## 讲一下 MVVM？
+
+即 M - V - VM，Model - View - ViewModel 缩写，将 `MVC` 中的 Controller 演变成了 ViewModel。
+
+- Model 数据模型
+- View 代表 UI 组件
+- ViewModel 是 View 和 Model 的桥梁
+	- 数据会自动绑定到 ViewModel 层，并自动将数据渲染到页面中
+	- 视图更新的时候会通知 ViewModel 层更新数据
+
+## 2.x 响应式数据原理（依赖收集的原理）
+
+TODO:
+
+Vue 在初始化数据时，会使用 Object.defineProperty （getter、setter）重新定义 data 中的所有属性，
+
+当页面使用对应属性时，首先会进行依赖收集，收集当前组件的 `watcher`
+
+如果属性发生变化会通知相关依赖进行更新操作 `发布订阅`
+
+- 数据变动，如何通知 UI 更新？
+- UI 更新，通知 `Model` 更新？
+
+**那么如何检测数组变化？**
+
+TODO:
+
+Object.defineProperty 无法检测到数组的变化？
+
+使用了函数劫持的方式，重写了数组的方法，Vue 将 data 中的数组进行了原型链重写，指向了自己定义的数组原型方法。
+
+如果数组中包含着引用类型，会对数组中的引用类型再次递归遍历进行监控。
+
+## 3.x 响应式数据原理？
+
+改用 `Proxy` 替代 Object.defineProperty。因为 Proxy 可以直接监听数组和对象的变化
+
+> Avalon 就是用的这个吧
+
+1. Proxy 只会代理对象的第一层，那么 Vue3 是如何处理这个问题的呢？
+
+判断当前 Reflect.get 的返回值是否为 Obejct,如果是再通过 reactive 方法做代理，这样就实现了深度观测。
+
+2. 监听数组的时候可能触发多次 get/set，怎么防止触发多次呢？
+- 判断 key 是否为当前被代理对象 target 自身属性
+- 判断旧值与新值是否相等
+- 满足两个条件之一时，才可以 trigger
+
+## nextTick 原理知道吗？
+
+TODO:
+
+先要了解一下浏览器的事件循环，宏任务、微任务这些。
+
+根据执行环境，分别尝试采用
+
+- Promise
+- MutationObserver
+- setImmediate
+- 如果以上都不行采用 setTimeout
+
+在下次 DOM 更新循环结束之后执行延迟回调。nextTick 主要使用了宏任务和微任务。
+
+定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
 
 ## 2.x 源码
 
@@ -30,6 +88,7 @@ var child = parent.$refs.profile
 ### key 的使用
 
 ## 静态资源处理
+
 如果你的静态资源文件需要 Webpack 做构建编译处理，可以放到 assets 目录，否则可以放到 static 目录中去。
 一些图片类的资源放在static文件夹下，这样会按照原本的结构放在网站根目录下。
 ```
@@ -41,14 +100,7 @@ var child = parent.$refs.profile
 ```
 
 
-## Vue UI
-* ivew
-* mint-ui
-* elemen-ui
-* 有赞UI
-* vux
-
-## webpack proxy
+## Webpack Proxy
 ```js
  config.jsmodule.exports = {
   // ...
@@ -71,14 +123,56 @@ var child = parent.$refs.profile
 
 
 
-## Vue 单元测试
+## Vue 组件测试
+
 - Karma: 启动浏览器来跑测试，运行测试用例并将结果报告给我们。
 - karma-webpack: 使用webpack来跑Karma测试的插件
 - Mocha: 我们编写测试规范的测试框架。
 - Chai: 提供更好的断言语法的测试断言库。
 - Sinon: 测试工具库，提供了spies, stubs 和 mocks。
 
-## Vue Compostion API
+
+
+## 3.0 beta
+
+- 2.x 的问题
+	- 数据和逻辑都被分散到了各个 `option`中，复用差
+	- ts 支持差
+- 新引入
+	- Function-based
+- 亮点
+	- performance
+	- tree-shaking support
+	- 组合 API composition api
+		 与 react hooks 类似的东西
+	- fragment、teleport、suspense
+	- 更好的 TS 支持
+		- class 组件继续支持
+	- 自定义渲染 API
+- 周边
+	- router
+		- vue-router-next
+	- vuex
+		- 没有 API 变动，兼容 Vue 3 为主
+	- cli
+		- vue-cli-plugin-vue-next 插件
+	- vue-test-utils
+		- vue-test-utils-next
+	- vite
+		- http 服务器
+		- 不需要 webpack 编译打包
+		- 直接渲染 vue 文件
+	- nuxt
+- 阶段
+	- 1 rfc 征集用户反馈
+	- 2 alpha 阶段
+	- 3 beta 阶段 目前
+	- 4 rc 阶段
+		- 各项 API 已经稳定
+	- 5 兼容 IE 11
+	- 6 发布
+
+### Vue Compostion API
 
 - Options API 和 Composition API 孰优孰劣
 - API 
@@ -121,57 +215,18 @@ export default {
 </script>
 ```
 
-## 2.x 源码剖析
 
-1. 逐行剖析
-https://nlrx-wjc.github.io/Learn-Vue-Source-Code/
-
-2. Vue.js技术揭秘
-https://ustbhuangyi.github.io/vue-analysis/
-
-3. Vue技术内幕
-http://caibaojian.com/vue-design/art/
-
-## 3.0 beta
-
-- 2.x 的问题
-	- 数据和逻辑都被分散到了各个 `option`中，复用差
-	- ts 支持差
-- 新引入
-	- Function-based
-- 亮点
-	- performance
-	- tree-shaking support
-	- 组合 API composition api
-		 与 react hooks 类似的东西
-	- fragment、teleport、suspense
-	- 更好的 TS 支持
-		- class 组件继续支持
-	- 自定义渲染 API
-- 周边
-	- router
-		- vue-router-next
-	- vuex
-		- 没有 API 变动，兼容 Vue 3 为主
-	- cli
-		- vue-cli-plugin-vue-next 插件
-	- vue-test-utils
-		- vue-test-utils-next
-	- vite
-		- http 服务器
-		- 不需要 webpack 编译打包
-		- 直接渲染 vue 文件
-	- nuxt
-- 阶段
-	- 1 rfc 征集用户反馈
-	- 2 alpha 阶段
-	- 3 beta 阶段 目前
-	- 4 rc 阶段
-		- 各项 API 已经稳定
-	- 5 兼容 IE 11
-	- 6 发布
 
 ## 实践
+
+### 访问子组件
+```js
+<user-profile ref="profile"></user-profile>
+var parent = new Vue({ el: '#parent' })
+// 访问子组件
+var child = parent.$refs.profile
+
+```
 
 ### 关注点分离
 
@@ -303,3 +358,13 @@ function setupWebViewJavascriptBridge(callback) {
 
 ```
 
+## 参考
+
+1. 逐行剖析
+https://nlrx-wjc.github.io/Learn-Vue-Source-Code/
+
+2. Vue.js技术揭秘
+https://ustbhuangyi.github.io/vue-analysis/
+
+3. Vue技术内幕
+http://caibaojian.com/vue-design/art/

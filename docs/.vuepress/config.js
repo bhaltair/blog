@@ -94,7 +94,7 @@ module.exports = {
         ]
       }                           
     ],    
-    smoothScroll: true,
+    smoothScroll: false,
     sidebar: 'auto',
     lastUpdated: 'Last Updated', // string | boolean
   }  
