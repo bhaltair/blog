@@ -251,9 +251,6 @@ sourcemap 文件是将编译、打包、压缩后的文件映射回源代码的�
 - hidden-source-map：借助第三方错误监控平台 Sentry 使用，把 sourcemap 上传到公司内搭建的 Sentry 上面
   - 通过 sentry-webpack-plugin 上传
   - 推荐- sourcemap 文件不暴露到公网
-  <!-- - 好像是将所有 `dist` 目录下面的文件都上传上去了
-  - 可以不可以只上传 .map 文件
-  - 其他文件上传到 OSS 上就可以了。 -->
 - 通过 nginx 设置 .map 文件只对白名单开放（公司内网）
 
 ```js
@@ -285,7 +282,56 @@ WebPack 实际上为每个模块创造了一个可以导出和导入的环境
 
 ## 说一下 Webpack 的热更新原理吧
 
-Hot Module Replacement，缩写为 HMR。
+Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏览器而将变更的模块替换掉
+
+核心就是客户端从服务端拉去更新后的文件，chunk diff
+
+客户端和服务端通过 WebSocket，当本地资源发送变动，服务端会向浏览器推送更新，并带上构建时的 hash，客户端对比差异发起 Ajax 请求来获取 chunk 的增量更新。
+
+拿到增量更新后，由 HotModulePlugin 来完成后续的操作，哪些状态该保留？哪些需要更新，像 react-hot-loader 和 vue-loader 都是借助这些 API 实现 HMR。
+
+## 如何对bundle体积进行监控和分析？
+
+引入的时候，通过 vscode 有一个 Import Cost 插件，得到引入模块的大小。
+
+后续还可以使用 webpack-bundle-analyzer 来分析 bundle 的体积和模块组成图。
+
+## 文件指纹是什么？怎么用？
+
+可以设置比较长时间的强缓存，提高页面打开速度。
+
+可以给 JS、CSS、图片等资源文件打上 hash，文件内容变动 hash 会改变。
+
+## 如何优化 Webpack 的构建速度？
+
+- 多进程构建
+  - HappyPack 不维护了
+- 减少要构建的内容(Smaller = Faster) - 提取页面公共资源
+  - 将基础包通过 CDN 引入，不打入 bundle 中，利用 html-webpack-externals-plugin
+  - 使用 SplitChunksPlugin，进行基础包分离
+- 减少要构建的内容 - 动态 polyfill
+  - 使用 polyfill service，探测浏览器的 UA，
+  - 部分浏览器可能无法识别，可以降级返回全部 polyfill
+- 少构建 - dll plugin
+  - 使用 DLLReferencePlugin(索引链接) 对 manifest.json 引用
+  - 使用 DLLPlugin 进行分包，让一些不频繁改动的代码进行单独编译
+  - 缺点：增加构建过程的复杂性
+- 利用缓存，提供二次构建速度
+  - babel-loader 开启缓存
+  - 使用 `cache-loader` 启用 持久化缓存
+    - 使用 `package.json` 中的 `postinstall` 清除缓存目录
+- Tree shaking
+  - 检测没有引用的模块进行标记，在资源压缩时将它们从 `bundle` 中去掉
+- 避免在开发环境引入生产环境才会用到的工具
+  - UglifyJsPlugin
+  - ExtraceTextPlugin
+  - [hash] / [chunkHash]
+
+## 是否写过 Loader? 写 Loader 的思路？
+## 是否写过 Plugin? 写 Plugin 的思路？
+## 聊一聊 Babel 原理吧
+
+
 
 ## 在项目中使用 webpack
 
