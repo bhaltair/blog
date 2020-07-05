@@ -55,6 +55,21 @@
 ## 垃圾收集
 *找出那些不使用的变量，释放其占用的内存*
 
+## 原型链
+
+```js
+//题目
+var a = {num:2};
+var b = Object.create(a);
+//问题,以下顺序执行,值是？
+b.num
+b.num++ 
+a.num
+
+// 结果 222
+// b 是个空对象，__proto__ 是 a 的 copy
+```
+
 ## JS 对象
 
 - 宿主对象（host Objects）：由 JavaScript 宿主环境提供的对象，它们的行为完全由宿主环境决定

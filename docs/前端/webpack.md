@@ -7,9 +7,7 @@
 
 [webpack：从入门到真实项目配置](https://juejin.im/post/59bb37fa6fb9a00a554f89d2)
 
-## 配置项
-
-### entry
+## entry
 
 ```
 module.exports = {
@@ -21,7 +19,7 @@ module.exports = {
 
 ```
 
-### output
+## output
 
 ```js
 {
@@ -38,7 +36,7 @@ module.exports = {
 }
 
 ```
-### reslove
+## reslove
 
 主要用于解析模块依赖的自定义项
 
@@ -76,7 +74,7 @@ tsconfig.json 相应的配置
 
 ```
 
-### module
+## module
 
 主要配置就是 rules 了，针对不同资源使用不同的 loader
 
@@ -101,7 +99,7 @@ module: {
 
 ```
 
-### optimization
+## optimization
 
 最常用的是 splitChunks 和 minimizer
 
@@ -111,18 +109,20 @@ module: {
 - splitChunks 是webpack4.x推出的重磅功能，优化的公共chunk提取策略，更高效的提取公共模块，在后面性能优化中会详细说明其使用方法。
 
 
-
-### plugin
-
-plugin 可以介入整个构建过程任何阶段
-
-可以完成
-- 报告构建耗时
-- 修改输出代码
-- 代码压缩
-- 资源替换
-
 ## Loader
+
+### 常用的 Loader？用过哪些 Loader?
+
+- file-loader 处理图片和字体
+- url-loader 可以设置一个阈值，小于阈值使用 `base64` 大于阈值使用 publicPath
+- babel-loader 转换 ES6 代码
+- ts-loader 转换 TS 代码
+- awesome-typescript-loader 转换 TS 代码，性能要比上面的好
+- sass-loader 转换 sass
+- css-loader 加载 CSS
+- postcss-loader 
+- vue-loader 处理单文件组件
+- source-map-loader 加载额外的 Source Map 文件，以方便断点调试
 
 ### babel-loader
 
@@ -207,15 +207,85 @@ module.exports = {
 }
 ```
 
-## plugin
+## Plugin
 
-```
-CommonChunkPlugin     将多个入口文件
-ExtractTextWebpackPlugin     提取css
-ComponentWebpackPlugin     通过webpack使用组件
-HtmlWebpackPlugin     简化html文件的创建
+plugin 可以介入整个构建过程任何阶段
 
+可以完成
+- 报告构建耗时
+- 修改输出代码
+- 代码压缩
+- 资源替换
+
+常见的 Plugin? 用过哪些？
+
+* CommonChunkPlugin     将多个入口文件
+* ExtractTextWebpackPlugin     提取css
+* ComponentWebpackPlugin     通过webpack使用组件
+* HtmlWebpackPlugin     简化html文件的创建
+- extract-text-webpack-plugin 提取 CSS 为单独文件，支持缓存 CSS
+- clean-webpack-plugin 目录清理
+- webpack-bundle-analyzer：可视化 Webpack 文件输出的体积，可以分析
+
+loader 和 plugin 的区别？
+- Loader 本质上是一个函数，对函数接收到的内容进行转换，返回转换后的结果。
+- Plugin 插件，可以扩展 Webpack 的功能，Webpack 运行的生命周期中会广播很多事件，Plugin 会监听这些事件，改变输出结果
+
+## Webpack 构建流程简单说一下
+
+1. 初始化：启动构建，从配置文件读取参数，初始化 Compiler 对象
+2. 编译：从 Entry 出发，加载所有插件，执行对象的 `run` 方法开始执行编译，针对每个 `Module` 串行调用 Loader 对模块进行编译，再找出模块依赖的模块，递归本步骤直到所有依赖文件都被编译
+5. 输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中。
+
+## 有哪些可以提高效率的插件
+
+- HotModuleReplacementPlugin: 模块热替换
+- webpack-merge：提取公共配置，减少重复配置代码
+
+## source map 是什么？生产环境怎么用？
+
+sourcemap 文件是将编译、打包、压缩后的文件映射回源代码的过程。
+
+可以 debug 到具体的行数。
+
+- hidden-source-map：借助第三方错误监控平台 Sentry 使用，把 sourcemap 上传到公司内搭建的 Sentry 上面
+  - 通过 sentry-webpack-plugin 上传
+  - 推荐- sourcemap 文件不暴露到公网
+  <!-- - 好像是将所有 `dist` 目录下面的文件都上传上去了
+  - 可以不可以只上传 .map 文件
+  - 其他文件上传到 OSS 上就可以了。 -->
+- 通过 nginx 设置 .map 文件只对白名单开放（公司内网）
+
+```js
+const gitSha = require('child_process').execSync('git rev-parse HEAD').toString().trim() //这个是获取提交版本的记录
+const SentryPlugin = require('@sentry/webpack-plugin');
+  
+process.env.RELEASE_VERSION = gitSha //将记录赋值给RELEASE_VERSION
+  
+//vue project webpack配置
+module.exports = {
+   chainWebpack: config => {
+      if (NODE_ENV === 'production') {
+       config.plugin("sentry").use(SentryPlugin, [{
+        ignore: ['node_modules'],
+        include: './dist', //上传dist文件的js
+        configFile: './.sentryclirc', //配置文件地址
+        release: process.env.RELEASE_VERSION, //版本号
+        deleteAfterCompile: true,
+        urlPrefix: 'https://s.xx.com/fe-static/learning/student-pk' //cdn js的代码路径前缀
+       }])
+      }
+   }
+}
 ```
+
+## TODO:模块打包原理知道吗？
+
+WebPack 实际上为每个模块创造了一个可以导出和导入的环境
+
+## 说一下 Webpack 的热更新原理吧
+
+Hot Module Replacement，缩写为 HMR。
 
 ## 在项目中使用 webpack
 

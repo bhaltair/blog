@@ -43,15 +43,3 @@
 1. 平均编译时长从26秒缩短至10秒
 2. 修复了Promise.all/race的问题
 
-## 学习资源
-
-- [官网](https://www.typescriptlang.org/)
-- 官网翻译
-  - https://www.tslang.cn/
-  - https://typescript.bootcss.com/
-  - https://zhongsp.gitbook.io/
-- 入门教程
-  - https://ts.xcatliu.com/
-- 微信读书
-  - Typescript 实战指南
-  - 深入理解 TypeScript

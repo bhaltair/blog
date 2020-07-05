@@ -1,11 +1,10 @@
 {
   "scripts": {
-    "start": "docsify serve docs",
-    "build": "dumi build",
+    "start:docsify": "docsify serve docs && browser-sync start --server --files ’**/*.md‘",
     "start:dumi": "dumi dev",
-    "dev": "browser-sync start --server --files ’**/*.md‘",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"    
+    "build:dumi": "dumi build",
+    "start:vuepress": "vuepress dev docs",
+    "build:vuepress": "vuepress build docs"
   },
   "docsify": {
     "config": {
@@ -16,6 +15,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
     "cz-customizable": "^6.2.0",
     "dumi": "^1.0.31",
     "vuepress": "^1.5.2"

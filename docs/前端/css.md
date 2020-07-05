@@ -41,6 +41,13 @@ z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
 
 ### 选择器优先级
 
+1. !important最屌，不care任何优先级
+2. 然后是行内优先级最高
+3. 接着，依次计算权重
+    1. ID 100
+    2. 类 10
+    3. 元素（标签、伪类、属性）1
+
 ## @ 规则
 
 ### @charset
@@ -821,17 +828,3 @@ Less 建议嵌套层级不超过 3 层。
 ### Autoprefixer
 
 这是我们最常使用的插件，自动加浏览器厂商的前缀
-
-## 参考
-
-* CSS-Inspiration
-  * https://chokcoco.github.io/CSS-Inspiration/#/./init
-* CSS-Tricks
-  * https://qishaoxuan.github.io/css_tricks/
-* css 技巧进阶 
-  * https://github.com/AllThingsSmitty/css-protips
-* 30-seconds-of-css 
-  * https://github.com/30-seconds/30-seconds-of-css
-* you-neek-to-know-css 
-  * https://github.com/l-hammer/You-need-to-know-css  
-  * https://lhammer.cn/You-need-to-know-css/#/zh-cn/

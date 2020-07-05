@@ -45,7 +45,7 @@ echo $PATH
 ## 查看ubuntu版本
 cat /etc/issue
 
-## 设置开机从文本启动 针对16.04
+## 启动-设置开机从文本启动 针对16.04
 ```
 $ sudo systemctl set-default multi-user.target
 执行如下命令启动到桌面：
@@ -54,7 +54,7 @@ $ sudo systemctl start lightdm
 systemctl set-default graphical.target
 ```
 
-## 添加用户
+## 用户-添加用户
 ```linux
 使用adduser命令，自动创建用户和用户组
 adduser pm
@@ -65,7 +65,7 @@ adduser pm
 ```
 
 
-## 设置超级用户  
+## 用户-设置超级用户  
 
 ```shell
 sudo passwd root

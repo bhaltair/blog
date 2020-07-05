@@ -175,7 +175,7 @@
 
 https://leetcode-cn.com/circle/article/qDaN1Y/
 
-## 五道算法题题入职 LC
+## 五道算法题题入职 LC(天哥)
 
 * 冒泡 / 快排 - 排序类算法
 * LRU / 排列组合 - 应用类算法
@@ -188,9 +188,9 @@ https://leetcode-cn.com/circle/article/qDaN1Y/
 
 ## 热门题
 
-力扣精选算法 200 题
-热题 HOT 100
-腾讯精选练习 50 题
+* 力扣精选算法 200 题
+* 热题 HOT 100
+* 腾讯精选练习 50 题
 
 ## LeetCode 经典题目分类
 

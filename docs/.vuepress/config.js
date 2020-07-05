@@ -1,6 +1,7 @@
 module.exports = {
   title: '流月',
   description: '处于萌芽阶段的前端核心知识库',
+  plugins: ['@vuepress/medium-zoom'],
   themeConfig: {
     nav: [
       // { text: 'Home', link: '/' },
@@ -81,7 +82,7 @@ module.exports = {
         text: '英语',
         items: [
           { text: '摘抄', link: '/英语/摘抄/' },
-          { text: '英语', link: '/英语/英语/' },
+          { text: '方法论', link: '/英语/英语/' },
           { text: '语法', link: '/英语/语法/' },
         ]
       },

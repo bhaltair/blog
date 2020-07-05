@@ -828,39 +828,3 @@ const selectNumOfDoneTodos = createSelector( state => state.todos, todos => todo
 
 https://redux.js.org/recipes/usage-with-typescript
 
-## 学习
-
-### 课程
-
----
-
-- [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - A free, 5-part video course with interactive code examples that will help you learn React.
-- [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Codecademy’s introductory course for React.
-
-### 示例
-
----
-
-- **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Hacker News clone rewritten with universal JavaScript, using React and GraphQL
-- **[Builder Book](https://github.com/builderbook/builderbook)** Open-source web app to write and host documentation or sell books. Built with React, Material-UI, Next, Express, Mongoose, MongoDB
-- **[Snap Shot](https://github.com/Yog9/SnapShot)** A photo gallery with search
-- **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** A React Hooks app for calculating BMI
-
-### 文章
-
----
-
-- [The Hands-On Guide to Learning React Hooks](https://www.telerik.com/kendo-react-ui/react-hooks-guide/) - Eric Bishard’s step-by-step guide to learning React Hooks.
-- [How to Use the React Profiler Component to Measure Render Performance](https://medium.com/@adamhenson/how-to-use-the-react-profiler-component-to-measure-performance-improvements-from-hooks-d43b7092d7a8) - Adam Henson’s article exemplifying a use case for `<React.Profiler />`.
-- [Thinking in React Hooks](https://wattenberger.com/blog/react-hooks) - Amelia Wattenberger’s provides visualizations and highlighting the mindset change needed switching from classes to functional components + hooks.
-
-### 资源
-
----
-
-- [Awesome React](https://github.com/enaqx/awesome-react) - A collection of awesome things regarding React ecosystem.
-- [Awesome React Components](https://github.com/brillout/awesome-react-components) - A curated list of React components.
-
-### cheatsheet
-
-https://devhints.io/react

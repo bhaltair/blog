@@ -12,12 +12,6 @@ Flutter 从头到尾重写一套跨平台的 UI 框架，包括 UI 控件、渲�
 
 渲染引擎依靠跨平台的Skia图形库来实现，依赖系统的只有**图形绘制相关的接口**，可以在最大程度上保证不同平台、不同设备的体验一致性。
 
-## 学习资料
-
-[Flutter 中文网](https://flutterchina.club/)
-[Flutter 实战](https://book.flutterchina.club/)
-[常用库](https://www.cnblogs.com/yangyxd/articles/9232308.html)
-
 ## Dart
 
 ### 基本概念
