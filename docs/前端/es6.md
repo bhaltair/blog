@@ -234,10 +234,159 @@ for (var n of fibonacci) {
 
 ## 类
 
+```js
+let methodName = 'sayName‘
+class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials, name) {
+    super(geometry, materials);
+
+    this.idMatrix = SkinnedMesh.defaultMatrix();
+    this.bones = [];
+    this.boneMatrices = [];
+    this.name = name
+    //...
+  }
+  get bones() {
+    return this.bones
+  }
+  set bones(value) {
+    this.bones = value
+  }  
+  [methodName]() {
+    console.log(this.name)
+  }
+  // 等价于 SkinnedMesh.prototype.update
+  update(camera) {
+    //...
+    super.update();
+  }
+  // 静态方法 等价于 SkinnedMesh.defaultMatrix
+  static defaultMatrix() {
+    return new THREE.Matrix4();
+  }
+}
+```
+
 ## 扩展数组
+
+- 创建数组
+  - Array.of()
+    - new Array()的一些怪异行为
+  - Array.from(类数组对象或可迭代对象) 
 
 ## Promise
 
+- Promise 的设计目标是为了改进 JS 的异步编程，比事件系统和回调更好用。
+- Promise 编排的任务会被添加到引擎任务队列并在未来执行。
+- Promise 有 3 个状态，进行中 pending、已完成 fulfilled、已拒绝 rejected，起始状态是进行中，执行成功会变为已完成，失败变为已拒绝
+- 通过 then 方法可以额添加完成处理程序或拒绝处理程序
+- 创建 Promise
+  - 创建未完成的 Promise，使用 new Promise
+  - 创建已处理的 Promise
+    - Promise.resolve()
+    - Promise.reject()
+- 串联 romise （链式）
+  - 可以只提供一个错误处理程序，因为错误处理会自动地通过 promise 传播
+  - 在 Promise 链中返回 Promise
+- 响应多个
+  - Promise.all 和 Promise.race()
+
+```js
+function timeout(duration = 0) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, duration);
+    })
+}
+
+var p = timeout(1000).then(() => {
+    return timeout(2000);
+}).then(() => {
+    throw new Error("hmm");
+}).catch(err => {
+    return Promise.all([timeout(100), timeout(200)]);
+})
+```
+
 ## 代理和反射
 
+- 代理 API，可以自定义 JS 底层的非标准特性。
+  - 比如修改数组的 length 属性的行为
+  - 代理可以拦截 JS 引擎内部的底层对象操作，被拦截后会触发 handler(陷阱函数)
+- 反射 API，使开发者可以实现每个代理的默认行为
+  - 每个代理陷阱都对应一个默认特性
+    - get 对应 Reflect.get()
+  - 如果说陷阱函数内，覆写了对象的一些内建特性，如果仍需使用内建特性，可以使用对应的反射 API 方法。
+
+```js
+// Proxying a normal object
+var target = {};
+var handler = {
+  get: function (receiver, name) {
+    return `Hello, ${name}!`;
+  }
+};
+
+var p = new Proxy(target, handler);
+p.world === "Hello, world!";
+
+
+```
+
+```js
+var handler =
+{
+  // target.prop
+  get: ...,
+  // target.prop = value
+  set: ...,
+  // 'prop' in target
+  has: ...,
+  // delete target.prop
+  deleteProperty: ...,
+  // target(...args)
+  apply: ...,
+  // new target(...args)
+  construct: ...,
+  // Object.getOwnPropertyDescriptor(target, 'prop')
+  getOwnPropertyDescriptor: ...,
+  // Object.defineProperty(target, 'prop', descriptor)
+  defineProperty: ...,
+  // Object.getPrototypeOf(target), Reflect.getPrototypeOf(target),
+  // target.__proto__, object.isPrototypeOf(target), object instanceof target
+  getPrototypeOf: ...,
+  // Object.setPrototypeOf(target), Reflect.setPrototypeOf(target)
+  setPrototypeOf: ...,
+  // for (let i in target) {}
+  enumerate: ...,
+  // Object.keys(target)
+  ownKeys: ...,
+  // Object.preventExtensions(target)
+  preventExtensions: ...,
+  // Object.isExtensible(target)
+  isExtensible :...
+}
+```
+
+```js
+var O = {a: 1};
+Object.defineProperty(O, 'b', {value: 2});
+O[Symbol('c')] = 3;
+
+Reflect.ownKeys(O); // ['a', 'b', Symbol(c)]
+
+function C(a, b){
+  this.c = a + b;
+}
+var instance = Reflect.construct(C, [20, 22]);
+instance.c; // 42
+```
+
 ## 模块
+
+```js
+// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+```
