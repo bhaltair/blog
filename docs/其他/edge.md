@@ -25,13 +25,6 @@ cmd + option + i
 var a = {a: 1, b: 2, c: {d: 3}}
 JSON.stringify(a, null, 2)
 
-// "{
-//   "a": 1,
-//   "b": 2,
-//   "c": {
-//     "d": 3
-//   }
-// }"
 ```
 
 ## console

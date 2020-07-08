@@ -10,20 +10,15 @@ module.exports = {
       {
         text: '前端',
         items: [
-          { text: 'HTML', link: '/前端/html5/' },
           { text: 'CSS', link: '/前端/css/' },
-          { text: '', items: [
-            { text: 'JavaScript', link: '/前端/javascript/' },
-            { text: '函数式编程', link: '/前端/函数式编程/' },
-            { text: '面向对象', link: '/前端/面向对象/' },
-            { text: 'Web API', link: '/前端/webapi/' },
-            { text: 'TypeScript', link: '/前端/typescript/' },
-          ]},
+          { text: 'JavaScript', link: '/前端/javascript/' },
+          { text: 'Web API', link: '/前端/webapi/' },
           { text: '', items: [
             { text: 'React', link: '/前端/react/' },
             { text: 'Vue', link: '/前端/vue/' },
           ]},
           { text: '', items: [
+            { text: 'TypeScript', link: '/前端/typescript/' },
             { text: '小程序', link: '/前端/小程序/' },
             { text: '性能优化', link: '/前端/性能优化/' },
             { text: '工程化', link: '/前端/工程化/' },
@@ -60,20 +55,20 @@ module.exports = {
           { text: '数据结构与算法', link: '/算法/数据结构与算法/' },
           { text: 'LeetCode', link: '/算法/leetcode/' },
           { text: 'CodeWars', link: '/算法/codewars/' },
-          { text: '剑指Offer', link: '/算法/剑指Offer/' },
+          // { text: '剑指Offer', link: '/算法/剑指Offer/' },
           { text: '手写代码', link: '/算法/手写代码/' },
         ]
       }, 
       {
         text: '其他',
         items: [
-          { text: '持续集成', link: '/其他/持续集成/' },
+          { text: 'Git', link: '/其他/git/' },
+          { text: 'devops', link: '/其他/持续集成/' },
           { text: '编码原则', link: '/其他/编码原则/' },
           { text: '防御编程', link: '/其他/防御编程/' },
           { text: 'Chrome', link: '/其他/chrome/' },
           { text: 'Edge', link: '/其他/edge/' },
           { text: 'Flutter', link: '/其他/flutter/' },
-          { text: 'Git', link: '/其他/git/' },
           { text: 'Linux', link: '/其他/linux/' },
           { text: '库', link: '/库/库推荐/' },
           { text: '网站', link: '/网站/网站/' },

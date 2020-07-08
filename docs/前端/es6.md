@@ -144,6 +144,15 @@ let person = {
   - 可以用来跟踪 DOM 元素
 - Set 集合是无重复元素的列表
 
+**Map**
+- 可以将一个二维键值对数组转换成一个 Map 对象
+  - > [[ 1, 'one' ],[ 2, 'two' ]]
+  - 使用 Array.from 函数可以将一个Map对象转换成一个二维键值对数组
+- Map 和 Object 有啥区别？
+  - Map 都可以作为一个键或一个值，包括函数、对象、基本类型
+    - Object呢，字符串和Symbols作为key
+  - Map 可以通过 size 属性获取键值对个数
+
 ```js
 // Sets
 var s = new Set();

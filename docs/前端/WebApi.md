@@ -1,31 +1,101 @@
 # Web API
-## BOM
-### window对象
-setTimeouxxt
-setInterval
-> 全局对象 下面的对象都是挂载在window对象下
 
-### location对象
-> window.location == document.location
-
-* hash
-* href
-* pathname
-* search
-
-### navigator对象
+## 浏览器
 
 
-### screen对象
+### 浏览器渲染流程
 
-### history对象
-保存着用户上网的历史记录，是window对象的属性。
-```
-history.go(-1)
-history.go(2)
-```
+- 解析 HTML，构建 DOM Tree
+- 解析 CSS，生成 CSS Tree
+- 当遇到 JS 时，DOM 构建过程会被吊起，需要等待 JS 执行完毕，触发 DOMContentLoaded
+- 合并 DOM Tree 和 CSS Tree，生成 Render Tree
+- 回流，负责各元素尺寸、位置的计算
+- 重绘，绘制页面像素信息
+  - outline, visibility, color、background-color
+- 浏览器会将各层的信息发送给 GPU，GPU 会将各层合成（composite），显示在屏幕上
 
-## node
+![render.png](https://qiniu.chenng.cn/2019-01-13-21-29-17.png)
+
+### 浏览器架构
+
+- 用户界面
+- 主进程
+- 内核
+  - 渲染引擎
+  - JS 引擎
+  - 事件触发线程
+    - 消息队列
+      - 微任务
+      - 宏任务
+  - 网络异步线程
+  - 定时器线程
+
+### Event Loop
+
+- 把宿主发起的任务称为宏观任务
+- 把 JavaScript 引擎发起的任务称为微观任务
+
+[在线查看调用过程](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+
+### 回流与重绘
+
+* 触发重排 reflow
+* 触发重绘 repaint
+
+## HTML
+
+### Meta 
+
+**Viewport**
+
+- width：将布局视口设置为固定的值，比如 375px 或者 device-width（设备宽度）
+- initial-scale：设置页面的初始缩放
+width 与 initial-scale 都会初始化布局视口，但浏览器会取其最大值
+- minimum-scale：设置最小的缩小程度
+- maximum-scale：设置最大的放大程度
+- user-scalable：设置为 no 时禁用缩放
+
+**强制浏览器使用 WebKit 内核**
+
+> <meta name="renderer" content="webkit">
+
+### 新增元素
+
+> 全是语义化的元素
+
+1. section
+  - section标签是有语义化的，不能用它来代替 div 标签
+  - 如果希望内容出现在大纲之中，那么最合适的一定是 section 标签。
+2. article
+3. aside
+  - 表示与内容关系不大的地方，比如侧边栏、背景描述、引述内容
+4. footer
+  - 底部信息，主要描述作者、文档、版权等信息，也不影响大纲
+5. header
+  - 头部信息，通常包含标题，它是不会生成大纲的
+6. main
+
+### 语义化
+
+所谓“语义”就是为了更易读懂，
+
+这要分两部分：
+
+1. 让人读懂
+2. 让机器读懂
+
+如果都用div span这些标签，那就不需要h p ul header section article了
+
+- 不要只关注展现方式，而不考虑标签语义
+- 对于特殊群体的人群使用屏幕阅读器就会非常的不良好
+
+## DOM 
+
+Document Object Model
+
+> 文档对象模型，把 DOM 树解析成一个对象，提供一个接口 `API`，让你去操作所有的节点。
+
+### 节点和元素
 
 ![node.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565062655030-412b1ee8-75aa-4bc3-9a0a-04582d1d61c7.png?x-oss-process=image%2Fresize%2Cw_359)
 
@@ -60,22 +130,427 @@ history.go(2)
 - Object
   - 提供 纯对象 的方法
 
-### 节点层次
-document 表示整个文档
-element 表示元素节点
+### 元素大小
 
-Text类型
-```javascript
-var fragment = document.createTextNode();
+![a.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1564999937632-628405d5-307a-4e19-8ec2-270069cc0c59.png)
+![b.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1564999725376-85dd2a69-8278-4fa1-9906-95be3f4f976d.png?x-oss-process=image%2Fresize%2Cw_379)
+
+- client size = 内容 + 内边距  
+  - clientWidth
+  - clientHeight
+  - 当内边距为 0 时候
+    - clientWidth = width
+    - clientHeight = height
+- offset size = 内容 + 内边距 + 边框
+  - offsetHeight
+  - offsetWidth
+
+### 元素位置
+
+- clientTop和clientLeft
+  - 返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度
+* offsetLeft/offetTop
+  - offsetLeft 表示左外边框到包含元素的左内边框之间的距离
+  - 表示该元素的左上角（边框外边框）与已定位的父容器（offsetParent对象）左上角的距离
+  - offsetParent
+    - 指元素最近的定位（relative,absolute）祖先元素
+    - offsetParent = null
+      - body 与 html
+      - position: fixed 的元素
+      - dispaly: none 的元素
+* 滚动条
+  - scrollHeight/scrollWidth 
+    - 内容的高度和宽度
+      - 包含 padding 
+      - 不包含滚动条
+  - scrollTop/scrollLeft 
+    - 元素滚动部分的宽度/高度
+    - ![s.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565000213351-e49cecd9-c48d-4f81-8d2b-82ea88eb70ca.png)
+- getBoundingClientRect()
+  - .top/left/right/bottom 返回元素的大小及其相对于视口的位置  
+  - 如何拿到绝对位置
+    - 加上 scroll
+      - > document.body.querySelector('.application-main ').getBoundingClientRect().top + window.scrollY
+
+**计算元素到窗口的位置**
+
+```js
+var offset = (el, type) => {
+    var offset = 0
+    while(el.offsetParent != null) {
+        left += el['offset' + type]
+        el = el.offsetParent
+       
+    }
+    return offset
+}
 ```
-documentFragment类型 文档碎片  
+
+### 元素属性
+
+* elem.hasAttribute(name) —— 检验是否拥这个特性。
+* elem.getAttribute(name) —— 获取到这个特性值。
+* elem.setAttribute(name, value) —— 设置这个特性值。
+* elem.removeAttribute(name) —— 移除这个特性。
+
+**自定义数据属性 data-  **
+div.dataset.appid
+
+
+### 创建元素
+
+- document.createElement(tag)
+- document.createTextNode(value) 很少用
+- elem.cloneNode(deep) —— 如果参数 deep==true 将元素及后代子元素进行克隆。
+
+### 插入元素
+
+- innerHTML = 
+  - *使用innerHTML属性与通过多次DOM操作创建节点效率高得多*
+  - *使用innerHTML是最好先将要替换元素的所有事件处理程序清楚掉*
+- outerHTML  
+- parent/node
+  - appendChild
+    - > document.body.appendChild(div);
+    - parend.appendChild(node)
+  - insertBefore
+  - removeChild
+  - replaceChild
+- current node
+  - node.append()
+    - node 末尾
+  - node.after()
+    - node 之后
+  - node.prepend()
+  - node.before()
+  - node.replaceWith()
+  - node.remove()
+    - 移除node
+- document.write()
+
+**createDocumentFragment**
+
+- 不使用 DocumentFragment，批量导入节点列表
+
+```html
+<ul id="ul"></ul>
+
+<script>
+function getListContent() {
+  let result = [];
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    result.push(li);
+  }
+
+  return result;
+}
+
+ul.append(...getListContent()); // append + “...” 操作符 = 一对好朋友！
+</script>
+```
+
 ```javascript
 var fragment = document.createDocumentFragment();
 ```
 
+### 查找元素
+
+- document.getElementById()
+- document.getElementsByName()
+- document.getElementsByTagName() 返回一个数组
+- document.getElementsByClassName() 返回一个数组
+- document.querySelector()
+- document.querySelectorAll()
+- elemA.contains(elemB)
+- elem.matches(css)
+
+- get开头的方法，都只能在document对象上调用
+- 所有的 "getElementsBy*" 方法都会返回 live 集合。这类集合总是可以反映出文档的当前状态而且在文档变化时，可以自动更新。
+
+![a.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565063508332-8f63dec4-8b21-4864-9a0b-23b55712456a.png?x-oss-process=image%2Fresize%2Cw_746)
+
+
+querySelectorAll 高级玩法
+
+```js
+let selector = 'a[href*="://"]:not([href^="http://internal.com"])';
+let links = document.querySelectorAll(selector);
+
+links.forEach(link => link.style.color = 'orange');
+```
+
+### 遍历元素
+
+![b.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565061196325-25ac8eb0-26ec-47f7-b015-50dd2e98eeea.png?x-oss-process=image%2Fresize%2Cw_393)
+
+**元素层级**
+
+- html
+  - 对应 docuemnt 
+  - 对应 html 标签
+  - document.documentElement
+- body
+  - document.body
+  - document.body 的值可能是 null
+    - 比如这个 script 脚本在 head 标签中
+- head
+  - document.head
+
+**元素遍历**
+
+* 父亲
+  - parentElement
+- 兄弟
+  * previousElementSibing
+  * nextElementSibing
+- 孩子
+  - children
+  * firstElementChild
+  * lastElementChild
+  - childElementCount
+    - 孩子元素总数
+
+
+
+### 操作样式
+
+**动态样式**
+
+> 不能在ie中使用
+```javascript
+function loadStyles(url){
+  var script = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.type = 'text/css'
+  var head = document.getElementByTagName('head')[0]
+  head.appendChild(script)
+}
+```
+
+**获取样式**
+
+```js
+getComputedStyle() //ie不支持
+document.querySelector("#myDiv").currentStyle; //ie支持
+
+element.style 可读可写 只能获取定义了的 style 样式
+
+window.getComputedStyle(ele, null).getPropertyValue('height') 只读
+
+document.defaultView.getComputedStyle 只读
+```
+
+- 获取计算后样式
+  - getComputedStyle()
+
+
+**设置样式**
+
+```javascript
+// 操作 className
+document.body.className = 'foo' 会替换掉已有的类名 
+var beforeClassName = document.body.className
+document.body.className = `${beforeClassName} foo`
+
+
+var myDiv = document.getElementById('myDiv');
+myDiv.style.backgroundColor = 'red';
+myDiv.style.width = "100px"
+
+// 应用所有样式
+myDiv.style.cssText = "width: 25px; height: 100px"
+
+```
+
+- 操作 style 属性
+  - 多个属性使用 style.cssText
+  - 单个属性
+    - > elem.style.display = 'none'
+- 操作 className
+  - 操作 classList 方法：
+    - elem.classList.add/remove("class") —— 添加/移除类。
+    - elem.classList.toggle("class") —— 如果类存在就移除，否则添加。
+    - elem.classList.contains("class") —— 返回 true/false，检查给定类
+
+
+
+
+## 事件
+
+### 事件级别
+
+- DOM0
+- DOM2
+- DOM3
+
+### 事件流
+
+事件冒泡 + 事件捕获 + 处于目标阶段
+
+### 事件处理程序
+
+1. HTML事件处理程序  
+<input type="button" value=""click me" onclick="showMessage()">
+
+2. DOM0 级  
+element[onClick] = handler  
+element.onClick = handler  
+
+3. DOM2 级  
+var btn = document.getElementById('myBtn')  
+btn.addEventListener('click',fn)  
+
+4. IE 事件处理程序  
+attachEvent/detachEvent
+
+**标准 DOM 事件对象**
+> IE中的事件对象和DOM中的事件对象不一致  
+
+```
+currentTarget
+stopPropagation() //阻止冒泡
+target //实际的目标
+type
+preventDefault() //阻止默认事件
+```
+
+### 事件类型  
+1. UI事件  
+  * load
+  * error
+  * resize
+  * scroll
+  * select
+2. 焦点事件
+  * focus
+  * blur
+3. 鼠标事件
+  * mousemove
+  * mouseleave
+  * mouseenter
+  * mousedown
+  * click
+  * dblclick
+4. 键盘事件
+  * keydown
+  * keypress
+  * keyup
+5. html5事件
+  * DOMContentLoaded // dom load
+  * hashchange事件
+6. touch事件
+  * touchstart
+  * touchmove
+  * touchend
+  ```
+  event.touches[0]
+  clientX
+  clientY
+  pageX
+  pageY
+  target
+  ```
+
+### 内存和性能
+
+1. 事件委托
+2. 及时移除事件处理程序
+
+### 模拟事件
+
+1. 创建鼠标事件
+```javascript
+var btn = document.getElementById('myBtn');
+var event = document.createEvent('MouseEvents');
+event.initMouseEvent('click', true, true, document.defaultView, 0, 0, 0, 0, 0, false, false, false , false, 0, null);
+btn.dispatchEvent(event)
+```
+2. 创建自定义事件 DOM3级规范
+```javascript
+var div = document.getElementById('myDiv'),
+    event;
+div.addEventListener('myEvent', function(event){
+    alert('div' + event.detail)
+})
+document.addEventListener('myEvent', function(event){
+    alert('document' + event.detail)
+})
+if(document.implementation.hasFeature('CustomEvents', '3.0')) {
+    event = document.createEvent('CustomEvent');
+    event.initCustromEvent('myEvent', true, false, 'hello world');
+    div.dispatchEvent(event)
+}
+```
+
+```js
+let myEvent = new Event('custome')
+$el.addEventListener('custome', () => {
+  console.log('custome')
+})
+$el.dispatchEvent(myEvent)
+```
+
+### 降低频率
+
+
+### 具体事件
+
+**DOMContentLoader 与 window.onLoad**
+
+- DOMContentLoaded 是 HTML 文档被加载和解析完成后触发
+- Load 是页面所有资源（包括图片，音频等）加载完后触发
+
+
+
+## 表单
+1. 元素可以添加form属性
+2. 新增Input元素种类
+  * search
+  * url
+  * email
+  * range
+  * color
+3. 表单事件
+  * onchange
+
+
+### 表单元素
+* label 表单控件标题
+* filed 表单控件集合
+* datalist 其他表单控件的数据列表
+* 
+
+### 表单属性
+```html
+  maxlength
+  pattern
+  list
+  multiple
+  required
+  formnovalidate
+  autofocus
+  accept
+  autocomplete
+
+  enctype
+  target
+  name
+
+
+
+```
+
+### 表单验证
+1. required
+
+
+
 ## 存储
 
-### cookie
+### Cookie
 
 > Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
 
@@ -121,160 +596,45 @@ var fragment = document.createDocumentFragment();
   - 第一次请求，服务端种下 cookie
   - 第二次请求，浏览器会自动带上 cookie，服务端会辨别身份
 
-### localstorage
+### LocalStorage
 
 - 大小
   - 5 MB
 
-### sessionstorage
+### SessionStorage
 
 - 会话存储
   - 浏览器打开期间一直保持
     - 如果重新加载或者恢复页面仍会保持会话
   - 关闭浏览器即清除
 
-## 事件
+### IndexedDB
 
-### 事件级别
+## 动画
 
-- DOM0
-- DOM2
-- DOM3
+### CSS 动画
 
-### 事件流
+### JavaScript 动画
 
-事件冒泡 + 事件捕获 + 处于目标阶段
+## 网络请求
 
-### 事件处理程序
+### XMLHttpRequest
 
-1. HTML事件处理程序  
-<input type="button" value=""click me" onclick="showMessage()">
-
-2. DOM0级  
-element[onClick] = handler  
-element.onClick = handler  
-
-3. DOM2级  
-var btn = document.getElementById('myBtn')  
-btn.addEventListener('click',fn)  
-
-4. IE事件处理程序  
-attachEvent/detachEvent
-
-### 标准 DOM 事件对象
-> IE中的事件对象和DOM中的事件对象不一致  
-
-```
-currentTarget
-stopPropagation() //阻止冒泡
-target //实际的目标
-type
-preventDefault() //阻止默认事件
-```
-### DOM 事件捕获的流程
-
-### 不支持冒泡的事件
-
-### 事件的方法
+### Fetch
 
 
-### 事件类型  
-1. UI事件  
-  * load
-  * error
-  * resize
-  * scroll
-  * select
-2. 焦点事件
-  * focus
-  * blur
-3. 鼠标事件
-  * mousemove
-  * mouseleave
-  * mouseenter
-  * mousedown
-  * click
-  * dblclick
-4. 键盘事件
-  * keydown
-  * keypress
-  * keyup
-5. html5事件
-  * DOMContentLoaded // dom load
-  * hashchange事件
-6. touch事件
-  * touchstart
-  * touchmove
-  * touchend
-  ```
-  event.touches[0]
-  clientX
-  clientY
-  pageX
-  pageY
-  target
-  ```
+**fetch-abort**
 
-### 考虑内存和性能
-1. 事件委托
-2. 及时移除事件处理程序
+- 关于 AbortController，是window的一个API，用在fetch的第二个参数上，
+- 不支持 IE10，可以去 npm 搜 polyfill
+- 可以调用实例的 abort 方法，中断 fetch 请求
+- 可以监听 abort 事件
 
-### 自定义事件
 ```js
-let myEvent = new Event('custome')
-$el.addEventListener('custome', () => {
-  console.log('custome')
-})
-$el.dispatchEvent(myEvent)
+controller.signal.addEventListener('abort', rejectFn)
 ```
 
-### 模拟事件
-1. 创建鼠标事件
-```javascript
-var btn = document.getElementById('myBtn');
-var event = document.createEvent('MouseEvents');
-event.initMouseEvent('click', true, true, document.defaultView, 0, 0, 0, 0, 0, false, false, false , false, 0, null);
-btn.dispatchEvent(event)
-```
-2. 创建自定义事件 DOM3级规范
-```javascript
-var div = document.getElementById('myDiv'),
-    event;
-div.addEventListener('myEvent', function(event){
-    alert('div' + event.detail)
-})
-document.addEventListener('myEvent', function(event){
-    alert('document' + event.detail)
-})
-if(document.implementation.hasFeature('CustomEvents', '3.0')) {
-    event = document.createEvent('CustomEvent');
-    event.initCustromEvent('myEvent', true, false, 'hello world');
-    div.dispatchEvent(event)
-}
-```
-
-### target 与 currentTarget
-
-
-### 具体事件
-
-#### 清除 DOM 事件
-
-#### 跨域通信
-
-#### animationend
-#### 鼠标事件
-#### DeviceOrientationEvent
-#### touch 事件
-#### touch 事件
-#### input 事件
-setSelectionRange
-compositionstart
-
-#### paste 事件
-
-
-?> *TODO* 完善示例
+### WebSocket
 
 ## 表单
 
@@ -325,10 +685,145 @@ form.addEventListener('reset', function(e){
     checkValidiry()
 
   ```
+## 新 API
 
-## Binary data
+### MutationObserver 监听 DOM 变化
 
-### arrayBuffer
+```js
+// 选择需要观察变动的节点
+const targetNode = document.getElementById('some-id');
+
+// 观察器的配置（需要观察什么变动）
+const config = { attributes: true, childList: true, subtree: true };
+
+// 当观察到变动时执行的回调函数
+const callback = function(mutationsList, observer) {
+    // Use traditional 'for loops' for IE 11
+    for(let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            console.log('A child node has been added or removed.');
+        }
+        else if (mutation.type === 'attributes') {
+            console.log('The ' + mutation.attributeName + ' attribute was modified.');
+        }
+    }
+};
+
+// 创建一个观察器实例并传入回调函数
+const observer = new MutationObserver(callback);
+
+// 以上述配置开始观察目标节点
+observer.observe(targetNode, config);
+
+// 之后，可停止观察
+observer.disconnect();
+
+```
+
+### IntersectionObserver 交叉观察者
+
+```js
+// 1 图片懒加载
+let observer = new IntersectionObserver(
+(entries, observer) => { 
+entries.forEach(entry => {
+    /* 替换属性 */
+    entry.target.src = entry.target.dataset.src;
+    observer.unobserve(entry.target);
+  });
+}, 
+{rootMargin: "0px 0px -200px 0px"});
+
+document.querySelectorAll('img').forEach(img => { observer.observe(img) });
+
+
+// 2 兴趣埋点
+const boxList = [...document.querySelectorAll('.box')]
+
+var io = new IntersectionObserver((entries) =>{
+  entries.forEach(item => {
+    // intersectionRatio === 1说明该元素完全暴露出来，符合业务需求
+    if (item.intersectionRatio === 1) {
+      // 。。。 埋点曝光代码
+      io.unobserve(item.target)
+    }
+  })
+}, {
+  root: null,
+  threshold: 1, // 阀值设为1，当只有比例达到1时才触发回调函数
+})
+
+// observe遍历监听所有box节点
+boxList.forEach(box => io.observe(box))
+
+```
+
+### PerformanceObserver 性能观察者
+
+> 浏览器内部对Performance实现的观察者模式
+
+```js
+function filterTime(a, b) {
+  return (a > 0 && b > 0 && (a - b) >= 0) ? (a - b) : undefined;
+}
+
+let resolvePerformanceTiming = (timing) => {
+  let o = {
+    initiatorType: timing.initiatorType,
+    name: timing.name,
+    duration: parseInt(timing.duration),
+    redirect: filterTime(timing.redirectEnd, timing.redirectStart), // 重定向
+    dns: filterTime(timing.domainLookupEnd, timing.domainLookupStart), // DNS解析
+    connect: filterTime(timing.connectEnd, timing.connectStart), // TCP建连
+    network: filterTime(timing.connectEnd, timing.startTime), // 网络总耗时
+
+    send: filterTime(timing.responseStart, timing.requestStart), // 发送开始到接受第一个返回
+    receive: filterTime(timing.responseEnd, timing.responseStart), // 接收总时间
+    request: filterTime(timing.responseEnd, timing.requestStart), // 总时间
+
+    ttfb: filterTime(timing.responseStart, timing.requestStart), // 首字节时间
+  };
+
+  return o;
+};
+
+let resolveEntries = (entries) => entries.map(item => resolvePerformanceTiming(item));
+
+let resources = {
+  init: (cb) => {
+    let performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance;
+    if (!performance || !performance.getEntries) {
+      return void 0;
+    }
+
+    if (window.PerformanceObserver) {
+      let observer = new window.PerformanceObserver((list) => {
+        try {
+          let entries = list.getEntries();
+          cb(resolveEntries(entries));
+        } catch (e) {
+          console.error(e);
+        }
+      });
+      observer.observe({
+        entryTypes: ['resource']
+      })
+    } else {
+        window.addEventListener('load', () => {
+        let entries = performance.getEntriesByType('resource');
+        cb(resolveEntries(entries));
+      });
+    }
+  },
+};
+
+```
+
+### requestAnimationFrame()
+
+## Binary data 
+
+### ArrayBuffer 二进制数据
 
 - arrayBuffer
   - 二进制数组
@@ -437,7 +932,7 @@ reader.onload = function() {
 };
 ```
 
-### File
+### File 文件
 
 - File 对象继承自 Blob
 - 通常我们从 input 文件中获得 file 对象
@@ -449,7 +944,7 @@ reader.onload = function() {
     - readAsText
     - readAsDataURL 转化成 base64 data url
 
-### 操作二进制数据
+**总结 - 操作二进制数据**
 
 * File API
 * XMLHttpRequest
@@ -457,42 +952,83 @@ reader.onload = function() {
 * Canvas
 * Websocket
 
+## BOM 
+
+> Browser Object Model，指的是当前窗口对象
+
+### document 
+
+就是我们的 `DOM` 对象啦
+
+### window 对象
+
+setTimeouxxt
+setInterval
+> 全局对象 下面的对象都是挂载在window对象下
+
+- 窗口位置
+- 窗口大小
+- 框架
+- 窗口关系
+- 导航和打开窗口
+- 系统对话框
+
+**window.open()打开一个弹窗**
+
+**iframe**
+
+- iframe.contentWindow
+- iframe.contentDocument
+- windows.top 最顶级父窗口的引用
+- window.parent 对外部窗口的引用
+- window.frames[] 该 `iframe` 还嵌套其他 `iframe`
+
+**跨窗口通信**
+- 同源
+  - do anthing
+- 不同源
+  - 只能发消息 postMessage
+  - 修改 location，无法读取 location
+  - 可以访问 iframe.contentWindow
+  - 不可以访问 iframe.contentDocument
+- 一个特例：相同二级域名的页面
+  - 都设置 document.domain='site.com'，可以使它们处于“同源”状态
+**点击劫持攻击**
+
+
+### location 对象
+> window.location == document.location
+
+* hash
+* href
+* pathname
+* search
+
+### navigator 对象
+
+- 检测 UA
+
+### screen 对象
+
+### history 对象
+
+保存着用户上网的历史记录，是window对象的属性。
+
+- 
+
+```bash
+history.go(-1)
+history.go(2)
+```
+
 ## 实践
 
-### fetch-abort 
-
-- 关于 AbortController，是window的一个API，用在fetch的第二个参数上，
-- 不支持 IE10，可以去 npm 搜 polyfill
-- 可以调用实例的 abort 方法，中断 fetch 请求
-- 可以监听 abort 事件
-
-```js
-controller.signal.addEventListener('abort', rejectFn)
-```
 
 ### First-Contentful-Paint 首屏时间
-### MutationObserver 监听 DOM 变化
 ### execCommand 复制文本
 
-### Promise
 
-**安全的 promise**
 
-```js
-const safePromise = promise => 
-  promise.then(data => [null, data]).catch(err => [err])
-
-async funcion fetchData(url) {
-  const [err, result] = await safePromise(fetchApi(url))
-  return err ? err ? result
-}
-
-```
-
-- Promise.resolve() 有什么用？
-  - 可以不用new一个Promise
-  - 是一个快捷方式
-  
 ### iframe 通信
 
 - 父子跨域通信
@@ -516,16 +1052,7 @@ async funcion fetchData(url) {
 
 XmlHttpRequest 对象负责将用户信息以异步通信的方式发送到服务器端，并接收服务器返回的响应信息和数据
 
-### 获取样式
 
-```js
-
-element.style 可读可写 只能获取定义了的 style 样式
-
-window.getComputedStyle(ele, null).getPropertyValue('height') 只读
-
-document.defaultView.getComputedStyle 只读
-```
 ### 窗口的滚动
 
 读取滚动值
@@ -570,245 +1097,13 @@ function loadScript(url){
 }
 ```
 
-### 动态样式
-
-> 不能在ie中使用
-```javascript
-function loadStyles(url){
-  var script = document.createElement('link')
-  link.rel = 'stylesheet'
-  link.type = 'text/css'
-  var head = document.getElementByTagName('head')[0]
-  head.appendChild(script)
-}
-```
-
-### 获取样式
-
-```javascript
-getComputedStyle() //ie不支持
-document.querySelector("#myDiv").currentStyle; //ie支持
-```
-
-- 获取计算后样式
-  - getComputedStyle()
-
-
-### 设置样式
-
-```javascript
-// 操作 className
-document.body.className = 'foo' 会替换掉已有的类名 
-var beforeClassName = document.body.className
-document.body.className = `${beforeClassName} foo`
-
-
-var myDiv = document.getElementById('myDiv');
-myDiv.style.backgroundColor = 'red';
-myDiv.style.width = "100px"
-
-// 应用所有样式
-myDiv.style.cssText = "width: 25px; height: 100px"
-
-```
-
-- 操作 style 属性
-  - 多个属性使用 style.cssText
-  - 单个属性
-    - > elem.style.display = 'none'
-- 操作 className
-  - 操作 classList 方法：
-    - elem.classList.add/remove("class") —— 添加/移除类。
-    - elem.classList.toggle("class") —— 如果类存在就移除，否则添加。
-    - elem.classList.contains("class") —— 返回 true/false，检查给定类
-
-### 创建元素
-
-- document.createElement(tag)
-- document.createTextNode(value) 很少用
-- elem.cloneNode(deep) —— 如果参数 deep==true 将元素及后代子元素进行克隆。
-
-### 元素插入和移除
-
-- innerHTML = 
-  - *使用innerHTML属性与通过多次DOM操作创建节点效率高得多*
-  - *使用innerHTML是最好先将要替换元素的所有事件处理程序清楚掉*
-- outerHTML  
-- parent/node
-  - appendChild
-    - > document.body.appendChild(div);
-    - parend.appendChild(node)
-  - insertBefore
-  - removeChild
-  - replaceChild
-- current node
-  - node.append()
-    - node 末尾
-  - node.after()
-    - node 之后
-  - node.prepend()
-  - node.before()
-  - node.replaceWith()
-  - node.remove()
-    - 移除node
-- document.write()
-
-### 元素属性
-
-* elem.hasAttribute(name) —— 检验是否拥这个特性。
-* elem.getAttribute(name) —— 获取到这个特性值。
-* elem.setAttribute(name, value) —— 设置这个特性值。
-* elem.removeAttribute(name) —— 移除这个特性。
-
-#### 自定义数据属性 data-  
-div.dataset.appid
-
-### 元素遍历
-
-![b.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565061196325-25ac8eb0-26ec-47f7-b015-50dd2e98eeea.png?x-oss-process=image%2Fresize%2Cw_393)
-
-元素层级
-
-- html
-  - 对应 docuemnt 
-  - 对应 html 标签
-  - document.documentElement
-- body
-  - document.body
-  - document.body 的值可能是 null
-    - 比如这个 script 脚本在 head 标签中
-- head
-  - document.head
-
-元素遍历
-
-* 父亲
-  - parentElement
-- 兄弟
-  * previousElementSibing
-  * nextElementSibing
-- 孩子
-  - children
-  * firstElementChild
-  * lastElementChild
-  - childElementCount
-    - 孩子元素总数
-
-### 元素大小
-
-![a.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1564999937632-628405d5-307a-4e19-8ec2-270069cc0c59.png)
-![b.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1564999725376-85dd2a69-8278-4fa1-9906-95be3f4f976d.png?x-oss-process=image%2Fresize%2Cw_379)
-
-- client size = 内容 + 内边距  
-  - clientWidth
-  - clientHeight
-  - 当内边距为 0 时候
-    - clientWidth = width
-    - clientHeight = height
-- offset size = 内容 + 内边距 + 边框
-  - offsetHeight
-  - offsetWidth
-
-### 元素位置
-
-- clientTop和clientLeft
-  - 返回内边距的边缘和边框的外边缘之间的水平和垂直距离，也就是左，上边框宽度
-* offsetLeft/offetTop
-  - offsetLeft 表示左外边框到包含元素的左内边框之间的距离
-  - 表示该元素的左上角（边框外边框）与已定位的父容器（offsetParent对象）左上角的距离
-  - offsetParent
-    - 指元素最近的定位（relative,absolute）祖先元素
-    - offsetParent = null
-      - body 与 html
-      - position: fixed 的元素
-      - dispaly: none 的元素
-* 滚动条
-  - scrollHeight/scrollWidth 
-    - 内容的高度和宽度
-      - 包含 padding 
-      - 不包含滚动条
-  - scrollTop/scrollLeft 
-    - 元素滚动部分的宽度/高度
-    - ![s.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565000213351-e49cecd9-c48d-4f81-8d2b-82ea88eb70ca.png)
-- getBoundingClientRect()
-  - .top/left/right/bottom 返回元素的大小及其相对于视口的位置  
-  - 如何拿到绝对位置
-    - 加上 scroll
-      - > document.body.querySelector('.application-main ').getBoundingClientRect().top + window.scrollY
-
-#### 计算元素到窗口的位置
-
-```js
-var offset = (el, type) => {
-    var offset = 0
-    while(el.offsetParent != null) {
-        left += el['offset' + type]
-        el = el.offsetParent
-       
-    }
-    return offset
-}
-```
-
-
-### 元素查找
-
-- document.getElementById()
-- document.getElementsByName()
-- document.getElementsByTagName() 返回一个数组
-- document.getElementsByClassName() 返回一个数组
-- document.querySelector()
-- document.querySelectorAll()
-- elemA.contains(elemB)
-- elem.matches(css)
-
-- get开头的方法，都只能在document对象上调用
-- 所有的 "getElementsBy*" 方法都会返回 live 集合。这类集合总是可以反映出文档的当前状态而且在文档变化时，可以自动更新。
-
-![a.png](https://cdn.nlark.com/yuque/0/2019/png/92877/1565063508332-8f63dec4-8b21-4864-9a0b-23b55712456a.png?x-oss-process=image%2Fresize%2Cw_746)
-
-
-querySelectorAll 高级玩法
-
-```js
-let selector = 'a[href*="://"]:not([href^="http://internal.com"])';
-let links = document.querySelectorAll(selector);
-
-links.forEach(link => link.style.color = 'orange');
-```
-
-### 元素的增删改查
 
 ### offset、scrollWidth
 ### property 和 attribute
 ### tagName 和 nodeName
 
 
-### createDocumentFragment
 
-- 不使用 DocumentFragment，批量导入节点列表
-
-```html
-<ul id="ul"></ul>
-
-<script>
-function getListContent() {
-  let result = [];
-
-  for(let i=1; i<=3; i++) {
-    let li = document.createElement('li');
-    li.append(i);
-    result.push(li);
-  }
-
-  return result;
-}
-
-ul.append(...getListContent()); // append + “...” 操作符 = 一对好朋友！
-</script>
-```
-
-### cloneNode
 ### DOM 序列化与反序列化
 
 ### 如何知道某个元素在页面上的偏移量?
