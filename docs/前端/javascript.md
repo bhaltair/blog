@@ -1,6 +1,9 @@
 # JavaScript
 ## 1 类型
 
+- 变量不持有类型
+- 值才有类型
+
 ### 基本类型
 
 6种基本类型
@@ -8,12 +11,75 @@
 
 **Number**
 
+- JS 没有明显的整数类型
+- 双精度浮点数，64 位编码数字，可以表示高达 53 位精度的整数，从 2^-53 到 2 ^ 53
+- 控制小数部分的显示位数
+  - toFixed()
+- 42..Fixed(2)
+  - `42.` 被视为 number 的一部分
+  - `42.Fixed(2)` 就错误了
+  - `42.4.toFixed(2)` 这样是正确的，只识别第一个小数点  
+- 指定有效数位的显示位数
+  - 42.59.toPrecision( 6 ) '42.5900'
+- 指数形式表示较大的数字
+  - > 1E3 // 1 * 10 ^ 3
+  - > 1.1E6 // 1.1 * 10 ^ 6
+- 比较两个数字是否相等（在指定的误差范围内）
+  - 如何判断 0.1 + 0.2 === 0.3 呢？
+  - Number.EPSILON 机器精度
+  ```js
+  function numberCloseEnougyToEqual(n1, n2) {
+    return Math.abs(n1 - n2) < Number.EPSILON
+  }
+  ```
+- 整数的安全范围
+  - 远小于 Number.MAX_VALUE
+  - `Number.MAX_SAFE_INTEGER` 和 `Number.MIN_SAFE_INTEGER`
+    - 2 ^ 53 - 1 到 2 ^ 53
+  - 整数检测
+    - Number.isInteger()
+  - 安全的整数检测
+   -  Number.issafeInterger()
+- 大数值的支持
+  - 通过字符串实现
+  - BigInt
+
 **浮点数精度问题如何解决？现在项目中会用到 BigInt 吗？**
 - 浮点数精度的问题，展示的时候四舍五入即可
 - 要求比较严格的场景，可以转为整数来存取。
 - BigInt 是 ES2019 的特性，是以后大多数场景优选方案。
 
-NaN === NaN +0 !== -0
+**特殊的数字**
+- NaN (not a number) 和自身不相等
+  - NaN === NaN // false
+  - 不要使用 Window.isNaN 这家伙只要不是数字、不是 NaN 就返回 true
+  - 推荐使用 Number.isNaN() 来判断
+  - 或者使用 NaN自身不等于自身的特性(JS 唯一不等于自身的值) n !== n
+- `0 === -0 // true`
+  ```js
+  function isNegZero(n) {
+    n = Number( n)
+    return (n === 0) && ( 1 / n === -Infinity)
+  }
+  ```
+- `Infinity 和 -Infinity`
+- 判断两个值是否相等？
+  - 由于 NaN 和 0 -0 的问题，我们推荐使用 Object.is() 来判断两个值是否相等
+
+
+**位运算符**
+- 会转化为 32 位有符号整数后进行运算
+
+```js
+8 | 1 = 9
+
+// 按位或
+// 0000****1000
+// 0000****0001
+// 0000****1001
+```
+
+**JS 为基本数据类型提供了包装类型，称为原生函数**
 
 
 ### 引用类型
@@ -47,10 +113,21 @@ NaN === NaN +0 !== -0
 
 
 ### 类型判断
+
 * typeof运算符
 * instanceof运算符
 * Object.prototype.toString方法
 
+
+**复合条件判断 null 值的类型
+typeof null === 'object'
+> (!a && typeof a === 'object')
+
+### 类型转换
+
+**显示类型转换**
+
+**隐式类型转换**
 
 ## 2 语法
 
@@ -72,6 +149,8 @@ NaN === NaN +0 !== -0
 - yield
 - 展开运算符
 
+**运算符优先级 - 短路**
+
 
 ### 语句
 **for 循环跳出**
@@ -82,6 +161,30 @@ NaN === NaN +0 !== -0
 
 
 ## 3 作用域和闭包
+
+> 作用域是一套规则，用于确定在何处以及如何查找变量。
+
+- 查找会向上查找，直到全局作用域才停止。
+
+### 词法作用域
+
+作用域有2套工作模型：
+- 词法作用域
+  - JS
+  - 大多数编程语言使用
+- 动态作用域
+  - Bash 脚本
+
+**什么是词法作用域？**
+你写代码时候将变量和块作用域写在哪里来决定的。
+
+### 函数作用域
+### 块作用域
+### 声明提升
+
+所有的声明（变量和函数）都会被移动到各自作用域的最顶端，这叫做提升。
+
+### 闭包
 
 closure 闭包是一个函数在创建时允许该函数访问并操作该自身函数之外的变量时所创建的 `作用域`
 
@@ -107,8 +210,22 @@ result(); // 1001
 
 ## 4 函数
 
-### 递归
+### 匿名函数表达式
 
+匿名函数调试非常不方便，在栈追踪中不会显示有意义的函数名。
+
+### 立即执行函数表达式
+
+```js
+var a = 2
+(function IIFE( global) {
+  var a = 3
+  console.log(a) // 3
+  console.log(global.a) // 2
+})( window )
+```
+
+### 递归
 
 ### 函数副作用
 
@@ -164,6 +281,16 @@ let signUp = function(Db, Email, attrs) {
   - map
 
 ## 5 对象和原型
+
+### 对象
+
+> 许多人认为 JS 中万物都是对象，这是错误的。❎
+
+- 使用 null 原型以防止原型污染
+- 使用 hasOwnProperty 方法以避免原型污染
+  - for-in 循环会把继承属性也枚举出来
+- 属性的特性可以用属性描述符来控制，比如 writeable 和 configurable，或者 enumbeable
+- 属性不一定包含值，可能是具备 getter/setter 的 访问描述符。
 
 **获取一个对象上可枚举属性的方法**
 
@@ -222,6 +349,8 @@ let signUp = function(Db, Email, attrs) {
 
 ### 原型
 
+- 使用 Object.getPrototypeOf 函数而不要使用 __proto__
+
 ```js
 //题目
 var a = {num:2};
@@ -249,23 +378,147 @@ a.num
 
 ### this
 
-- this对象是在运行时基于函数的执行环境绑定的
-- 全局函数，this等于window
-- 当作对象的方法调用，this等于那个对象
+- this 是在运行时基于函数的执行环境绑定的
+- this 是在运行时绑定的，并不是在编写时绑定，它的上下文取决于函数调用的各种条件
+- this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。
+- 学习 this 的第一步就是明白 this 既不指向函数自身，也不指向函数的词法作用域。
+- this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
+- 当作对象的方法调用，this 等于那个对象
 
+**绑定规则**
+- 默认绑定
+- 隐式绑定
+  - this 丢失
+    ```js
+      function foo() {
+        console.log(this.a)
+      }
+      var obj = {
+        a: 2,
+        foo
+      }
+      var a = 'oops, global'
+      // obj.foo 引用的其实是 foo 本身
+      setTimeout( obj.foo, 100 ) // 'oops global'
+    ```
+- 显式绑定
+  - Function.prototype.bind()
+- new 绑定
 
+### 类设计模式
+
+> 类是一种设计模式
+
+**多态**
+类的核心概念，多态，这个概念是说父类的通用行为可以被子类更特殊的行为重写。
+
+**面向对象设计模式**
+- 单例模式
+- 观察者模式
+- 工厂模式
+- 迭代器模式
 
 
 ## 6 数组和对象
 
+- 使用数组而不要使用字典（对象）来存储有序集合
+- 避免在枚举期间修改对象
+  - 当迭代一个对象时，如果该对象的内容会在循环期间改变，应该使用 while 或者 for 循环，而不是 for-in 循环
+  - 如果被枚举的对象在枚举期间添加了新的属性，那么在枚举期间并不能保证新添加的属性能够被访问。
+- 数组迭代要优先使用 for 循环而不是 for-in 循环
+  - 虽然数组也是对象，但是不要把数组当做对象用
+  - 对象属性 key 始终是字符串
+- 在类数组对象上使用数组的方法
+
 ## 7 异步和并发 
 
+**事件循环**
 
-* 异步更新策略
-* 宏任务与微任务
-* Event Loop 过程
-* 渲染的时机
-* Vue 异步更新策略 nextTick
+**并发**
+- 对异步循环使用递归
+  ```js
+  // 错误的版本
+  function downloadOneAsync(urls, onsucces, onfailure) {
+    for (var i = 0, n = urls.length; i < n; i++) {
+      downloadAsync(urls[i], onsucces, function() {
+        // ?
+      }
+    }
+    throw new Error('all downloads failed')
+  }
+  // 正确的版本
+  function downloadOneAsync(urls, onsucces, onfailure) {
+    var n = urls.length
+    function tryNextUrl(i) {
+      if ( i >= n) {
+        onfailure('all downloads failed')
+        return
+      }
+      downloadAsync(urls[i], onsucces, function() {
+        tryNextUrl(i + 1)
+      })
+    }
+    tryNextUrl(0)
+  }
+  ```
+  - 异步 API 在其回调函数被调用前会立即返回，导致其栈帧会从调用栈中弹出，并不会导致调用栈溢出。
+- 不要在计算时阻塞事件队列
+  - 我们可以控制事件队列的每个轮次 tick 可以执行算法的几个迭代
+  - 将 while 循环替换为 setTimeout + 递归
+  - setTimeout 0 API 可以将回调函数几乎立刻地添加到事件队列的作用
+  ```js
+  // 错误的版本
+  function inNetwork(other) {
+    var visited = [], worklist = []
+    while(worklist.length > 0) {
+      var member = worklist.pop()
+      // 做大量运算
+      if (member === other) return true
+      // .....
+    }
+  }
+  // 正确的版本
+  function inNetwork(other, callback) {
+    // ...
+    function next() {
+      for (var i = 0; i < 10; i++) {
+        // ...
+      }
+      setTimeout(next, 0)
+    }
+    setTimeout(next, 0)
+  }  
+  ```
+- 使用计数器避免并行操作中的数据竞争
+  - JS 中的事件发生是不确定的，即顺序是不可预测的
+  - 使用一个计数器来追踪正在进行的操作数量
+  ```js
+    function downloadAllAsync(urls, onsuccess, onerror) {
+      var pending = urls.length, result = []
+      if (pending === 0) {
+        setTimeout(onsuccess.bind(null, result), 0)
+        return
+      }
+      urls.forEach((url, i) => {
+        downloadAsync(url, text => {
+          if (result) {
+            result[i] = text
+            pending--
+            if (pending === 0) {
+              onsuccess(result)
+            }
+          }
+        }, error => {
+          if (result) {
+            result = null
+            onerror(error)
+          }          
+        })
+      })
+    }
+  ```
+- 绝不要同步地调用异步的回调函数，总是异步地调用回调函数
+
 * 面试题
   - https://juejin.im/post/5c9a43175188252d876e5903?utm_source=gold_browser_extension
 
@@ -284,10 +537,93 @@ async funcion fetchData(url) {
 
 ```
 
+**promise不能取消**
+
+- 建议更高层级的抽象中实现取消
+
+```js
+// 下面是一个错误的示范
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 5000, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
+// expected output: "two"
+```
+
+### 生成器和迭代器
+
 ## 8 性能
 
 ### 垃圾收集
 *找出那些不使用的变量，释放其占用的内存*
+
+### 性能测试
+
+**被问到如何测试某个运算的速度**
+```js
+var start = (new Date().getTime())
+// 进行一些操作
+var end = Date.now()
+console.log(end - start)
+```
+
+上面这个方法是不准确的，这个性能测试基本上是无用的。
+
+你或者会想到重复取平均数，但实际情况是即使只有几个异常值也会影响整个平均值。
+
+要确保把异常因素排除，你需要大量的样本来平均化。
+
+正确的性能测试：要考虑统计学的合理实践，标准差、方差、误差幅度。
+
+- Benchmark.js
+- jsPerf.com
+
+### 尾调用优化 TCO
+
+> 尾调用就是一个出现在另一个函数”结尾“处的函数调用。整个调用结束后就没有事情做了。
+
+```js
+function foo(x) {
+  return x
+}
+
+// 尾调用
+// foo(y+1) 是 bar(...)的尾调用，因为在foo()完成后，bar()也完成了，并且只需要返回foo()调用的结果
+function bar(y) {
+  return foo( y + 1)
+}
+
+// 非尾调用
+// 不是尾调用，它的结果还需要加1才能由baz()返回
+function baz() {
+  return 1 + bar( 40 )
+}
+
+```
+
+- 支持 `TCO` 的引擎，能够意识到 `foo(y+1)` 调用位于尾部，那么在调用 `foo()`时，它就不需要创建一个新的栈帧（调用一个函数需要额外的一块预留内存来管理调用栈），而是可以重用已有的baz() 的栈帧，这样不仅速度更快，也更节省内存。
+- 虽然在简单代码片段中，这类优化没啥卵用，但是在处理递归时，这就解决了大问题，特别是递归导致成百上千个栈帧的时候，有了 TCO，引擎可以用同一个栈帧执行这类调用。
+
+```js
+// TCO 版阶乘
+function factorial(n) {
+  function fact(n, res) {
+    if (n < 2) return res
+    return fact( n - 1, n * res)
+  }
+  return fact(n, 1)
+}
+
+factorial( 5 ) // 120
+```
 
 ## 9 错误处理
 

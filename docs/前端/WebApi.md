@@ -30,12 +30,47 @@
   - 网络异步线程
   - 定时器线程
 
-### Event Loop
+### Event Loop 事件循环
 
+> 理解事件循环对于代码优化很重要，浏览器中 JS 的执行流程和 Node.js 的流程都是基于事件循环的。
+
+JS 并发地接受事件，但会使用一个事件队列按序地处理事件处理程序
+
+**一个演示**
+
+```js
+var eventLoop = []
+var event
+
+while (true) {
+  if (eventLoop.length > 0) {
+    event = eventLoop.shift()
+    try {
+      event()
+    } catch(err) {
+      reportError(err)
+    }
+  }
+}
+```
+
+- 有一个 while 循环代表持续运行的循环
+- 循环中的每一轮称为一个 tick
+- 对每个 tick 而言，如果队列中有等待事件，那么就会从队列中摘下一个事件并执行，这个事件就是你的回调函数。
+一定要清楚，setTimeout(...)并没有把你的回调函数挂在事件循环队列中。它所做的是设置一个定时器。当定时器到达时，宿主环境会把你的回调函数放在事件循环中。这样在未来的某个时刻的 tick 会摘下并执行这个回调。
+
+如果事件循环中已经由 20 个项目了会怎样？你的回调就会等待。这就解释了 setTimeout(...) 定时器的精度可能不高。只能保证你的回调函数不在指定的时间间隔之前运行，但可能会在那个时刻之后运行，要根据事件队列的状态而定。
+
+**不雅阻塞事件循环**
+一个阻塞的事件处理程序会阻塞任何将被处理的用户输入
+- 浏览器中几乎没有阻塞 API
+  - Ajax 有一个同步的 API
+
+
+**宏任务和微任务**
 - 把宿主发起的任务称为宏观任务
 - 把 JavaScript 引擎发起的任务称为微观任务
 
-[在线查看调用过程](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 ### 回流与重绘
 
