@@ -1,13 +1,10 @@
 # Webpack
-## 参考
 
 > 模块打包器，可以打包一切资源，包括JS、CSS、图片等，把所有文件都打包成一个bundle.js文件中
 
-[前端构建秘籍](https://juejin.im/post/5c9075305188252d5c743520)
+## 选项
 
-[webpack：从入门到真实项目配置](https://juejin.im/post/59bb37fa6fb9a00a554f89d2)
-
-## entry
+### entry
 
 ```
 module.exports = {
@@ -19,7 +16,7 @@ module.exports = {
 
 ```
 
-## output
+### output
 
 ```js
 {
@@ -36,83 +33,11 @@ module.exports = {
 }
 
 ```
-## reslove
-
-主要用于解析模块依赖的自定义项
-
-- modules 加速绝对路径查找效率
-- alias   自定义模块查询路径
-
-```js
-resolve: {
-    modules: [
-        path.resolve(__dirname, 'src'), 
-        path.resolve(__dirname,'node_modules'),
-    ],
-    alias: {
-      components: path.resolve(__dirname, '/src/components'),
-    },
-}
-
-```
-
-tsconfig.json 相应的配置
-
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "src/*": ["./src/*"],
-      "components/*": ["./src/components/*"],
-      "assets/*": ["./src/assets/*"],
-      "pages/*": ["./src/pages/*"]
-    }
-  },
-  "include": ["./src/**/*"]
-}
-
-```
-
-## module
-
-主要配置就是 rules 了，针对不同资源使用不同的 loader
-
-```js
-module: {
-  // 这些库都是不依赖其它库的库 不需要解析他们可以加快编译速度
-  // 通常可以将那些大型的库且已经编译好的库排除，减少webpack对其解析耗时
-  noParse: /node_modules\/(moment|chart\.js)/,
-  rules: [
-    {
-      test: /\.jsx?$/,
-      use: resolve('babel-loader'),
-      // 需要被这个loader处理的资源
-      include: [
-        path.resolve(projectDir, 'src'),
-        path.resolve(projectDir, 'node_modules/@tencent'),
-      ].filter(Boolean),
-      // 忽略哪些压缩的文件
-      exclude: [/(.|_)min\.js$/],
-    }
-  ]
-
-```
-
-## optimization
-
-最常用的是 splitChunks 和 minimizer
-
-- minimizer 可以自己配置输出的文件压缩插件
-  - js 压缩 使用 webpack 集成的 uglifyjs
-  - css 压缩，使用 optimize-css-assets-webpack-plugin 压缩
-- splitChunks 是webpack4.x推出的重磅功能，优化的公共chunk提取策略，更高效的提取公共模块，在后面性能优化中会详细说明其使用方法。
 
 
-## Loader
+### loader
 
-### 常用的 Loader？用过哪些 Loader?
-
+**常用的 Loader？用过哪些 Loader?**
 - file-loader 处理图片和字体
 - url-loader 可以设置一个阈值，小于阈值使用 `base64` 大于阈值使用 publicPath
 - babel-loader 转换 ES6 代码
@@ -124,7 +49,7 @@ module: {
 - vue-loader 处理单文件组件
 - source-map-loader 加载额外的 Source Map 文件，以方便断点调试
 
-### babel-loader
+**babel-loader**
 
 > npm i --save-dev babel-loader babel-core babel-preset-env
 
@@ -132,7 +57,7 @@ module: {
 - babel-core 可以看做编译器，这个库知道如何解析代码
 - babel-preset-env 这个库可以根据环境的不同转换代码
 
-### 处理图片
+**处理图片**
 
 依赖安装 url-loader
 
@@ -166,7 +91,7 @@ module.exports = {
 }
 ```
 
-### 处理 CSS
+**处理 CSS**
 
 依赖安装
 
@@ -207,7 +132,7 @@ module.exports = {
 }
 ```
 
-## Plugin
+### plugin
 
 plugin 可以介入整个构建过程任何阶段
 
@@ -231,18 +156,206 @@ loader 和 plugin 的区别？
 - Loader 本质上是一个函数，对函数接收到的内容进行转换，返回转换后的结果。
 - Plugin 插件，可以扩展 Webpack 的功能，Webpack 运行的生命周期中会广播很多事件，Plugin 会监听这些事件，改变输出结果
 
-## Webpack 构建流程简单说一下
+### resolve
+
+主要用于解析模块依赖的自定义项
+
+- modules 加速绝对路径查找效率
+- alias   自定义模块查询路径【常用】
+
+```js
+resolve: {
+  modules: [
+      path.resolve(__dirname, 'src'), 
+      path.resolve(__dirname,'node_modules'),
+  ],
+  alias: {
+    components: path.resolve(__dirname, '/src/components'),
+  },
+}
+
+```
+
+tsconfig.json 相应的配置
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"],
+      "components/*": ["./src/components/*"],
+      "assets/*": ["./src/assets/*"],
+      "pages/*": ["./src/pages/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}
+
+```
+
+
+### optimization
+
+最常用的是 splitChunks 和 minimizer
+
+- minimizer 可以自己配置输出的文件压缩插件
+  - js 压缩 使用 webpack 集成的 uglifyjs
+  - css 压缩，使用 optimize-css-assets-webpack-plugin 压缩
+- splitChunks 是 webpack4.x 推出的重磅功能，优化的公共chunk提取策略，更高效的提取公共模块，在后面性能优化中会详细说明其使用方法。
+
+
+## 代码分离
+
+常用的代码分离方法有三种：
+
+* 入口起点：使用 `entry` 配置手动地分离代码。
+  - 这是迄今为止最简单直观的分离代码的方式
+  - 现代都是 `SPA`，只有一个入口
+* 防止重复：使用 `SplitChunksPlugin` 去重和分离 chunk。
+  - `SplitChunksPlugin` 可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk
+* 动态导入：通过模块的内联函数调用来分离代码。
+
+## 生产环境
+
+- 使用 `webpack-merge` 来区分 `base` `dev` 和 `prod`
+- devtool
+  - none 
+    - 不生成 sourcemap
+  - source-map
+    - 整个 source map 作为一个单独的文件生成。它为 bundle 添加了一个引用注释，以便开发工具知道在哪里可以找到它
+    - > 你应该将你的服务器配置为，不允许普通用户访问 source map 文件！
+  - hidden-source-map 
+    - 与 source-map 相同，但不会为 bundle 添加引用注释
+- 压缩 `CSS`
+  - mini-css-extract-plugin: 用于将 CSS 从主应用程序中分离
+- 指定 mode: 'production'
+  - 从 webpack v4 开始, 指定 mode 会自动地配置 DefinePlugin
+  - 任何位于 /src 的本地代码都可以关联到 process.env.NODE_ENV 环境变量
+
+
+## 开发环境 - sourcemap
+
+- mode: 'development',
+- devtool: 'inline-source-map',
+  - source map 转换为 DataUrl 后添加到 bundle 中，速度快
+  - cheap-module-source-map - 没有列映射(column mapping)的 source map
+- 使用 webpack-dev-server
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  mode: 'development',
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js',
+  },
+  devtool: 'inline-source-map',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+    }),
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
+```
+
+## 缓存 - 文件指纹
+
+```js
+filename: '[name].[contenthash].js',
+```
+
+## Tree Shaking
+
+> 用于描述移除 JavaScript 上下文中的未引用代码(dead-code)。它依赖于 ES2015 模块语法的 静态结构 特性，例如 import 和 export。这个术语和概念实际上是由 ES2015 模块打包工具 rollup 普及起来的。
+
+```js
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  'use strict';
+  /* unused harmony export square */
+  /* harmony export (immutable) */ __webpack_exports__['a'] = cube;
+  function square(x) {
+    return x * x;
+  }
+
+  function cube(x) {
+    return x * x * x;
+  }
+});
+
+```
+
+- harmony export (immutable) 表明代码是有用的
+- unused harmony 表明 square 是无用代码
+- webpack 仅仅是做了标记，去掉这些代码的能力，是通过插件实现的，常用的便是 unglify
+
+```js
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = func1;
+/* unused harmony export func2 */
+function func1() {
+  console.log('func1');
+}
+function func2() {
+  console.log('func2');
+}
+/***/ })
+```
+
+## 懒加载
+
+许多框架和类库对于如何用它们自己的方式来实现（懒加载）都有自己的建议。这里有一些例子：
+
+- React: Code Splitting and Lazy Loading
+- Vue: Dynamic Imports in Vue.js for better performance
+
+## 构建速度和体积优化策略
+
+- 分析
+  - 速度分析
+  - 体积分析
+- 多进程
+  - 多进程 / 多实例构建
+  - 多进程并行压缩代码
+- 进一步分包
+  - 预编译资源模块
+- 缓存
+  - 充分利用缓存提升二次构建速度
+  - 使用 cache-loader 启用持久化缓存。使用 package.json 中的 "postinstall" 清除缓存目录。
+- 缩小构建目标 (small = fast)
+  - 使用体积更小的 `library`
+  - 使用 SplitChunksPlugin
+  - 使用动态 Polyfill
+  - 使用 external
+  - 使用 Tree Shaking 擦除无用的 JS 和 CSS
+- dll
+  - 使用 DllPlugin 为更改不频繁的代码生成单独的编译结果。这可以提高应用程序的编译速度，尽管它增加了构建过程的复杂度。
+
+## 面试题
+
+### Webpack 构建流程简单说一下
 
 1. 初始化：启动构建，从配置文件读取参数，初始化 Compiler 对象
 2. 编译：从 Entry 出发，加载所有插件，执行对象的 `run` 方法开始执行编译，针对每个 `Module` 串行调用 Loader 对模块进行编译，再找出模块依赖的模块，递归本步骤直到所有依赖文件都被编译
 5. 输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中。
 
-## 有哪些可以提高效率的插件
+### 有哪些可以提高效率的插件
 
 - HotModuleReplacementPlugin: 模块热替换
 - webpack-merge：提取公共配置，减少重复配置代码
 
-## source map 是什么？生产环境怎么用？
+### source map 是什么？生产环境怎么用？
 
 sourcemap 文件是将编译、打包、压缩后的文件映射回源代码的过程。
 
@@ -276,11 +389,11 @@ module.exports = {
 }
 ```
 
-## TODO:模块打包原理知道吗？
+### TODO:模块打包原理知道吗？
 
 WebPack 实际上为每个模块创造了一个可以导出和导入的环境
 
-## 说一下 Webpack 的热更新原理吧
+### 说一下 Webpack 的热更新原理吧
 
 Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏览器而将变更的模块替换掉
 
@@ -290,19 +403,19 @@ Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏
 
 拿到增量更新后，由 HotModulePlugin 来完成后续的操作，哪些状态该保留？哪些需要更新，像 react-hot-loader 和 vue-loader 都是借助这些 API 实现 HMR。
 
-## 如何对bundle体积进行监控和分析？
+### 如何对 `bundle` 体积进行监控和分析？
 
 引入的时候，通过 vscode 有一个 Import Cost 插件，得到引入模块的大小。
 
 后续还可以使用 webpack-bundle-analyzer 来分析 bundle 的体积和模块组成图。
 
-## 文件指纹是什么？怎么用？
+### 文件指纹是什么？怎么用？
 
 可以设置比较长时间的强缓存，提高页面打开速度。
 
 可以给 JS、CSS、图片等资源文件打上 hash，文件内容变动 hash 会改变。
 
-## 如何优化 Webpack 的构建速度？
+### 如何优化 Webpack 的构建速度？
 
 - 多进程构建
   - HappyPack 不维护了
@@ -328,12 +441,13 @@ Hot Module Replacement，缩写为 HMR。这个机制可以做到不用刷新浏
   - ExtraceTextPlugin
   - [hash] / [chunkHash]
 
-## 是否写过 Loader? 写 Loader 的思路？
+### 是否写过 Loader? 写 Loader 的思路？
 
 Loader 支持链式调用，开发时要遵循 `单一职责`。
 
 TODO:
-## 是否写过 Plugin? 写 Plugin 的思路？
+
+### 是否写过 Plugin? 写 Plugin 的思路？
 
 webpack 在运行的生命周期会广播很多事件，Plugin 可以监听这些事件，在特定的阶段添加一些自定义功能。
 
@@ -342,7 +456,7 @@ Webpack 的 `Tapable` 事件流机制保证了插件的有序性
 TODO:
 
 
-## 聊一聊 Babel 原理吧
+### 聊一聊 Babel 原理吧
 
 1. 解析：将代码转换成 AST
   - 词法分析：将代码字符串分割成 token 流，即语法单元组成的数组
@@ -354,28 +468,9 @@ TODO:
 TODO:
 
 
+
 ## 在项目中使用 webpack
 
-### tree shaking
-
-- harmony export (immutable) 表明代码是有用的
-- unused harmony export func2 表明 func2 是无用代码
-- webpack 仅仅是做了标记，去掉这些代码的能力，是通过插件实现的，常用的便是 unglify
-
-```js
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = func1;
-/* unused harmony export func2 */
-function func1() {
-  console.log('func1');
-}
-function func2() {
-  console.log('func2');
-}
-/***/ })
-```
 
 ### DllPlugin 加快打包速度
 
@@ -462,80 +557,94 @@ module.exports = {
 }
 ```
 
-### 分离库代码 vendor.js
+### splitChunks 代码分割
 
-第三方库和应用代码单独打包，这样发版本的时候，就不用重新下载第三方库的 JS，可以用本地的缓存。
+webpack4中，CommonsChunkPlugin已经被移除了，现在是使用optimization.splitChunks代替。
 
-```js
-// 这是 packet.json 中 dependencies 下的
-const VENOR = [
-  "faker",
-  "lodash",
-  "react",
-  "react-dom",
-  "react-input-range",
-  "react-redux",
-  "redux",
-  "redux-form",
-  "redux-thunk"
-]
+**默认的配置对绝大多数用户都很好**
 
-module.exports = {
-  // 之前我们都是使用了单文件入口
-  // entry 同时也支持多文件入口，现在我们有两个入口
-  // 一个是我们自己的代码，一个是依赖库的代码
-  entry: {
-    // bundle 和 vendor 都是自己随便取名的，会映射到 [name] 中
-    bundle: './src/index.js',
-    vendor: VENOR
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
-  },
-  // ...
-}
-```
+webpack will automatically split chunks based on these conditions:
 
-有一个缺点就是：bundle 中也引入了依赖库的代码
-
-上面还少了一步，没有把 bundle 中的 vendor 代码抽取出来。我们继续看。
+* New chunk can be shared OR modules are from the node_modules folder
+* New chunk would be bigger than 30kb (before min+gz)
+* Maximum number of parallel requests when loading chunks on demand would be lower or equal to 6
+* Maximum number of parallel requests at initial page load would be lower or equal to 4
 
 
-### CommonsChunkPlugin 抽取共同代码
+- 默认配置
+  - splitChunks就算你什么配置都不做它也是生效的，源于webpack有一个默认配置，这也符合 `webpack4` 的开箱即用的特性
+- chunks可以有三种取值:
+  - async 默认 动态加载 import().then
+  - initial 入口配置
+  - all 包含以上两种
 
-打包之后，会发现 bundle.js 体积变得很小
+**代码分割的概念**
+- 基于浏览器的缓存，如果某些依赖很少变动，可以把它分离成单独的文件，访问者无需重复下载。
+- webpack 生成一个或多个 bundles，它们由多个 chunks 租车
 
 ```js
-module.exports = {
-  // ...
-  output: {
-    path: path.join(__dirname, 'dist'),
-    // 既然我们希望缓存生效，就应该每次在更改代码以后修改文件名
-    // [chunkhash]会自动根据文件是否更改而更换哈希
-    filename: '[name].[chunkhash].js'
-  },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      // vendor 的意义和之前相同
-      // manifest文件是将每次打包都会更改的东西单独提取出来，保证没有更改的代码无需重新打包，这样可以加快打包速度
-      names: ['vendor', 'manifest'],
-      // 配合 manifest 文件使用
-      minChunks: Infinity
-    }),
-    // 清除上次打包的文件，因为每次打包生成的文件 hash 都不一样
-    // 只删除 dist 文件夹下的 bundle 和 manifest 文件
-    new CleanWebpackPlugin(['dist/bundle.*.js','dist/manifest.*.js'], {
-    // 打印 log
-      verbose: true,
-      // 删除文件
-      dry: false
-    }),
-  ]
-};
+splitChunks: {
+      // chunks可以为三种值：async,initial,all；决定代码满足条件后是否进行拆分。
+      // initial表示只考虑非import()异步导入代码进行拆分，async表示只拆分异步代码块，而all表示同异步都加入拆分范畴。
+      chunks: 'async',
+      
+      // 满足尺寸才发生拆分
+      // 例如导入10kb的依赖包小于30kb便不会拆分代码块
+      minSize: 30000,
+      
+      // 当bundle达到maxSize，必须进行拆分
+      // 例如jquery与lodash合并成了140kb，maxSize定位80kb，便会拆分两个依赖
+      maxSize: 0,
+      
+      // 最少被引用的chunk个数
+      // 例如一个入口块和一个异步块都引用了lodash，minChunks大于2时就不会添加新chunk来装lodash
+      minChunks: 1,
+      
+      // 异步代码块最多可拆分次数
+      // 假设某个import()模块有2MB，maxSize设定为500kb，如果此属性为1，模块最多就只能拆分一个bundle出去。
+      maxAsyncRequests: 5,
+      
+      // 这属性和maxAsyncRequests道理一致，不过是作用与initial模块的
+      maxInitialRequests: 3,
+      
+      // bundle自动命名使用的连接字符
+      automaticNameDelimiter: '~',
+      
+      // bundle自动命名时名称长度限制
+      automaticNameMaxLength: 30,
+      
+      // 可为bool、string类型，true是会使用默认命名，否则使用序号命名；string指定文件名称
+      name: true,
+      
+      // 自定义拆分组
+      cacheGroups: {
+      
+        // 每个属性就是一个分组
+        vendors: {
+        
+          // 导入路径的正则匹配，这为所有node_modules引用的模块代码
+          test: /[\\/]node_modules[\\/]/,
+          
+          // 优先级默认为0，如果两个组引用了同一个模块，优先级高的组可以获得此模块
+          priority: -10
+          
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          
+          // 是否复用其他chunk内已拥有的模块
+          // 默认为false，关闭表示拆分出复用部分的模块，给双方引用
+          reuseExistingChunk: true
+        }
+      }
+    }
+
 ```
 
-### 自动插入 JS 文件到 HTML 中
+### html-webpack-plugin
+
+> 自动插入 JS 文件到 HTML 中
 
 每次打包生成的 JS 文件名都需要引入到 HTML 中，使用插件帮我们做这一步。
 
@@ -608,3 +717,9 @@ const Routes = () => {
 export default Routes;
 
 ```
+
+## 参考
+
+[前端构建秘籍](https://juejin.im/post/5c9075305188252d5c743520)
+
+[webpack：从入门到真实项目配置](https://juejin.im/post/59bb37fa6fb9a00a554f89d2)

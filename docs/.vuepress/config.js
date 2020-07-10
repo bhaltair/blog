@@ -4,6 +4,10 @@ module.exports = {
   plugins: ['@vuepress/medium-zoom'],
   base: '/blog/',
   dest: 'dist',
+  head: [
+    ['link', { rel: "shortcut icon", href: "/favicon.ico"}],
+    ['meta', { name: 'referrer', content: 'never' }]
+  ],  
   themeConfig: {
     nav: [
       // { text: 'Home', link: '/' },
@@ -13,16 +17,16 @@ module.exports = {
           { text: 'CSS', link: '/前端/css/' },
           { text: 'JavaScript', link: '/前端/javascript/' },
           { text: 'Web API', link: '/前端/webapi/' },
+          { text: 'TypeScript', link: '/前端/typescript/' },
           { text: '', items: [
             { text: 'React', link: '/前端/react/' },
             { text: 'Vue', link: '/前端/vue/' },
           ]},
           { text: '', items: [
-            { text: 'TypeScript', link: '/前端/typescript/' },
             { text: '小程序', link: '/前端/小程序/' },
-            { text: '性能优化', link: '/前端/性能优化/' },
             { text: '工程化', link: '/前端/工程化/' },
-            { text: 'WebPack', link: '/前端/webpack/' },
+            { text: '性能优化', link: '/前端/性能优化/' },
+            // { text: 'WebPack', link: '/前端/webpack/' },
             { text: '测试', link: '/前端/测试/' },
             { text: '其他', link: '/前端/其他/' }
           ]},                    

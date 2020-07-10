@@ -36,6 +36,11 @@
 
 JS 并发地接受事件，但会使用一个事件队列按序地处理事件处理程序
 
+**进程和线程**
+
+* 进程：资源分配的最小单位，应用程序的执行实例
+* 线程：程序执行的最小单位，线程是进程内的一个独立执行单元，在不同的线程之间是可以共享进程资源的
+
 **一个演示**
 
 ```js
@@ -66,11 +71,60 @@ while (true) {
 - 浏览器中几乎没有阻塞 API
   - Ajax 有一个同步的 API
 
+**同步任务和异步任务**
+- 同步任务不进入任务队列，在主线程上排队，执行完一个才能执行下一个
+- 异步任务先在 event table 注册函数，当满足触发条件时，才进入异步任务队列。
+
 
 **宏任务和微任务**
-- 把宿主发起的任务称为宏观任务
-- 把 JavaScript 引擎发起的任务称为微观任务
+- 把宿主发起的任务称为宏任务
+  - script
+  - setTimeout
+  - setInterval
+  - requestAnimationFrame
+  - setImmediate(Node)
+- 把 JavaScript 引擎发起的任务称为微任务
+  - Promise
+  - MutationObserver
+  - process.nextTick(Node)
 
+![a.png](https://user-gold-cdn.xitu.io/2019/7/6/16bc6bd331a2116a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+```js
+setTimeout(function() {
+	console.log('a')
+});
+
+new Promise(function(resolve) {
+	console.log('b');
+
+	for(var i =0; i <10000; i++) {
+		i ==99 && resolve();
+	}
+}).then(function() {
+	console.log('c')
+});
+
+console.log('d');
+
+// b
+// d
+// c
+// a
+
+// 1.首先执行script下的宏任务，遇到setTimeout，将其放入宏任务的队列里。
+// 2.遇到Promise，new Promise直接执行，打印b。
+// 3.遇到then方法，是微任务，将其放到微任务的队列里。
+// 4.遇到console.log('d')，直接打印。
+// 5.本轮宏任务执行完毕，查看微任务，发现then方法里的函数，打印c。
+// 6.本轮event loop全部完成。
+// 7.下一轮循环，先执行宏任务，发现宏任务队列中有一个setTimeout，打印a。
+
+// 作者：童欧巴
+// 链接：https://juejin.im/post/5d2036106fb9a07eb15d76e9
+// 来源：掘金
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
 
 ### 回流与重绘
 

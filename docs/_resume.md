@@ -1,12 +1,12 @@
 
 # 简历
 ## 基本信息
-- 王其/Web前端工程师
-- 男/本科/2015年毕业 
-- 电话：17605254688
+- 王其 / Web前端工程师
+- 男 / 本科 / 2015年毕业 
+- 电话：1760525****
 - Email:  `njcit_wangqi@163.com`
 
-## 项目经验  
+## 工作经历
 
 [良医汇官网](http://www.liangyihui.net)  
 
@@ -42,45 +42,17 @@
 
 做了一些性能优化，以支撑大流量投票，包含图片的懒加载和预加载，一些静态数据上传七牛等措施。
 
-## 工作经验 
-#### 上海优药网络  FE 201702 - 现在
-参与APP内H5页面和PC站的前端开发工作。
+
+## 专业技能
+
+- 熟悉 `HTML5`、`CSS3`、`JavaScript`、`TypeScript`
+- 熟悉 `React`、`Hook` 
+- 熟悉 `HTTP` 
 
 
-#### 苏威尔网络 FE 201510 - 201612
-负责网站页面制作、前端开发。
+## 其他链接
 
-## 个人项目
-### 小程序 欢喜加一
-
-一个steam游戏推荐平台，推荐每日打折游戏。
-
-知晓程序推荐，积累大量重度用户。
-
-### [Pure Entertainment](https://peaceful-earth-82719.herokuapp.com/)
-responsive design 设计
-
-一个简易的CMS后台 vue+mongo+express
-
-## 技术栈
-
-### HTML/CSS
-
-- 熟悉常用已标准化的HTML与CSS3特性
-- 能够编写语义化的 HTML，模块化的 CSS，完成较复杂的布局
-- 熟悉LESS预编译器
-
-### Js
-- 了解ECMAScript相关规范，熟悉DOM/BOM API，熟悉常用的ES5/6语法。
-- 熟练使用Vue全家桶SPA
-- 熟悉React
-- 熟悉小程序 有上线小程序
-- 熟悉Gulp/Webpack等构建工具    
-    
-### 后端
-- 熟悉Node，熟悉常用内置模块
-- 使用Express开发过Web应用 
-- 熟悉阿里云 heroku node环境的搭建 部署 监控
-
-
-
+- [Github](https://github.com/bhaltair)
+- [个人博客](https://bhaltair.github.io/blog)
+- [Stackoverflow](https://stackoverflow.com/users/6582205/bhaltair)
+- [掘金](https://juejin.im/user/5e1590165188253a7b039f9c)
