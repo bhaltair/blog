@@ -53,13 +53,6 @@ constructor(props) {
 
 ```
 
-### setState 时机
-
-### 核心流程
-
-### 性能优化
-
-
 ### 组件逻辑复用的发展历程
 
 mixin -> HOC & render-props -> Hook
@@ -84,13 +77,69 @@ mixin -> HOC & render-props -> Hook
     - 返回一个组件
 - 我们习惯使用 `with` 开头代表 `HOC`
 
-### VNode
+### Suspense 组件
 
-### key 的作用
+React 16.6 新增的组件，让你可以在 ProfilePage 组件加载阶段显示一个 Spinner
 
-### super(props)
+- 配合 React.lazy() 进行组件懒加载
+
+```html
+const ProfilePage = React.lazy(() => import('./ProfilePage')); // 懒加载
+
+// 在 ProfilePage 组件处于加载阶段时显示一个 spinner
+<Suspense fallback={<Spinner />}>
+  <ProfilePage />
+</Suspense>
+```
+
+### Context 管理状态
+
+### 代码分割
+
+- import()
+- React.lazy()
+  - React.lazy 和 Suspense 技术还不支持服务端渲染。
+  - 如果你想要在使用服务端渲染的应用中使用，我们推荐 Loadable Components 这个库
 
 ## Redux
+
+- store 状态存在 `store` 中
+  - 通过 `createStor(reducer)` 创建 `store`
+- actions，Action 是对象
+  - action 通过 store.dispath 函数发送到 store 中
+  ```js
+  {
+    type: 'INCREMENT',
+    payload: {}
+  }
+  ```
+  - 或者使用一个函数返回一个 action[action creatros]，这样组件内部不需要知道 `action` 的表示形式
+  ```js
+    const createNote = (content) => {
+      return {
+        type: 'NEW_NOTE',
+        data: {
+          content,
+          important: false,
+          id: generateId()
+        }
+      }
+    }
+  ```
+- reducer 是一个函数，以当前 state 和 action 为参数，返回一个新的 state
+  ```js
+    const counterReducer = (state, action) => {
+      if (action.type === 'INCREMENT') {
+        return state + 1
+      } else if (action.type === 'DECREMENT') {
+        return state - 1
+      } else if (action.type === 'ZERO') {
+        return 0
+      }
+
+      return state
+    }  
+  ```
 
 ### 解决的问题
 
@@ -146,7 +195,6 @@ mixin -> HOC & render-props -> Hook
   - 考虑到后期代码量的增加，如果把异步函数放在组件的生命周期里，这个生命周期函数会变得越来越复杂，组件就会变得越来越大
 - 原则上 action 返回的是一个对象，但当我们使用 redux-thunk 中间件后, action 就可以返回一个函数了，继而可以在函数里边进行异步操作
 - redux 的中间件原理很简单，就是对 store 的 dispatch 方法做一个升级，既可以接收对象，又可以接收函数了
-
 
 ### Redux-saga
 
@@ -280,8 +328,6 @@ effects: {
   },
 },
 ```
-
-### Redux-actions
 
 ## Hooks
 
@@ -601,7 +647,7 @@ export default function () {
 
 ![liu.png](https://www.notion.so/Dva-d7d7b10f0dae40a289fde391a91a8d1e#d85e2057b57a4ee8a55bfcf6f37dd04d)
 
-## UMI
+## Umi
 
 ### 特性
 

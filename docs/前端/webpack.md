@@ -324,7 +324,9 @@ function func2() {
 
 - 分析
   - 速度分析
+    - speed-measure-webpack-plugin
   - 体积分析
+    - BundleAnalyzerPlugin
 - 多进程
   - 多进程 / 多实例构建
   - 多进程并行压缩代码

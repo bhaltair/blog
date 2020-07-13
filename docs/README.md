@@ -4,7 +4,7 @@ lang: zh-CN
 heroText: 流月的部落格
 heroImage: https://utools-1255885027.cos.ap-shanghai.myqcloud.com/qrcode_for_gh_2e0e95ed33dd_258.jpg
 actionText: 开始 →
-actionLink: /面试/面试
+actionLink: /前端/javascript
 features:
 - title: A Blog
   details: 专注写作前端博客，记录日常所得。
