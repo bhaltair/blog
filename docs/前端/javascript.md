@@ -9,6 +9,8 @@
 6种基本类型
 > undefined null boolean string number symbol
 
+还有一个没有正式发布但即将被加入标准的原始类型BigInt。
+
 **Number**
 
 - JS 没有明显的整数类型
@@ -45,6 +47,7 @@
   - BigInt
 
 **浮点数精度问题如何解决？现在项目中会用到 BigInt 吗？**
+- 超过 Number.MAX_SAFE_INTEGER 会出现精度丢失，通常引入第三方库来进行解决
 - 浮点数精度的问题，展示的时候四舍五入即可
 - 要求比较严格的场景，可以转为整数来存取。
 - BigInt 是 ES2019 的特性，是以后大多数场景优选方案。
@@ -388,6 +391,18 @@ a.num
 - 学习 this 的第一步就是明白 this 既不指向函数自身，也不指向函数的词法作用域。
 - this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
 - 当作对象的方法调用，this 等于那个对象
+- **箭头函数**没有自己的 this，捕获其上下文的 this 作为自己的 this，不能被 new 调用，定义时所在作用域的 `this` 值
+
+```js
+var obj = {
+  getArrow: function getArrow() {
+    var _this = this
+    return function() {
+      console.log(_this === obj)
+    }
+  }
+}
+```
 
 **绑定规则**
 - 默认绑定
@@ -568,6 +583,14 @@ Promise.race([promise1, promise2]).then((value) => {
 ```
 
 ### 生成器和迭代器
+
+### async 和 await
+TODO:
+- async 函数就是 Generator 函数的语法糖
+- await 放在 promise 调用之前，只能在 async 函数内部调用
+- 相比 Promise 的优势？
+  - 同步的写法，Promise 链式调用写起来不优雅
+  - 错误处理友好，使用 try-catch 
 
 ## 8 性能
 
@@ -775,3 +798,85 @@ $ npm install --save-dev babel-preset-stage-2
 $ npm install --save-dev babel-preset-stage-3
   
 ```
+
+### 如何在 JavaScript 中实现不可变对象？
+
+- 深克隆
+  - 浅复制用 Object.assign() 或者 扩展运算符
+  - 对多层嵌套的引用类型，浅复制会产生副作用
+  - JSON.parse 实现深克隆的坑(序列化和反序列化)
+    - 函数无法克隆
+    - 对象有循环引用，会报错
+    - 特殊对象无法复制
+      - Date 对象无法复制
+      - 正则对象无法复制
+    - new Array(4) 数组复制错误
+    - 构造函数指向错误
+  - 如何实现自己的 深拷贝
+    - 处理上面的坑
+    - 维护两个储存循环引用的数组
+- immutable.js 完全实现了一套数据结构
+- immer，利用 Proxy
+  - 搞一个拷贝对象，如果修改，修改那个拷贝对象，返回也只返回那个拷贝对象
+  - 维护一个是否修改过 状态
+  - Reflect.get(target, key, receiver)
+  - 浅拷贝
+
+
+```js
+/**
+* deep clone
+* @param  {[type]} parent object 需要进行克隆的对象
+* @return {[type]}        深克隆后的对象
+*/
+const clone = parent => {
+  // 维护两个储存循环引用的数组
+  const parents = [];
+  const children = [];
+
+  const _clone = parent => {
+    if (parent === null) return null;
+    if (typeof parent !== 'object') return parent;
+
+    let child, proto;
+
+    if (isType(parent, 'Array')) {
+      // 对数组做特殊处理
+      child = [];
+    } else if (isType(parent, 'RegExp')) {
+      // 对正则对象做特殊处理
+      child = new RegExp(parent.source, getRegExp(parent));
+      if (parent.lastIndex) child.lastIndex = parent.lastIndex;
+    } else if (isType(parent, 'Date')) {
+      // 对Date对象做特殊处理
+      child = new Date(parent.getTime());
+    } else {
+      // 处理对象原型
+      proto = Object.getPrototypeOf(parent);
+      // 利用Object.create切断原型链
+      child = Object.create(proto);
+    }
+
+    // 处理循环引用
+    const index = parents.indexOf(parent);
+
+    if (index != -1) {
+      // 如果父数组存在本对象,说明之前已经被引用过,直接返回此对象
+      return children[index];
+    }
+    parents.push(parent);
+    children.push(child);
+
+    for (let i in parent) {
+      // 递归
+      child[i] = _clone(parent[i]);
+    }
+
+    return child;
+  };
+  return _clone(parent);
+};
+
+```
+
+- Buffer、Promise、Set、Map 还需要做特殊处理

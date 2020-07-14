@@ -2,6 +2,12 @@
 
 ## 浏览器
 
+### 浏览器内核
+
+- 内核（渲染引擎）
+  - Chrome Webkit
+- JS 引擎
+  - Chrome V8
 
 ### 浏览器渲染流程
 
@@ -9,10 +15,15 @@
 - 解析 CSS，生成 CSS Tree
 - 当遇到 JS 时，DOM 构建过程会被吊起，需要等待 JS 执行完毕，触发 DOMContentLoaded
 - 合并 DOM Tree 和 CSS Tree，生成 Render Tree
+- 浏览器会将各层的信息发送给 GPU，GPU 会将各层合成（composite），显示在屏幕上
+
+**回流（重排）和重绘**
 - 回流，负责各元素尺寸、位置的计算
 - 重绘，绘制页面像素信息
   - outline, visibility, color、background-color
-- 浏览器会将各层的信息发送给 GPU，GPU 会将各层合成（composite），显示在屏幕上
+- 重绘不一定造成重排，重排一定会重绘
+- 如何避免重绘或者重排？
+  - 使用DocumentFragment，只触发一次重排
 
 ![render.png](https://qiniu.chenng.cn/2019-01-13-21-29-17.png)
 
@@ -133,7 +144,9 @@ console.log('d');
 
 ## HTML
 
-### Meta 
+### 常用 Meta 标签
+
+- viewport 控制视口的大小和比例
 
 **Viewport**
 
@@ -171,12 +184,9 @@ width 与 initial-scale 都会初始化布局视口，但浏览器会取其最�
 这要分两部分：
 
 1. 让人读懂
+  - 清晰看出网页的结构
 2. 让机器读懂
-
-如果都用div span这些标签，那就不需要h p ul header section article了
-
-- 不要只关注展现方式，而不考虑标签语义
-- 对于特殊群体的人群使用屏幕阅读器就会非常的不良好
+  - 对于特殊群体的人群使用屏幕阅读器就会非常的不良好
 
 ## DOM 
 
@@ -639,7 +649,7 @@ $el.dispatchEvent(myEvent)
 
 ## 存储
 
-### Cookie
+### Cookie 4k
 
 > Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
 
@@ -685,7 +695,7 @@ $el.dispatchEvent(myEvent)
   - 第一次请求，服务端种下 cookie
   - 第二次请求，浏览器会自动带上 cookie，服务端会辨别身份
 
-### LocalStorage
+### LocalStorage 5M
 
 - 大小
   - 5 MB
@@ -698,6 +708,8 @@ $el.dispatchEvent(myEvent)
   - 关闭浏览器即清除
 
 ### IndexedDB
+
+NoSQL 数据库，用键值对进行储存
 
 ## 动画
 

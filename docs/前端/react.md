@@ -355,8 +355,6 @@ effects: {
   - class 组件的问题
     - 编译出来的代码相比函数组件多得多
     - 四散的代码不容易维护
-- hooks library
-  * react-use https://www.npmjs.com/package/react-use
 - 使用 Hook 需要遵循的两条规则
   - 只在最顶层使用Hook
     - 不要在循环，条件，嵌套函数中调用Hook
@@ -454,8 +452,8 @@ but
   - 返回 false ，子组件就不会更新了
 - 在函数里面写太麻烦？
   - 只提供浅比较
-    - PureComponent
-    - Memo
+    - PureComponent【class 组件】
+    - Memo[函数组件]
 
 ### immer.js
 

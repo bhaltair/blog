@@ -1,5 +1,12 @@
 # CSS
-## 位置 position
+
+## CSS 有几种定位方式
+
+- static 正常
+- relative
+- absolute
+- fixed
+- sticky
 
 ## line-height
 
@@ -9,17 +16,17 @@
 
 ## z-index
 
-z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
+> z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
 
 - z-index 值没有单位，就是一个正整数。默认的z-index值是0。
 - 只有定位了的元素，才能有z-index值。
   - 不管相对定位、绝对定位、固定定位，都可以使用z-index值
   - 而浮动的元素不能用。
-- 如果大家都没有 z-index 值，或者 z-index 值一样，那么在HTML代码里写在后面，谁就在上面能压住别人。
+- 如果大家都没有 z-index 值，或者 z-index 值一样，那么在 HTML 代码里写在后面，谁就在上面能压住别人。
 - 定位了的元素，永远能够压住没有定位的元素
 - 从父现象：父亲怂了，儿子再牛逼也没用
 
-## 选择器
+## CSS 选择器优先级
 
 1. 属性选择器
 2. 结构性伪类选择器
@@ -41,7 +48,7 @@ z-index 属性：表示谁压着谁。数值大的压盖住数值小的。
 
 **选择器优先级**
 
-1. !important最屌，不care任何优先级
+1. !important最屌，不 car e任何优先级
 2. 然后是行内优先级最高
 3. 接着，依次计算权重
     1. ID 100
@@ -63,14 +70,11 @@ content-box
 
 border-box
 
-## L-V-H-A
-
-
 ## 响应式设计
 
 ## flex
 
-### 概念
+> 弹性盒布局
 
 - 剩余空间
 - 不足空间
@@ -78,7 +82,7 @@ border-box
   - 主轴
   - 交叉轴
 
-### 作用在容器的属性
+**作用在容器的属性**
 
 * flex-direction
 * flex-wrap: nowrap | wrap | wrap-reverse;
@@ -92,7 +96,7 @@ border-box
 * align-items 属性定义项目在交叉轴上如何对齐。
 * align-content 属性定义了多根轴线的对齐方式
 
-### 作用在元素的属性
+**作用在元素的属性**
 
 flex 是一个简写属性 flex-grow, flex-shrink与flex-basis
 
@@ -123,15 +127,20 @@ flex 是一个简写属性 flex-grow, flex-shrink与flex-basis
 
 ![a.png](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/25962FF9-A886-485C-A6BF-823EEC288CD1.jpg)
 
-## IFC BFC
+## IFC、BFC
 
-Inline Formatting Contexts（行内级格式化上下文），IFC 只有在一个块级元素中仅包含内联级别元素时才会生成。
+IFC - Inline Formatting Contexts（行内级格式化上下文
+- IFC 只有在一个块级元素中仅包含内联级别元素时才会生成。
 
-BFC
-* 父元素设置overflow: hidden
-* 父元素float为left或者right
-* position为absolute或者fixed
-* display为inline-block5
+BFC - 块状格式上下文
+- 触发条件
+  * 父元素设置overflow: hidden
+  * 父元素float 不为 none
+  * position: absolute/fixed
+  * display: inline-block
+- 作用
+  - 开辟一个独立的区域，让处于 BFC 内部的元素与外部的元素相互隔离
+  - 防止 margin 重叠
           
 ## 布局模型
 
@@ -179,7 +188,7 @@ BFC
 
 ## 其他
 
-### 如何优化 `css` d的性能
+### 如何优化 `css` 的性能
 1. 避免选择器层级开销
 2. 避免不必要的 Layout 和 Paint 开销
 3. 页面上的动画可以合理使用硬件加速，提升动画性能
@@ -416,7 +425,62 @@ sans-serif;               // System Fallback
 
 ### 水平垂直居中的 10 种方式
 
-### ios 的 scroll
+- 水平居中
+  - 行内元素
+  - 块级元素
+  - left 50% + 负margin 宽度的一半
+  - left 50% + translateX -50%
+  - margin: 0 auto
+- 垂直居中
+  - inline
+    - heihgt = inline-height
+  - inline-block
+    - 父元素 display: table，子元素 display: table-cell; vertical-align: middle;
+  - block 未知宽高
+    - top 50% + translateY
+  - block 已知宽高
+    - 绝对定位 + 负 marginTop
+
+**居中 - 图片居中**
+
+```css
+.center-image {
+  background: #4a4a4a;
+  width: 100px;
+  height: 200px;
+  border-radius: 4px;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+```
+
+**tabel 水平垂直居中**
+
+```css
+<div class="container">
+  <div class="center"><span>Centered content</span></div>
+</div>
+
+.container {
+  border: 1px solid #333;
+  height: 250px;
+  width: 250px;
+}
+.center {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.center > span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+```
+
+### iOS 的 scroll
+
 iOS 5 之后开始支持 Native Scrolling，为 Web App 带来媲美原生应用的滚动体验。使用十分方便只要在 CSS 中加入：
 
 .wrapper {
@@ -597,29 +661,7 @@ div {
   word-break: break-all;   // 让浏览器实现在任意位置的换行 *break-all为允许在单词内换行*
 }
 ```
-### tabel 水平垂直居中
 
-```css
-<div class="container">
-  <div class="center"><span>Centered content</span></div>
-</div>
-
-.container {
-  border: 1px solid #333;
-  height: 250px;
-  width: 250px;
-}
-.center {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-.center > span {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-```
 
 ### 长英文单词强制换行
 
@@ -630,19 +672,7 @@ div {
 
 ```
 
-### 图片居中
 
-```css
-.center-image {
-  background: #4a4a4a;
-  width: 100px;
-  height: 200px;
-  border-radius: 4px;
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-```
 
 ### 给 html 标签添加类名
 
@@ -749,17 +779,6 @@ base + layout + module + state + theme
 2. box model
 3. typographic
 4. visual
-
-### 模块组织
-
-1. 组件应该在不同的上下文中都可以复用，所以避免设置以下属性
-
-  * Position
-  * float
-  * margin
-
-2. 如果需要为组件设置定位，在父元素中设置定位
-
 
 ### 写 CSS 的规则
 
