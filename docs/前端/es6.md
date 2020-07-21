@@ -127,14 +127,19 @@ r({x:1, y:2}) === 23
 
 第 6 种原始类型，前面 5 种是 string、number、boolean、undefined、null
 
-> 所有使用可计算属性名的地方，都可以使用 Symbol
+- 注意不要用 new 操作符调用 Symbol
+- 可以作为对象的 Key【该数据类型仅有的目的】
+- Symbol() 的值是唯一的
 
 ```js
+// Symbol([description])
 let firstName = Symbol('first name')
 
 let person = {
   [firstName]: 'Nicholas'
 }
+
+Symbol('foo') === Symbol('foo') // false
 ```
 
 ## Set Map
@@ -182,14 +187,20 @@ ws.add({ data: 42 });
 - 迭代器对象启用自定义迭代
 - Symbol.iterator 用来定义对象的默认迭代器
   - 如果先对象有 `Symbol.iterator` 属性，则此对象为可迭代对象
-- for-of 循环可以持续获取可迭代对象中的值
-  - 所有的集合类型、字符串都有默认迭代器
-  - 集合对象迭代器
+- 默认迭代器
+  - 字符串默认迭代器
+    - for-of 迭代
+  - 集合对象内置迭代器【Map、Set】
     - entries()，map 集合的默认迭代器
     - keys()
     - values()，数组和 Set 的默认迭代器
 - 生成器是一个返回迭代器的特殊函数，定义的时候需要加一个星号，被调用时会自动创建一个迭代器，并通过关键词 yield 来表示每次调用迭代器的 next() 的返回值
   - yield 只能在生成器内部使用
+- 用于可迭代对象的语法
+  - for-of 循环
+  - 展开语法
+  - yield*
+  - 解构赋值
 
 ```js
 function *createIerator(items) {
@@ -299,6 +310,7 @@ class SkinnedMesh extends THREE.Mesh {
   - 在 Promise 链中返回 Promise
 - 响应多个
   - Promise.all 和 Promise.race()
+  - Promise.race 有点特殊 TODO:
 
 ```js
 function timeout(duration = 0) {

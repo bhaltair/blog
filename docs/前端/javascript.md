@@ -356,7 +356,7 @@ let signUp = function(Db, Email, attrs) {
 
 ### 原型
 
-- 使用 Object.getPrototypeOf 函数而不要使用 __proto__
+- 使用 Object.getPrototypeOf 函数而不要使用实例对象的 __proto__
 
 ```js
 //题目
@@ -386,11 +386,10 @@ a.num
 ### this
 
 - this 是在运行时基于函数的执行环境绑定的
-- this 是在运行时绑定的，并不是在编写时绑定，它的上下文取决于函数调用的各种条件
-- this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。
-- 学习 this 的第一步就是明白 this 既不指向函数自身，也不指向函数的词法作用域。
-- this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
-- 当作对象的方法调用，this 等于那个对象
+  - this 是在运行时绑定的，并不是在编写时绑定，它的上下文取决于函数调用的各种条件
+  - this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。
+  - 学习 this 的第一步就是明白 this 既不指向函数自身，也不指向函数的词法作用域。
+  - this 实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。
 - **箭头函数**没有自己的 this，捕获其上下文的 this 作为自己的 this，不能被 new 调用，定义时所在作用域的 `this` 值
 
 ```js
@@ -584,13 +583,48 @@ Promise.race([promise1, promise2]).then((value) => {
 
 ### 生成器和迭代器
 
+```js
+function *gen(i) {
+  yield i
+  yield i + 10
+  return 'R'
+}
+
+var foo = gen(1)
+foo.next() // { value: 1, done: false }
+foo.next().value // 11
+foo.next() // { value: 'R', done: true }
+foo.next() // { value: undefined, done: true }
+```
+
 ### async 和 await
+
+> async 函数 ES2017 标准引入的语法，是 Generator 函数的语法糖
+
 TODO:
 - async 函数就是 Generator 函数的语法糖
 - await 放在 promise 调用之前，只能在 async 函数内部调用
+  - 如果 await 后面不是 promise，会自动调用 Promise.resolve() 转化为 promise 对象
+  - await 关键字会在内部调用 then 方法将 resolve 的值返回【await关键字是then方法的语法糖，会将resolve的值传递出来】
+  - 如果 await 执行报错，后面的语句不会继续执行
+  - await 可以直接调用 async 函数
+- async 函数总是返回 Promise
 - 相比 Promise 的优势？
   - 同步的写法，Promise 链式调用写起来不优雅
   - 错误处理友好，使用 try-catch 
+- 相比 Generator 函数的优点
+  - 内置执行器
+  - 返回值是 Promise，可以用 then 方法指定下一步操作
+    - Generator 函数返回值是 迭代对象
+- 捕获错误
+  - 直接跟 catch()
+  - async 内部可以用 try-catch，只能捕捉同步的错误
+- 优势
+  - 异步过程同步化
+  - 代码量很少
+
+**处理错误**
+在函数调用的时候使用 catch()，这是最简便的
 
 ## 8 性能
 
@@ -750,19 +784,32 @@ doSomething(null); // null
 - 多了解一下继承
 - Object.prototype.toString调用的是object的原型（也就是父类）的tostring方法
 
-
-
-### iterable 迭代器
-
-- 任何数据结构只要部署 Iterator 接口，就可以完成遍历操作
-- ES6 新增的2个协议：可迭代协议与迭代器协议？
-- 内置可迭代对象
-  - String、Array、TypedArray、Map 和 Set 都是内置可迭代对象
-- 用于可迭代对象的语法
-  - for-of 循环，展开语法，yield* 和 解构赋值
-
-
 ### babel
+
+Babel是一个JavaScript编译器：它解析，转换和输出转换后的代码。
+
+**babel-core**
+这是解析和输出部分。
+它不做任何转换。
+可以从命令行或捆绑程序（webpack，rollup和co。）使用它。
+
+**babel-polyfill / babel-runtime**
+通过在代码之前添加es5 javascript来模拟es2015 +函数（例如Object.assign），从而对转换部分起作用。
+依赖 Regenerator（用于polyfill生成器）和core-js（用于polyfill所有其余的）。
+babel-polyfill和babel-runtime之间的区别：前者定义了全局方法（并污染了全局范围），而后者则转换了您的代码以提供相同的功能。
+
+**babel plugins**
+转换您编写的代码。
+babel语法/转换插件：解析并转换es2015 +语法（如箭头功能）以将其转换为es5。
+babel-plugins-stage-x（从Stage-0到Stage-4）：将将来不在JS规范中的javascript语法转换为从Stage-0（只是一个想法）到Stage-4（将进入babel插件很快）。
+
+**babel-preset-env**
+babel-preset-env确定特定环境所需的Babel插件和polyfill。
+如果没有配置，它将加载将es2015 +移植到es5所需的所有插件（包括es2015，es2016和es2017）。
+使用 target 选项时，它仅加载在特定目标上运行所需的插件。
+使用BuiltIn选项时，它仅使用目标中未内置的babel-polyfill。
+不适用于babel-transform-runtime（截至2017年11月）
+
 ```js
 // 转码前
 input.map(item => item + 1);

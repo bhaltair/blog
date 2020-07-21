@@ -723,6 +723,21 @@ NoSQL 数据库，用键值对进行储存
 
 ### Fetch
 
+```js
+var url = 'https://example.com/profile';
+var data = {username: 'example'};
+
+fetch(url, {
+  method: 'POST', // or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  headers: new Headers({
+    'Content-Type': 'application/json'
+  })
+}).then(res => res.json())
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', response))
+```
+
 
 **fetch-abort**
 
@@ -1124,11 +1139,15 @@ history.go(2)
 
 ## 实践
 
+### Polyfills
+
+- IE 不支持 Promise
+
+[HTML5 Cross Browser Polyfills
+](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills)
 
 ### First-Contentful-Paint 首屏时间
 ### execCommand 复制文本
-
-
 
 ### iframe 通信
 
@@ -1149,11 +1168,6 @@ history.go(2)
 
 ### Web Workers 单独运行线程
 
-### xhr 与 fetch
-
-XmlHttpRequest 对象负责将用户信息以异步通信的方式发送到服务器端，并接收服务器返回的响应信息和数据
-
-
 ### 窗口的滚动
 
 读取滚动值
@@ -1165,6 +1179,32 @@ XmlHttpRequest 对象负责将用户信息以异步通信的方式发送到服�
 window.scrollTo(pageX,pageY) — 绝对定位
 window.scrollBy(x,y) — 相对当前位置的滚动
 elem.scrollIntoView(top) — 滚动到正好elem可视的位置（elem 与窗口的顶部/底部对齐） // top = true 顶部对齐
+```
+
+**scrollIntoView**
+- scrollIntoViewOptions
+  - block 垂直对齐方式
+    - start, center, end, or nearest. Defaults to start.
+  - behavior
+    - transition animation
+  - inline
+    - horizontal alignment
+    - start, center, end, or nearest. Defaults to nearest
+- 此API基本所有浏览器都是支持的
+
+**scrollintoviewifneeded(true)**
+- 没有有进入标准，很可能还会改，不推荐生产环境使用
+- 此API IE和 foxfire 不支持，所以 PC端 不能使用，但是移动端是没有问题
+- 只有一个值 true 是默认值，让元素在可视区域中居中对齐，false 可能顶部或者底部对齐，视元素靠哪边更近
+
+```js
+var element = document.getElementById("box");
+
+element.scrollIntoView(); // 默认值 true 和顶部对齐
+element.scrollIntoView(false); // 和视口的底部对齐
+element.scrollIntoView({block: "end"});
+element.scrollIntoView({behavior: "smooth", block: "end", inline: 
+"nearest"});
 ```
 
 ### 第三方 Cookie
@@ -1243,7 +1283,6 @@ function getElementLeft(el){
 ### 移动端虚拟键盘弹出输入框上移
 ### 判断元素是否在视窗内
 ### H5软键盘兼容方案
-### URL Query 转对象
 ### 注入 JS
 ### 元素是否可滚动
 ### 限制键盘输入

@@ -388,3 +388,8 @@ git push origin feat/ready_master
 ## 腾讯鹅厂 git 手册
 
 ![git.jpg](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/%E8%85%BE%E8%AE%AF%E9%B9%85%E5%8E%82git%E6%89%8B%E5%86%8C.jpg)
+
+## 最佳实践
+
+> 使用的是“一个 PR 只有一个 Commit 只做一件事情”的基于 rebase 的协作流，
+我们这样产出了接近于线性的完美 git 历史

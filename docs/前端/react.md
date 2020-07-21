@@ -24,16 +24,29 @@ group:
 
 ### 组件
 
-- 可以是类组件（class component）或者函数式组件（functional component）
+- 可以是类组件（class component）
   - 类组件
-    - 普通类组件
-      - React.Component
-    - 纯类组件
-       - React.PureComponent
-- 可以是无状态组件 stateless component
-- 可以是有状态组件
-  - 除了使用外部数据（通过 this.props 访问）以外，组件还可以维护其内部的状态数据（通过 this.state 访问）。
-  - 当组件的状态数据改变时，组件会再次调用 render() 方法重新渲染对应的标记。
+    - 可以是无状态组件 stateless component
+      - 纯类组件 - React.PureComponent
+    - 可以是有状态组件
+      - 除了使用外部数据（通过 this.props 访问）以外，组件还可以维护其内部的状态数据（通过 this.state 访问）。
+      - 当组件的状态数据改变时，组件会再次调用 render() 方法重新渲染对应的标记。
+      - 普通类组件 - React.Component
+- 或者函数式组件（functional component）
+  - 函数式组件的优点：不用处理 this 引用，
+  - 缺点：没有 class 组件的 error-boundaries
+  - 在 16.8 之后，没有必要用 类组件了，也没有必要吧以前的类组件写成函数组件
+
+
+
+**Class Properties**
+* defaultProps
+* displayName
+
+**Each component also provides some other APIs:**
+- setState()
+- forceUpdate()
+
 
 ### constructor
 
@@ -93,6 +106,47 @@ const ProfilePage = React.lazy(() => import('./ProfilePage')); // 懒加载
 ```
 
 ### Context 管理状态
+
+```js
+// context方式实现跨级组件通信 
+// Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据
+
+const BatteryContext = createContext();
+
+//  子组件的子组件 
+class GrandChild extends Component {
+    render(){
+        return (
+            <BatteryContext.Consumer>
+                {
+                    color => <h1 style={{"color":color}}>我是红色的:{color}</h1>
+                }
+            </BatteryContext.Consumer>
+        ) 
+    }
+}
+
+//  子组件
+const Child = () =>{
+    return (
+        <GrandChild/>
+    )
+}
+// 父组件
+class Parent extends Component {
+      state = {
+          color:"red"
+      }
+      render(){
+          const {color} = this.state
+          return (
+          <BatteryContext.Provider value={color}>
+              <Child></Child>
+          </BatteryContext.Provider> 
+          )
+      }
+}
+```
 
 ### 代码分割
 
@@ -195,6 +249,40 @@ const ProfilePage = React.lazy(() => import('./ProfilePage')); // 懒加载
   - 考虑到后期代码量的增加，如果把异步函数放在组件的生命周期里，这个生命周期函数会变得越来越复杂，组件就会变得越来越大
 - 原则上 action 返回的是一个对象，但当我们使用 redux-thunk 中间件后, action 就可以返回一个函数了，继而可以在函数里边进行异步操作
 - redux 的中间件原理很简单，就是对 store 的 dispatch 方法做一个升级，既可以接收对象，又可以接收函数了
+
+```js
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+
+import noteReducer from './reducers/noteReducer'
+import filterReducer from './reducers/filterReducer'
+
+const reducer = combineReducers({
+  notes: noteReducer,
+  filter: filterReducer,
+})
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
+)
+
+export default store
+
+// action 函数可以处理异步操作啦
+export const initializeNotes = () => {
+  return async dispatch => {
+    const notes = await noteService.getAll()
+    dispatch({
+      type: 'INIT_NOTES',
+      data: notes,
+    })
+  }
+}
+```
 
 ### Redux-saga
 
@@ -356,9 +444,52 @@ effects: {
     - 编译出来的代码相比函数组件多得多
     - 四散的代码不容易维护
 - 使用 Hook 需要遵循的两条规则
-  - 只在最顶层使用Hook
+  - 只在 React 函数 的顶层使用Hook
     - 不要在循环，条件，嵌套函数中调用Hook
-  - 只在 React 函数中调用 Hook
+  - 不要在常规的 JS 函数中调用 Hooks
+    - 从 React 函数组件调用 Hook
+    - 从自定义 Hook 调用 Hook
+
+使用 useImperativeHandle，允许组件为其他组件提供其功能。
+
+使用 eslint-plugin-react-hooks ESLint 规则
+
+**自定义 Hook**
+自定义 Hook 必须以 use 开头
+- 自定义 useField hook，简化表单的状态管理
+
+```js
+const useField = (type) => {
+  const [value, setValue] = useState('')
+
+  const onChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  return {
+    type,
+    value,
+    onChange
+  }
+}
+
+const App = () => {
+  const name = useField('text')
+  const born = useField('date')
+  return (
+    <div>
+      <form>
+        <input
+          {...name}
+        />
+        <input
+          {...born}
+        />        
+      </form>
+    </div>
+  )
+}
+```
 
 ### Hooks library
 
@@ -704,6 +835,11 @@ export default function () {
 - [plugin-locale](https://umijs.org/zh-CN/plugins/plugin-locale)，国际化能力
 - [plugin-model](https://umijs.org/zh-CN/plugins/plugin-model)，基于 hooks 的简易数据流
 - [plugin-request](https://umijs.org/zh-CN/plugins/plugin-request)，基于 umi-request 和 umi-hooks 的请求方案
+
+## 最佳实践
+
+[reactpatterns](https://reactpatterns/)
+[reactpatterns.cn](https://reactpatterns.cn/)
 
 ## 原理
 
