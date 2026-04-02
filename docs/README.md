@@ -2,7 +2,6 @@
 home: true
 lang: zh-CN
 heroText: 流月的部落格
-heroImage: https://utools-1255885027.cos.ap-shanghai.myqcloud.com/qrcode_for_gh_2e0e95ed33dd_258.jpg
 actionText: 开始 →
 actionLink: /前端/javascript
 features:
@@ -32,8 +31,7 @@ footer: Copyright © 2020-present 流月
 <hr>
 
 欢迎关注我的微信公众号，一起学习交流：
-
-![qrcode_for_gh_2e0e95ed33dd_258.jpg](https://utools-1255885027.cos.ap-shanghai.myqcloud.com/qrcode_for_gh_2e0e95ed33dd_258.jpg)
+星原学AI
 
 
 ## JavaScript
