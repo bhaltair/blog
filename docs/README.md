@@ -11,7 +11,7 @@ features:
 - title: For Me
   details: 路漫漫其修远兮，吾将上下而求索
 - title: For Interview
-  details: 上海，求坑ღ( ´･ᴗ･` )比心
+  details: 西安，求坑ღ( ´･ᴗ･` )比心
 footer: Copyright © 2020-present 流月
 ---
 
