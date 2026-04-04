@@ -26,5 +26,6 @@
     "cz-customizable": {
       "config": "./.cz-config.js"
     }
-  }
+  },
+  "packageManager": "pnpm@10.4.0"
 }
