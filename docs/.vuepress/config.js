@@ -94,7 +94,7 @@ export default defineUserConfig({
         ],
     }),
     title: '流月',
-    description: '处于萌芽阶段的前端核心知识库',
+    description: '前端核心知识库',
     base: '/blog/',
     plugins: [
       googleAnalyticsPlugin({
