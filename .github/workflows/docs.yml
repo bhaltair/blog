@@ -1,7 +1,7 @@
 name: docs
 
 on:
-  # 每当 push 到 main 分支时触发部署
+  # 每当 push 到 master 分支时触发部署
   push:
     branches: [master]
   # 手动触发部署
@@ -17,33 +17,28 @@ jobs:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      - name: 设置 pnpm
-        uses: pnpm/action-setup@v4
-
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
-          # 选择要使用的 node 版本
+          # 选择要使用的 node 版本（和你本地保持一致，推荐 20 或 22）
           node-version: 22
-          # 缓存 pnpm 依赖
-          cache: pnpm
+          # 使用 npm 缓存（自动缓存 node_modules 和 package-lock.json）
+          cache: 'npm'
 
       - name: 安装依赖
-        run: pnpm install --frozen-lockfile
+        run: npm ci          # 推荐使用 ci，比 install 更严格且适合 CI 环境
 
-      # 运行构建脚本
+      # 运行构建脚本（假设你在 package.json 中定义了 "docs:build"）
       - name: 构建 VuePress 站点
-        run: pnpm docs:build
+        run: npm run docs:build
 
-      # 查看 workflow 的文档来获取更多信息
-      # @see https://github.com/crazy-max/ghaction-github-pages
+      # 部署到 GitHub Pages
       - name: 部署到 GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
           # 部署到 gh-pages 分支
           target_branch: gh-pages
-          # 部署目录为 VuePress 的默认输出目录
+          # VuePress 默认的构建输出目录
           build_dir: docs/.vuepress/dist
         env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
