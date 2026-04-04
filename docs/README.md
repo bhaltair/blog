@@ -33,33 +33,3 @@ footer: Copyright © 2020-present 流月
 欢迎关注我的微信公众号，一起学习交流：
 星原学AI
 
-
-## JavaScript
-- [基础] JavaScript 基础知识梳理
-- [正则] 正则表达式考题
-- [ES6] ES6 重难点整理
-- [Promise] 手写 Promise
-
-
-## CSS
-
-## React
-- [hook]
-- [vdom]
-
-## TypeScript
-- [ts] TypeScript 用法
-- [react] TODO: 当 TypeScript 遇上 React 
-
-## Web 安全
-- [XSS]
-- [CSRF]
-- [劫持攻击]
-
-## Webpack
-
-## 设计模式
-
-## 算法
-- (数据结构) [常见数据结构](/算法/数据结构与算法)
-- (算法） [常见算法](/算法/数据结构与算法)
